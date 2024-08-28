@@ -15,7 +15,7 @@ const albertSans = Albert_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome to Lawyero",
+  title: "TSUL CLINIC",
   description: "Your one stop solution for legal matters",
 };
 

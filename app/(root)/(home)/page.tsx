@@ -13,7 +13,7 @@ import Testimonials from "@/components/home/Testimonials";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Welcome to Lawyero",
+  title: "TSUL CLINIC",
   description: "Your one stop solution for legal matters",
 };
 const Home = () => {

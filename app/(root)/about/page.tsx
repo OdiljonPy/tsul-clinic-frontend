@@ -9,13 +9,13 @@ import PreFooter from "@/components/shared/PreFooter";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Who we are - Lawyero",
+title: "TSUL CLINIC - About Us",
   description: "Your one stop solution for legal matters",
 };
 const page = () => {
   return (
     <>
-      <InnerBanner text="WHO WE ARE" />
+      <InnerBanner text="About Us" />
       <TopText />
       <TeamMembers />
       <CTA
