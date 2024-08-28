@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <>
-      <InnerBanner text="Blog With Sidebar" />
+      <InnerBanner text="News" />
 
       <div className="relative py-[90px]">
         <div className="container">

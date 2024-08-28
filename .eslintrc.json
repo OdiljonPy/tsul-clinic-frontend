@@ -4,5 +4,11 @@
     "standard",
     "plugin:tailwindcss/recommended",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "spaced-comment": "off",
+    "class-order": "off",
+    "tailwindcss/classnames-order": "off",
+    "no-unused-vars": "off"
+  }
 }
