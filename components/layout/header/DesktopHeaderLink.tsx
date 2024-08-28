@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import SearchSidebar from "@/components/layout/search-sidebar/SearchSidebar";
 import { useState } from "react";
+import LanguageSwitcher from "@/components/layout/language-switcher/LanguageSwitcher";
 
 const DesktopHeaderLink = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -61,11 +62,12 @@ const DesktopHeaderLink = () => {
         </li>
         <li
           onClick={() => setSearchOpen(true)}
-          className="group relative flex h-full cursor-pointer items-center gap-2 rounded border border-white p-2"
+          className="group relative flex h-full cursor-pointer items-center gap-2 "
         >
           <Search />
           Search
         </li>
+        <LanguageSwitcher />
       </ul>
       {searchOpen && (
         <SearchSidebar open={searchOpen} setOpen={setSearchOpen} />
