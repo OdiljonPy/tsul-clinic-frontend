@@ -1,39 +1,34 @@
 "use client";
 
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 const Loading = () => {
-  useGSAP(() => {
-    // gsap.to("#loading-ball", {
-    //   left: "134px",
-    //   yoyo: true,
-    //   repeat: -1,
-    //   duration: 1.2,
-    //   ease: "circ.inOut",
-    // });
-    gsap.from("#loading-text span", {
-      opacity: 0,
-      yoyo: true,
-      repeat: -1,
-      ease: "power1.inOut",
-      stagger: 0.2,
-    });
-  });
   return (
     <>
-      <div className="absolute left-0 top-0 z-[100] flex h-screen w-full flex-col items-center justify-center  bg-primary-main text-2xl font-bold">
-        <div className="mb-4" id="loading-text">
-          Loading<span className="opacity-100">.</span>
-          <span className="opacity-100">.</span>
-          <span className="opacity-100">.</span>
-        </div>
-        {/* <div className="h-7 w-40 rounded-full border-2 border-background">
-          <span
-            className="relative left-[2px] top-[2px] flex size-5 rounded-full bg-background opacity-90"
-            id="loading-ball"
-          ></span>
-        </div> */}
+      <div
+        id="loading-overlay"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity/60"
+      >
+        <svg
+          className="animate-spin size-8 text-white mr-3"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+
+        <span className="text-white text-3xl font-bold">Loading...</span>
       </div>
     </>
   );
