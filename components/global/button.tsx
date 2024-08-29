@@ -42,6 +42,7 @@ const ButtonCustom = ({
           {...props}
           className={cn(className, `group ${buttonStyle[buttonType]}`)}
         >
+          {text}
           <ChevronRight
             size="15"
             className="absolute right-1/3 top-1/2 -translate-y-1/2 opacity-0 group-hover:right-5 group-hover:opacity-100"
