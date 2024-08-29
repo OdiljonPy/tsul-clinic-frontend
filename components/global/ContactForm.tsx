@@ -160,7 +160,7 @@ export function ContactForm() {
           type="submit"
           className="h-auto rounded-none border bg-primary-main px-7 py-[14px] text-base font-bold uppercase text-white transition-colors duration-300 ease-in hover:border-primary-main hover:bg-white hover:text-primary-main"
         >
-          Contact Us
+          Yuborish
         </Button>
       </form>
     </Form>

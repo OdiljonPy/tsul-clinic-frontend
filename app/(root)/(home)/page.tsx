@@ -25,18 +25,18 @@ const Home = () => {
       <TwoColumnTextWithImage />
       <Features />
       <CTA
-        headline="Get the consultation For Most Complex Legal Issues."
-        buttonLink="#"
-        buttonText="Contact Us"
+        headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
+        buttonLink="/contact"
+        buttonText="Biz bilan bog'laning"
         ctaType="withBg"
       />
-      <PracticeAreas />
+      {/*<PracticeAreas />*/}
       <BlogPosts />
       <TeamMembers />
       <CTA
-        headline="We Treat Every Case Equally With Same Attention And Dedication Because Every Client Matters."
+        headline="Biz har bir ishni bir xil e'tibor va fidoyilik bilan ko'rib chiqamiz, chunki har bir mijoz muhim."
         buttonLink="#"
-        buttonText="Request Free Consultation"
+        buttonText="Request Consultation"
         ctaType="withImage"
       />
       <FAQs />

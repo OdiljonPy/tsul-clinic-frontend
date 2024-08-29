@@ -56,8 +56,8 @@ export function TeamMembersCarousel({ textColor }: { textColor?: string }) {
       </CarouselContent>
       <div className="flex w-full justify-center">
         <div className="absolute mt-14 h-12 w-28 pt-14">
-          <CarouselPrevious className="left-0 size-12 rounded-none border-2 border-black bg-white text-black opacity-100 hover:bg-white  disabled:opacity-100" />
-          <CarouselNext className="right-0 size-12 rounded-none border-2 border-black bg-white text-black opacity-100 hover:bg-white  disabled:opacity-100" />
+          <CarouselPrevious className="left-0 size-12 rounded border-2 border-black bg-white text-black opacity-100 hover:bg-white  disabled:opacity-100" />
+          <CarouselNext className="right-0 size-12 rounded border-2 border-black bg-white text-black opacity-100 hover:bg-white  disabled:opacity-100" />
         </div>
       </div>
     </Carousel>

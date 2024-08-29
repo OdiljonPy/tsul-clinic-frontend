@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="flex flex-wrap gap-8 lg:flex-nowrap">
             <div className="basis-full lg:basis-1/3">
               <div>
-                <Link href="http://bsmthemes.com/demo/lawyero">
+                <Link href="#">
                   <Image src={logo} alt="Logo" width={166} height={30} />
                 </Link>
                 <div className="mt-5 pb-7">

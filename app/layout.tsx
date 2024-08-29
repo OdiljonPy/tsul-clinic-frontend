@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/shared/Header";
 import React from "react";
 import Footer from "@/components/shared/Footer";
+import SFooter from "@/components/layout/footer/SFooter";
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body className={`${albertSans.variable}`}>
         <Header />
         {children}
-        <Footer />
+        <SFooter />
         <Toaster />
       </body>
     </html>

@@ -11,6 +11,7 @@
     "tailwindcss/classnames-order": "off",
     "tailwindcss/no-custom-classname": "off",
     "no-unused-vars": "off",
-    "new-cap": "off"
+    "new-cap": "off",
+    "react/no-uniscaped-entities": "off"
   }
 }

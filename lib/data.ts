@@ -37,6 +37,8 @@ import {
   homeBannerTypewriterProps,
 } from "@/types";
 
+import { IFooterLinks } from "@/types/footer";
+
 // Data for Homepage Banner
 export const bannerItems: bannerItemsType[] = [
   {
@@ -268,42 +270,42 @@ export const PAData: PADataProps[] = [
   {
     id: 1,
     href: "/single-practice-area",
-    title: "Family Law",
+    title: "Huquqiy maslahat berish",
     text: "Family law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage1,
   },
   {
     id: 2,
     href: "/single-practice-area",
-    title: "Child Custody",
+    title: "Sudda vakillik",
     text: "Child custody involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage2,
   },
   {
     id: 3,
     href: "/single-practice-area",
-    title: "Emergency Law",
+    title: "Mutahasis xulosasi",
     text: "Emergency law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage3,
   },
   {
     id: 4,
     href: "/single-practice-area",
-    title: "Criminal Law",
+    title: "Davlat organida vakillik",
     text: "Criminal law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage4,
   },
   {
     id: 5,
     href: "/single-practice-area",
-    title: "Business Law",
+    title: "Muzokaralarda qatnashish",
     text: "Business law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage5,
   },
   {
     id: 6,
     href: "/single-practice-area",
-    title: "Real Estate Law",
+    title: "Shartnoma loyihalarini huquqiy ekspertizadan o'tkazish",
     text: "Real estate law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage6,
   },
@@ -448,3 +450,90 @@ export const homeBannerTypewriter: homeBannerTypewriterProps = {
     "Real Estate Law",
   ],
 };
+
+//Data for footer link
+export const footerLinks: IFooterLinks[] = [
+  {
+    name: "Biz Haqimizda",
+    link: "/about",
+  },
+  {
+    name: "Xizmatlar",
+    link: "/services",
+  },
+  {
+    name: "Tadbirkorlar uchun",
+    link: "/entrepreneurs",
+  },
+  {
+    name: "Yangiliklar",
+    link: "Blog",
+  },
+  {
+    name: "Contact",
+    link: "/contact",
+  },
+];
+
+export const footerResources: IFooterLinks[] = [
+  {
+    name: "Seminar Training",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Vakansiyalar",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Mediasiya",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Sayt Haqida",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Hamkorlar",
+    link: "footerResources",
+  },
+  {
+    name: "Seminar Training",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Vakansiyalar",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Mediasiya",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Sayt Haqida",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Hamkorlar",
+    link: "footerResources",
+  },
+  {
+    name: "Seminar Training",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Vakansiyalar",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Mediasiya",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Sayt Haqida",
+    link: "https://zerodev.uz/",
+  },
+  {
+    name: "Hamkorlar",
+    link: "footerResources",
+  },
+];

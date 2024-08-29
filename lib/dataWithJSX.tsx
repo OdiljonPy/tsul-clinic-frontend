@@ -37,7 +37,7 @@ export const BannerIconBoxes: BannerIconBoxesProps[] = [
     iconName: (
       <User
         size="60"
-        className="border-2 border-primary-main p-4 text-primary-main"
+        className="border-2 border-primary-main p-4 text-primary-main rounded"
       />
     ),
     type: "bg-grey",
@@ -50,7 +50,7 @@ export const BannerIconBoxes: BannerIconBoxesProps[] = [
     iconName: (
       <BriefcaseBusiness
         size="60"
-        className="border-2 border-primary-main p-4 text-primary-main"
+        className="border-2 border-primary-main p-4 text-primary-main rounded"
       />
     ),
     type: "bg-lightgrey",
@@ -63,7 +63,7 @@ export const BannerIconBoxes: BannerIconBoxesProps[] = [
     iconName: (
       <Trophy
         size="60"
-        className="border-2 border-primary-main p-4 text-primary-main"
+        className="border-2 border-primary-main p-4 text-primary-main rounded"
       />
     ),
     type: "bg-grey",
