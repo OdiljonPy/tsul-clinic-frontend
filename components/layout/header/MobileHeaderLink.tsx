@@ -14,6 +14,7 @@ import logo from "@/public/assets/logo.png";
 import SearchSidebar from "@/components/layout/search-sidebar/SearchSidebar";
 import { useState } from "react";
 import { Search } from "lucide-react";
+import LanguageSwitcher from "@/components/layout/language-switcher/LanguageSwitcher";
 
 const MobileHeaderLink = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -37,7 +38,7 @@ const MobileHeaderLink = () => {
                 <li className="group relative">
                   <Link
                     href="/about"
-                    className="relative block border-b border-white py-3 text-white duration-300 ease-in-out after:transition-transform"
+                    className="relative transition-all hover:text-primary-main hover:border-primary-main block border-b border-white py-3 text-white duration-300 ease-in-out after:transition-transform"
                   >
                     <SheetTrigger>Biz Haqimizda</SheetTrigger>
                   </Link>
@@ -45,7 +46,7 @@ const MobileHeaderLink = () => {
                 <li className="relative">
                   <Link
                     href="/services"
-                    className="relative  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
+                    className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
                     <SheetTrigger>Xizmatlar</SheetTrigger>
                   </Link>
@@ -53,7 +54,7 @@ const MobileHeaderLink = () => {
                 <li className="relative">
                   <Link
                     href="/entrepreneurs"
-                    className="relative  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
+                    className="relative transition-all  hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
                     <SheetTrigger>Tadbirkorlar uchun</SheetTrigger>
                   </Link>
@@ -61,7 +62,7 @@ const MobileHeaderLink = () => {
                 <li className="relative">
                   <Link
                     href="/blog"
-                    className="relative  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
+                    className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
                     <SheetTrigger>Yangiliklar</SheetTrigger>
                   </Link>
@@ -69,7 +70,7 @@ const MobileHeaderLink = () => {
                 <li className="relative">
                   <Link
                     href="/faqs"
-                    className="relative  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
+                    className="relative transition-all  hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
                     <SheetTrigger>FAQ</SheetTrigger>
                   </Link>
@@ -77,7 +78,7 @@ const MobileHeaderLink = () => {
                 <li className="relative">
                   <Link
                     href="/contact"
-                    className="relative  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
+                    className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
                     <SheetTrigger>Contact</SheetTrigger>
                   </Link>
@@ -87,7 +88,7 @@ const MobileHeaderLink = () => {
                   onClick={() => setSearchOpen(true)}
                 >
                   <SheetTrigger className="block">
-                    <span className="relative  border-b border-white py-3 duration-300 ease-in-out after:transition-transform flex items-center gap-2">
+                    <span className="relative transition-all hover:text-primary-main hover:border-primary-main  border-b border-white py-3 duration-300 ease-in-out after:transition-transform flex items-center gap-2">
                       <Search size={18} />
                       Search
                     </span>

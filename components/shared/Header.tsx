@@ -4,6 +4,7 @@ import logo from "@/public/assets/logo.png";
 
 import DesktopHeaderLink from "@/components/layout/header/DesktopHeaderLink";
 import MobileHeaderLink from "@/components/layout/header/MobileHeaderLink";
+import LanguageSwitcher from "@/components/layout/language-switcher/LanguageSwitcher";
 
 const Header = () => {
   return (
@@ -23,15 +24,16 @@ const Header = () => {
       </div>
       <div className="relative bg-background">
         <div className="container">
-          <div className="flex min-h-[80px] items-center  justify-between lg:min-h-full">
+          <div className="flex min-h-[80px] items-center gap-4  justify-between lg:min-h-full">
             <div className="shrink-0 basis-[166px] py-5">
               <Link href="/">
                 <Image src={logo} alt="Logo" width={166} height={30} />
               </Link>
             </div>
-            <div className="text-white">
-              <MobileHeaderLink />
+            <div className="text-white flex items-center gap-3 lg:gap-6">
               <DesktopHeaderLink />
+              <LanguageSwitcher />
+              <MobileHeaderLink />
             </div>
           </div>
         </div>

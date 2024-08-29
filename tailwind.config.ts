@@ -20,6 +20,12 @@ const config = {
     extend: {
       screens: {
         "2xl": "1200px",
+        xl: "1240px",
+        lg: "1024px",
+        dm: "992px",
+        md: "768px",
+        sm: "640px",
+        xs: "475px",
       },
       colors: {
         border: "hsl(var(--border))",

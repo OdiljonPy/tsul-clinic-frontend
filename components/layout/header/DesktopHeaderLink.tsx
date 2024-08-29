@@ -62,12 +62,12 @@ const DesktopHeaderLink = () => {
         </li>
         <li
           onClick={() => setSearchOpen(true)}
-          className="group relative flex h-full cursor-pointer items-center gap-2 "
+          className="group relative flex h-full cursor-pointer items-center gap-2 transition-all duration-500 hover:text-primary-main hover:border-primary-main"
         >
           <Search />
           Search
         </li>
-        <LanguageSwitcher />
+        {/*<LanguageSwitcher />*/}
       </ul>
       {searchOpen && (
         <SearchSidebar open={searchOpen} setOpen={setSearchOpen} />
