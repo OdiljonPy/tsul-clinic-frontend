@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
-type TypeButton = "primary" | "secondary" | "dark";
+export type TypeButton = "primary" | "secondary" | "dark";
 
 interface buttonCustomProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -28,13 +28,13 @@ const ButtonCustom = ({
     <>
       {href ? (
         <Link
-          className={cn(className, `group ${buttonStyle[buttonType]}`)}
+          className={cn(className, `group rounded-lg ${buttonStyle[buttonType]}`)}
           href={href}
         >
           {text}
           <ChevronRight
             size="15"
-            className="absolute right-1/3 top-1/2 -translate-y-1/2 opacity-0 group-hover:right-5 group-hover:opacity-100"
+            className="absolute  right-1/3 top-1/2 -translate-y-1/2 opacity-0 group-hover:right-5 group-hover:opacity-100"
           />
         </Link>
       ) : (
@@ -45,7 +45,7 @@ const ButtonCustom = ({
           {text}
           <ChevronRight
             size="15"
-            className="absolute right-1/3 top-1/2 -translate-y-1/2 opacity-0 group-hover:right-5 group-hover:opacity-100"
+            className="absolute rounded-lg right-1/3 top-1/2 -translate-y-1/2 opacity-0 group-hover:right-5 group-hover:opacity-100"
           />
         </button>
       )}

@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonCustom from "../global/button";
+import ButtonCustom, {TypeButton} from "../global/button";
 import Link from "next/link";
 import Image from "next/image";
 import homeconsultationcall from "@/public/assets/home-request-consultation.jpg";
@@ -10,7 +10,7 @@ interface CTAProps {
   buttonLink: string;
   buttonText: string;
   ctaType: string;
-  buttonType?: string;
+  buttonType?: TypeButton;
 }
 
 const CTA = ({
