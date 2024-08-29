@@ -9,6 +9,7 @@
     "spaced-comment": "off",
     "class-order": "off",
     "tailwindcss/classnames-order": "off",
+    "tailwindcss/no-custom-classname": "off",
     "no-unused-vars": "off",
     "new-cap": "off"
   }
