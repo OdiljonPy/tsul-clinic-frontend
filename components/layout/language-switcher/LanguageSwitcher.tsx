@@ -1,6 +1,6 @@
 "use client";
 
-import { Languages } from "lucide-react";
+import { Globe } from "lucide-react";
 import { getTranslation } from "@/i18n";
 import { useEffect } from "react";
 
@@ -26,7 +26,7 @@ const LanguageSwitcher = () => {
       className="p-[6px] lg:p-2 border border-white rounded-xl transition-all duration-500 hover:text-primary-main hover:border-primary-main flex items-center gap-1 cursor-pointer"
       onClick={changeLanguage}
     >
-      <Languages size={20} />
+      <Globe size={20} />
       <span className="uppercase font-medium">{i18n.language || "uz"}</span>
     </div>
   );

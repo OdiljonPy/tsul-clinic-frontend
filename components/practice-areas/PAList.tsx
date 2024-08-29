@@ -27,10 +27,12 @@ const PAList = ({ layout }: { layout: string }) => {
                   >
                     {item.title}
                   </Link>
-                  <p className="text-sm text-[#333] line-clamp-3">{item.text}</p>
+                  <p className="text-sm text-[#333] line-clamp-3">
+                    {item.text}
+                  </p>
                   <div className="pt-4">
                     <ButtonCustom
-                      href={item.href}
+                      href={`/services/${item.id}`}
                       text="Learn More"
                       buttonType="secondary"
                       className="py-[10px]"
