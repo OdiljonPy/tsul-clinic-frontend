@@ -614,5 +614,41 @@ export const orderDocumentData: IOrderDocument[] = [
         name:"Ariza"
       }
     ]
-  }
+  },
+  {
+    id:5,
+    name:"Istemolchilarning shikoyatlari",
+    documents:[
+      {
+        id:1,
+        name:"MCHJ ni ro'yxatdan o'tkazish"
+      },
+      {
+        id:2,
+        name:"YTT ni ro'yxatdan o'tkazish"
+      },
+      {
+        id:3,
+        name:"Tasis hujjatlari"
+      }
+    ]
+  },
+  {
+    id:6,
+    name:"Boshqa xujjatlar",
+    documents:[
+      {
+        id:4,
+        name:"Davo arizasi"
+      },
+      {
+        id:5,
+        name:"Qarshi savo ariza"
+      },
+      {
+        id:6,
+        name:"Ariza"
+      }
+    ]
+  },
 ]

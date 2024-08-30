@@ -21,6 +21,7 @@ const Header = () => {
                 <span className="text-white">TSUL</span>
                 <span className="text-primary-main">CLINIC</span>
               </Link>
+              {/*<Image src={"/logo.png"} alt="Logo" width={100} height={60} />*/}
             </div>
             <div className="text-white flex items-center gap-3 lg:gap-6">
               <DesktopHeaderLink />
