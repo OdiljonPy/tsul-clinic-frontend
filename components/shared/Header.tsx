@@ -5,7 +5,7 @@ import logo from "@/public/assets/logo.png";
 import DesktopHeaderLink from "@/components/layout/header/DesktopHeaderLink";
 import MobileHeaderLink from "@/components/layout/header/MobileHeaderLink";
 import LanguageSwitcher from "@/components/layout/language-switcher/LanguageSwitcher";
-import { PhoneCall, Video } from "lucide-react";
+
 import HeaderTop from "@/components/layout/header/HeaderTop";
 
 const Header = () => {
@@ -16,8 +16,10 @@ const Header = () => {
         <div className="container">
           <div className="flex min-h-[80px] items-center gap-4  justify-between lg:min-h-full">
             <div className="shrink-0 basis-[166px] py-5">
-              <Link href="/">
-                <Image src={logo} alt="Logo" width={166} height={30} />
+              <Link href="/" className="font-bold text-2xl">
+                {/*<Image src={logo} alt="Logo" width={166} height={30} />*/}
+                <span className="text-white">TSUL</span>
+                <span className="text-primary-main">CLINIC</span>
               </Link>
             </div>
             <div className="text-white flex items-center gap-3 lg:gap-6">
