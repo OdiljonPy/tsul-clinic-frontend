@@ -7,7 +7,6 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/shared/Header";
 import React from "react";
-import Footer from "@/components/shared/Footer";
 import SFooter from "@/components/layout/footer/SFooter";
 
 const albertSans = Albert_Sans({

@@ -38,6 +38,7 @@ import {
 } from "@/types";
 
 import { IFooterLinks } from "@/types/footer";
+import {IOrderDocument} from "@/types/order-document";
 
 // Data for Homepage Banner
 export const bannerItems: bannerItemsType[] = [
@@ -537,3 +538,81 @@ export const footerResources: IFooterLinks[] = [
     link: "footerResources",
   },
 ];
+
+
+// Data for ORDER DOCUMENT
+
+export const orderDocumentData: IOrderDocument[] = [
+  {
+    id:1,
+    name:"Korxonani royxatdan o'tkazish",
+    documents:[
+      {
+        id:1,
+        name:"MCHJ ni ro'yxatdan o'tkazish"
+      },
+      {
+        id:2,
+        name:"YTT ni ro'yxatdan o'tkazish"
+      },
+      {
+        id:3,
+        name:"Tasis hujjatlari"
+      }
+    ]
+  },
+  {
+    id:2,
+    name:"Sudga xujjatlar",
+    documents:[
+      {
+        id:4,
+        name:"Davo arizasi"
+      },
+      {
+        id:5,
+        name:"Qarshi savo ariza"
+      },
+      {
+        id:6,
+        name:"Ariza"
+      }
+    ]
+  },
+  {
+    id:3,
+    name:"Mansabdor shaxslar ustidan shikoyat",
+    documents:[
+      {
+        id:1,
+        name:"MCHJ ni ro'yxatdan o'tkazish"
+      },
+      {
+        id:2,
+        name:"YTT ni ro'yxatdan o'tkazish"
+      },
+      {
+        id:3,
+        name:"Tasis hujjatlari"
+      }
+    ]
+  },
+  {
+    id:4,
+    name:"Shartnoma tuzish",
+    documents:[
+      {
+        id:4,
+        name:"Davo arizasi"
+      },
+      {
+        id:5,
+        name:"Qarshi savo ariza"
+      },
+      {
+        id:6,
+        name:"Ariza"
+      }
+    ]
+  }
+]

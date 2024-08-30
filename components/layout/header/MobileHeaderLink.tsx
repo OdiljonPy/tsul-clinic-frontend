@@ -14,7 +14,6 @@ import logo from "@/public/assets/logo.png";
 import SearchSidebar from "@/components/layout/search-sidebar/SearchSidebar";
 import { useState } from "react";
 import { Search } from "lucide-react";
-import LanguageSwitcher from "@/components/layout/language-switcher/LanguageSwitcher";
 
 const MobileHeaderLink = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -53,12 +52,20 @@ const MobileHeaderLink = () => {
                 </li>
                 <li className="relative">
                   <Link
-                    href="/entrepreneurs"
-                    className="relative transition-all  hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
+                    href="/order-document"
+                    className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
-                    <SheetTrigger>Tadbirkorlar uchun</SheetTrigger>
+                    <SheetTrigger>Xujjat buyurtma qilish</SheetTrigger>
                   </Link>
                 </li>
+                {/*<li className="relative">*/}
+                {/*  <Link*/}
+                {/*      href="/entrepreneurs"*/}
+                {/*      className="relative transition-all  hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"*/}
+                {/*  >*/}
+                {/*    <SheetTrigger>Tadbirkorlar uchun</SheetTrigger>*/}
+                {/*  </Link>*/}
+                {/*</li>*/}
                 <li className="relative">
                   <Link
                     href="/blog"
