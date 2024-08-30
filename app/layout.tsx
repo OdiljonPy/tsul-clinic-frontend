@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/shared/Header";
 import React from "react";
 import SFooter from "@/components/layout/footer/SFooter";
+import Head from "next/head";
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
@@ -26,6 +27,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/66d1ab4250c10f7a00a20440/1i6hg9vgr';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();`,
+          }}
+        ></script>
+      </Head>
       <body className={`${albertSans.variable}`}>
         <Header />
         {children}
