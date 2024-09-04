@@ -44,19 +44,6 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
                   {formatDate(item.date)}
                 </Link>
               </li>
-              <li className="mb-4 mr-5  flex basis-full items-center sm:mb-0 sm:basis-auto">
-                <User className="w-5" />
-                <Link
-                  className="pl-2 text-base text-[#313131] hover:text-primary-main"
-                  href="mailto:adminlawyerowpadmin"
-                >
-                  {item.author}
-                </Link>
-              </li>
-              <li className="mr-5 flex basis-full items-center  text-base text-[#313131] sm:basis-auto">
-                <MessageCircle className="w-5" />
-                <span className="pl-2">{item.comments} Comments</span>
-              </li>
             </ul>
             <p className="text-base text-[#333]">{item.excerpt}</p>
             <div className="pt-6 text-right">

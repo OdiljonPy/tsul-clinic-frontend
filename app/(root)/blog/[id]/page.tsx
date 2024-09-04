@@ -49,37 +49,8 @@ const Page = ({ params }: URLParams) => {
                               {formatDate(filteredItem.date)}
                             </span>
                           </li>
-                          <li className="mb-4 mr-5  flex basis-full items-center sm:mb-0 sm:basis-auto">
-                            <User className="w-5" />
-                            <Link
-                              className="pl-2 text-base text-[#313131] hover:text-primary-main"
-                              href="#"
-                            >
-                              {filteredItem.author}
-                            </Link>
-                          </li>
-                          <li className="mr-5 flex basis-full items-center  text-base text-[#313131] sm:basis-auto">
-                            <MessageCircle className="w-5" />
-                            <span className="pl-2">
-                              {filteredItem.comments} Comments
-                            </span>
-                          </li>
                         </ul>
-                        <ul className="flex flex-wrap pb-5 md:flex-nowrap">
-                          {blogCategories.map((item, index) => (
-                            <li key={item.id}>
-                              <Link
-                                href={`/blog/category/${item.id}`}
-                                className="pr-1 text-base text-primary-main"
-                              >
-                                {item.title}
-                              </Link>
-                              {blogCategories.length - 1 !== index && (
-                                <span className="pr-1">|</span>
-                              )}
-                            </li>
-                          ))}
-                        </ul>
+
                         <p className="mb-4 text-base leading-[1.62] text-[#333]">
                           Many people are not aware of their legal rights and
                           dont pay attention to the helping hand they can get
@@ -121,26 +92,6 @@ const Page = ({ params }: URLParams) => {
                           always free from repetition, injected humour, or
                           non-characteristic words etc.
                         </p>
-                        <div>
-                          <h3 className="mb-4 text-2xl font-bold text-[#333]">
-                            Tags:
-                          </h3>
-                          <ul className="flex">
-                            {blogTags.map((item, index) => (
-                              <li key={item.id}>
-                                <Link
-                                  href={`/blog/tag/${item.id}`}
-                                  className={`relative mr-3 inline-block pr-3 text-base font-semibold leading-[1.62] hover:text-primary-main hover:underline ${
-                                    blogTags.length - 1 !== index &&
-                                    'before:absolute before:right-[-2.5px] before:top-[11px] before:size-[5px] before:rounded-full before:bg-primary-main before:content-[""]'
-                                  }`}
-                                >
-                                  {item.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
                       </div>
                     </div>
                   ))}
