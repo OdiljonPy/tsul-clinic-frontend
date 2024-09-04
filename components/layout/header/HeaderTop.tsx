@@ -13,7 +13,7 @@ const HeaderTop = () => {
     <div className="px-4  sm:container py-3">
       <div className="flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-between">
         <div className="basis-full text-center sm:basis-auto sm:text-left hidden md:block">
-          {/*<Image src={"/logo.png"} alt="Logo" width={100} height={60} />*/}
+          {/*<Image src={"/logo.png"} alt="Logo" width={50} height={50} />*/}
           Call Us:{" "}
           <Link className="font-bold" href="tel:998991234567">
             (99) 123-45-67
