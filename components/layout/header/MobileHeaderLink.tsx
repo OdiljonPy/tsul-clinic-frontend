@@ -28,8 +28,9 @@ const MobileHeaderLink = () => {
         <div className="h-full overflow-y-auto p-6">
           <SheetHeader>
             <SheetTitle>
-              <Link href="/">
-                <Image src={logo} alt="Logo" width={166} height={30} />
+              <Link href="/" className="font-bold text-2xl">
+                <span className="text-white">TSUL</span>
+                <span className="text-primary-main">CLINIC</span>
               </Link>
             </SheetTitle>
             <SheetDescription>
@@ -97,7 +98,7 @@ const MobileHeaderLink = () => {
                   <SheetTrigger className="block">
                     <span className="relative transition-all hover:text-primary-main hover:border-primary-main  border-b border-white py-3 duration-300 ease-in-out after:transition-transform flex items-center gap-2">
                       <Search size={18} />
-                      Search
+                      Hujjat buyurtma qilish
                     </span>
                   </SheetTrigger>
                 </li>
