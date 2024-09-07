@@ -23,7 +23,7 @@ const Home = () => {
       <PostBannerBox />
       <IconsWithCounters />
       <TwoColumnTextWithImage />
-      <Features />
+      {/*<Features />*/}
       <CTA
         headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
         buttonLink="/contact"

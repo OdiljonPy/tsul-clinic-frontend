@@ -2,7 +2,7 @@ import React from "react";
 import { TestimonialsCarousel } from "../shared/TestimonialsCarousel";
 import libraryicon from "@/public/assets/library-icon-grey.svg";
 import Image from "next/image";
-import testimonialbg from "@/public/assets/home-testimonial-bg.jpg";
+import testimonialbg from "@/public/assets/about1.jpg";
 
 const Testimonials = () => {
   return (
@@ -21,7 +21,7 @@ const Testimonials = () => {
         />
         <div className="container relative z-[3] pb-28 pt-16 sm:pb-14 lg:pb-20 lg:pt-24">
           <h2 className="relative z-[1] mb-12 pb-2 text-center text-[25px] font-bold text-white before:absolute before:inset-x-0 before:bottom-0 before:m-auto before:h-[3px] before:w-36 before:bg-white sm:text-[40px]">
-            What Our Customers Say
+            Mijozlarimizning fikri
           </h2>
           <TestimonialsCarousel />
         </div>

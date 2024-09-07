@@ -9,8 +9,8 @@ import teammember2 from "@/public/assets/team-member-2.jpg";
 import teammember3 from "@/public/assets/team-member-3.jpg";
 import teammember4 from "@/public/assets/team-member-4.jpg";
 import teammember5 from "@/public/assets/team-member-5.jpg";
-import testimonialimg1 from "@/public/assets/home-testimonial-img-1.jpeg";
-import testimonialimg2 from "@/public/assets/home-testimonial-img-2.jpeg";
+import testimonialimg1 from "@/public/assets/customer.jpg";
+import testimonialimg2 from "@/public/assets/customer2.jpg";
 import testimonialimg3 from "@/public/assets/home-testimonial-img-3.jpeg";
 import paimage4 from "@/public/assets/pa-img-4.jpg";
 import paimage5 from "@/public/assets/pa-img-5.jpg";
@@ -237,24 +237,24 @@ export const Testimonials: TestimonialsProps[] = [
   {
     id: 1,
     image: testimonialimg1,
-    name: "Jessica Berrera",
-    text: "When we needed the legal assistance Lawyero came to our rescue. They took our case and get it solved in no time. Now when ever we need any assistance for legal matters we look no further then the lawyers at Lawyero. Thanks team Lawyero you are the best!",
-    organization: "Opus Internatational Ltd",
-    designation: "CEO Operations",
+    name: "Odiljon Abduvaitov",
+    text: "TSUL Clinic xodimlari bilan ishlash juda qulay va samarali bo'ldi. Ular huquqiy masalalarni batafsil tushuntirib, murakkab vaziyatni oson tushunib olishimga yordam berishdi. Menga shaxsiy yondashuv va e'tibor juda yoqdi. Xizmatlari yuqori darajada",
+    organization: "ZERODEV LLC",
+    designation: "Founder / CEO",
   },
   {
     id: 2,
     image: testimonialimg2,
-    name: "John Kerry",
-    text: "Our business was stuck in one of complex legal issue and one of our clients suggest team Lawyero. Now they are our official legal team which help us in numerous cases. Recommended to all!",
-    organization: "Parag States",
-    designation: "Founder",
+    name: "Valisher Botirov",
+    text: "TSUL Clinic men kutgandan ham tezroq natijaga erishdi. Ularning yuridik bilimlari va tajribasi muammoni muvaffaqiyatli hal qilishda muhim rol o'ynadi. Jamoa har bir bosqichda mening manfaatlarimni himoya qildi va samarali maslahatlar berdi. Ishonch bilan tavsiya qilaman.",
+    organization: "ZERODEV LLC",
+    designation: "Frontend TL",
   },
   {
     id: 3,
     image: testimonialimg3,
-    name: "Grant Josh",
-    text: "Team Lawyero is the best. Their team is awesome and when we visited their office their team welcomed us and make us feel really at home. They not only took our case but also helped us understand the complexity of the case. They fought for us and get the desired results soon. Thank you team lawyero! You are AWESOME.",
+    name: "John Doe",
+    text: "TSUL Clinic bilan ishlash tajribam juda ijobiy bo‘ldi. Ular mening huquqiy muammolarimni jiddiy qabul qilib, tezkor yechimlarni taklif qilishdi. Ularning kasbiy yondashuvi va mijozlarga g‘amxo‘rligi ishonchli ekanini ko‘rsatdi",
     organization: "Daily Times Network",
     designation: "Assistant Finance Manager",
   },
