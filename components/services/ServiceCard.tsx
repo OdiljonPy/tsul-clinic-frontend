@@ -35,7 +35,7 @@ const ServiceCard = ({ data }: props) => {
           <div className="pt-4">
             <ButtonCustom
               href={`/services/${data.id}`}
-              text="Learn More"
+              text="Batafsil"
               buttonType="secondary"
               className="py-[8px] !text-sm px-4"
             />

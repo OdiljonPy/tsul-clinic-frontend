@@ -1,6 +1,6 @@
 import PrimaryHeadline from "@/components/global/primary-headline";
 import Image from "next/image";
-import paimage1 from "@/public/assets/pa-img-1.jpg";
+import paimage1 from "@/public/assets/pa-img-5.jpg";
 
 const PAContent = () => {
   return (
@@ -8,26 +8,14 @@ const PAContent = () => {
       <div className="flex flex-wrap gap-0 lg:flex-nowrap lg:gap-10">
         <div className="basis-full lg:basis-4/6">
           <PrimaryHeadline
-            text="Overview"
+            text="Huquqiy Maslahat Berish"
             additionalClass="primary-headline-left"
           />
           <p className="mb-5 text-base text-[#333]">
-            Family law involves a range of matters that are usually very
-            personal, unique and emotionally challenging. Decisions involving
-            your children and your financial well-being can be complex and
-            nuanced and the results can last a lifetime. In these situations,
-            you need more than just an attorney who has experience and knowledge
-            of the law. You need someone who will provide you with guidance,
-            creative thinking, and who understands the big picture and the
-            impact your decisions will have on you.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt expedita magnam maiores sed? Iusto modi mollitia necessitatibus numquam quas qui, quidem quo quos tempore temporibus. Commodi delectus distinctio dolore doloremque dolores ex laboriosam officia, pariatur rerum sapiente ullam voluptas voluptatem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut autem consequuntur eveniet illo iste quidem reiciendis rerum voluptas. Accusantium blanditiis commodi consequatur cum cupiditate dolor ea, facere impedit ipsum libero maiores molestias nisi quos sequi similique soluta suscipit, ut, vitae.
           </p>
           <p className="mb-5 text-base text-[#333]">
-            The family law attorneys at lawyero are committed to providing our
-            clients with the skill and expertise necessary to meet the client’s
-            objectives and goalswhile providing a trusted source of
-            representation. We are responsive to our clients’ needs and we pride
-            ourselves on our attentiveness and availability to handle client
-            matters with care, respect and sensitivity.
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi corporis cumque nam neque perferendis, quae quos! Consequuntur deleniti dolor fugit in nihil pariatur provident quam ratione unde, voluptatibus. Autem commodi cum cupiditate, dolorem dolores eligendi eos, ex harum ipsum laboriosam magni molestias neque nostrum nulla obcaecati omnis pariatur quod similique vero vitae. Dolorum harum ipsam laudantium maxime molestiae quidem saepe?
           </p>
         </div>
         <div className="basis-full pt-7 lg:basis-1/3 lg:pt-0">

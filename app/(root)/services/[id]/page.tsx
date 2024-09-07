@@ -1,5 +1,5 @@
 import InnerBanner from "@/components/global/inner-banner";
-import singlepabanner from "@/public/assets/single-practice-banner.jpg";
+import singlepabanner from "@/public/assets/pa-img-5.jpg";
 import PAContent from "@/components/practice-areas/single/PAContent";
 import CTA from "@/components/shared/CTA";
 import PABottomContent from "@/components/practice-areas/single/PABottomContent";
@@ -10,14 +10,14 @@ const ServiceDetail = ({ params }: { params: { id: string } }) => {
   console.log(params.id);
   return (
     <div>
-      <InnerBanner text="FAMILY LAW" image={singlepabanner} />
+      <InnerBanner text="Huquqiy Maslahat Berish" image={singlepabanner} />
 
       <PAContent />
 
       <CTA
         bgClass="bg-primary-main"
-        headline="Get the consultation For Most Complex Legal Issues."
-        buttonLink="#"
+        headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
+        buttonLink="/contact"
         buttonText="Contact Us"
         ctaType="withBg"
         buttonType="dark"

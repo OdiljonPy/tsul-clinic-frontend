@@ -12,14 +12,8 @@ import teammember5 from "@/public/assets/team-member-5.jpg";
 import testimonialimg1 from "@/public/assets/home-testimonial-img-1.jpeg";
 import testimonialimg2 from "@/public/assets/home-testimonial-img-2.jpeg";
 import testimonialimg3 from "@/public/assets/home-testimonial-img-3.jpeg";
-import paimage1 from "@/public/assets/pa-img-1.jpg";
-import paimage2 from "@/public/assets/pa-img-2.jpg";
-import paimage3 from "@/public/assets/pa-img-3.jpg";
 import paimage4 from "@/public/assets/pa-img-4.jpg";
 import paimage5 from "@/public/assets/pa-img-5.jpg";
-import paimage6 from "@/public/assets/pa-img-6.jpg";
-import paimage7 from "@/public/assets/pa-img-7.jpg";
-import paimage8 from "@/public/assets/pa-img-8.jpg";
 import homepageTypewriter from "@/public/assets/lawyer-ticker-min.jpg";
 import banner1 from "@/public/assets/banner/banner1.jpg";
 import banner2 from "@/public/assets/banner/banner2.jpg";
@@ -273,7 +267,7 @@ export const PAData: PADataProps[] = [
     href: "/single-practice-area",
     title: "Huquqiy maslahat berish",
     text: "Family law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage1,
+    image: paimage5,
     category: "Oilaviy",
   },
   {
@@ -281,7 +275,7 @@ export const PAData: PADataProps[] = [
     href: "/single-practice-area",
     title: "Sudda vakillik",
     text: "Child custody involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage2,
+    image: paimage4,
     category: "Ijtimoiy",
   },
   {
@@ -289,7 +283,7 @@ export const PAData: PADataProps[] = [
     href: "/single-practice-area",
     title: "Mutahasis xulosasi",
     text: "Emergency law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage3,
+    image: paimage5,
     category: "Meros",
   },
   {
@@ -313,7 +307,7 @@ export const PAData: PADataProps[] = [
     href: "/single-practice-area",
     title: "Shartnoma loyihalarini huquqiy ekspertizadan o'tkazish",
     text: "Real estate law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage6,
+    image: paimage4,
     category: "Mehnat",
   },
 ];
