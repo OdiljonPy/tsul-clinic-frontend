@@ -15,9 +15,9 @@ import testimonialimg3 from "@/public/assets/home-testimonial-img-3.jpeg";
 import paimage4 from "@/public/assets/pa-img-4.jpg";
 import paimage5 from "@/public/assets/pa-img-5.jpg";
 import homepageTypewriter from "@/public/assets/lawyer-ticker-min.jpg";
-import banner1 from "@/public/assets/banner/banner1.jpg";
-import banner2 from "@/public/assets/banner/banner2.jpg";
-import banner3 from "@/public/assets/banner/banner3.jpg";
+import banner1 from "@/public/assets/banner/banner6.webp";
+import banner2 from "@/public/assets/banner/banner1.webp";
+import banner3 from "@/public/assets/banner/banner1.jpg";
 import {
   FAQsProps,
   PADataProps,
@@ -38,24 +38,24 @@ import { IOrderDocument } from "@/types/order-document";
 export const bannerItems: bannerItemsType[] = [
   {
     id: 1,
-    content: "Your Consultant for every legal Issue",
-    linkText: "Find out More",
+    content: "Har qanday huquqiy masalada biz bilan bog'laning",
+    linkText: "Batafsil Malumot",
     image: banner1,
-    linkHref: "#",
+    linkHref: "/services",
   },
   {
     id: 2,
-    content: "Your Consultant for every legal Issue",
-    linkText: "Find out More",
+    content: "Har qanday huquqiy masalada biz bilan bog'laning",
+    linkText: "Batafsil Malumot",
     image: banner2,
-    linkHref: "#",
+    linkHref: "/services",
   },
   {
     id: 3,
-    content: "Your Consultant for every legal Issue",
-    linkText: "Find out More",
+    content: "Har qanday huquqiy masalada biz bilan bog'laning",
+    linkText: "Batafsil Malumot",
     image: banner3,
-    linkHref: "#",
+    linkHref: "/services",
   },
 ];
 

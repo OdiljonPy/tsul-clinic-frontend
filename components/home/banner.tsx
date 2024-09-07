@@ -46,7 +46,7 @@ const Banner = () => {
               src={item.image}
               alt="homepage banner image"
               fill={true}
-              className="object-cover"
+              className="object-cover w-full h-full"
             />
             <div
               className={`relative top-0 z-10 w-full py-[80px] md:py-[150px] lg:py-[300px]`}
