@@ -111,7 +111,7 @@ const OrderDocument = () => {
                       htmlFor="type"
                       className="text-background mb-3 inline-block"
                     >
-                      Document Type
+                      Hujjat turi
                     </FormLabel>
                     <FormField
                       control={form.control}
@@ -124,7 +124,7 @@ const OrderDocument = () => {
                               defaultValue={field.value}
                             >
                               <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
-                                <SelectValue placeholder="Choose document type" />
+                                <SelectValue placeholder="Hujjat turini tanlang" />
                               </SelectTrigger>
                               <SelectContent>
                                 {orderDocumentData
@@ -149,7 +149,7 @@ const OrderDocument = () => {
                       htmlFor="fullName"
                       className="text-background mb-3 inline-block"
                     >
-                      Full Name
+                      F.I.O
                     </FormLabel>
                     <FormField
                       control={form.control}
@@ -158,7 +158,7 @@ const OrderDocument = () => {
                         <FormItem>
                           <FormControl>
                             <Input
-                              placeholder="Enter your full name"
+                              placeholder="Ism familiyangizni kiriting"
                               {...field}
                               className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
@@ -174,7 +174,7 @@ const OrderDocument = () => {
                       htmlFor="phoneNumber"
                       className="text-background mb-3 inline-block"
                     >
-                      Phone Number
+                      Telefon raqam
                     </FormLabel>
                     <FormField
                       control={form.control}
@@ -199,7 +199,7 @@ const OrderDocument = () => {
                       htmlFor="message"
                       className="text-background mb-3 inline-block"
                     >
-                      Message
+                      Xabar
                     </FormLabel>
                     <FormField
                       control={form.control}
@@ -208,7 +208,7 @@ const OrderDocument = () => {
                         <FormItem>
                           <FormControl>
                             <Textarea
-                              placeholder="Type your message here."
+                              placeholder="Xabaringizni yozib qoldiring"
                               {...field}
                               className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
@@ -232,7 +232,7 @@ const OrderDocument = () => {
           <div className="col-span-12 md:col-span-4">
             <div className="">
               <PrimaryHeadline
-                text="Recent Posts"
+                text="So'ngi yangiliklar"
                 headlineType="h3"
                 additionalClass="text-[32px] primary-headline-left text-background"
                 formatTwoColor

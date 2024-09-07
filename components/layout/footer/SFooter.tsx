@@ -10,14 +10,16 @@ const SFooter = () => {
       <div className="container px-6 lg:px-8  ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-14 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-            <Link href="#" className="flex justify-center lg:justify-start font-bold text-2xl">
+            <Link
+              href="#"
+              className="flex justify-center lg:justify-start font-bold text-2xl"
+            >
               {/*<Image src={logo} alt="Logo" width={166} height={30}/>*/}
               <span className="text-white">TSUL</span>
               <span className="text-primary-main">CLINIC</span>
             </Link>
             <p className="py-8 text-sm text-white lg:max-w-xs text-center lg:text-left">
-              Trusted in more than 100 countries & 5 million customers. Follow
-              us on social media.
+              Bizni ijtimoiy tarmoqlar orqali kuzatib boring!
             </p>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               <a
