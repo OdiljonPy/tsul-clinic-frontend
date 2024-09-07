@@ -22,7 +22,7 @@ const PAList = ({ layout }: { layout: string }) => {
                 </div>
                 <div className="sm:ml-6 ml-0 sm:mt-0 mt-6">
                   <Link
-                    href={item.href}
+                    href={`/services/${item.id}`}
                     className="text-2xl text-background font-bold hover:text-primary-main mb-2 inline-block line-clamp-2"
                   >
                     {item.title}
