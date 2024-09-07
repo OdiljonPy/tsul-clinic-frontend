@@ -11,22 +11,28 @@ const PreFooter = () => {
               Aloqaga chiqing
             </h3>
             <ul>
-              <li className="mb-[10px] flex items-center">
-                <PhoneCallIcon size={15} className="text-background" />
+              <li className="mb-[10px] flex items-center group">
+                <PhoneCallIcon
+                  size={15}
+                  className="text-background transition duration-300 group-hover:text-primary-main"
+                />
                 <a
-                  className="ml-2 inline-block text-base text-background"
-                  href="tel:123-456-7890"
+                  className="ml-2 inline-block text-base text-background transition duration-300 group-hover:text-primary-main"
+                  href="tel:+998991234567"
                 >
-                  123-456-7890
+                  (99) 123-45-67
                 </a>
               </li>
-              <li className="mb-[10px] flex items-center">
-                <PhoneCallIcon size={15} className="text-background" />
+              <li className="mb-[10px] flex items-center group">
+                <PhoneCallIcon
+                  size={15}
+                  className="text-background transition duration-300 group-hover:text-primary-main"
+                />
                 <a
-                  className="ml-2 inline-block text-base text-background"
-                  href="#"
+                  className="ml-2 inline-block text-base text-background transition duration-300 group-hover:text-primary-main"
+                  href="tel:+998991234567"
                 >
-                  123-456-7890
+                  (99) 123-45-67
                 </a>
               </li>
             </ul>
