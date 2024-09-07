@@ -6,7 +6,7 @@ const TeamMembers = () => {
   return (
     <>
       <div className="container pb-40 pt-16 sm:pb-40 sm:pt-20 lg:pb-52 lg:pt-28">
-        <PrimaryHeadline text="Our Team" />
+        <PrimaryHeadline text="Bizning jamoa" />
         <TeamMembersCarousel />
       </div>
     </>

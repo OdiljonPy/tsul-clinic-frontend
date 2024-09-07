@@ -9,25 +9,25 @@ import PreFooter from "@/components/shared/PreFooter";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-title: "TSUL CLINIC - About Us",
+  title: "TSUL CLINIC - About Us",
   description: "Your one stop solution for legal matters",
 };
 const page = () => {
   return (
     <>
-      <InnerBanner text="About Us" />
+      <InnerBanner text="Biz Haqimizda" />
       <TopText />
       <TeamMembers />
       <CTA
         bgClass="bg-primary-main"
-        headline="Get the consultation For Most Complex Legal Issues."
+        headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
         buttonLink="#"
         buttonText="Contact Us"
         ctaType="withBg"
         buttonType="dark"
       />
-      <WhyChooseUs />
-      <WeAreBest />
+      {/*<WhyChooseUs />*/}
+      {/*<WeAreBest />*/}
       <PreFooter />
     </>
   );

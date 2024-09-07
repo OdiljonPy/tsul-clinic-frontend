@@ -5,7 +5,7 @@ const TeamMembers = () => {
   return (
     <div className="bg-background">
       <div className="container pb-40 pt-20 lg:pb-52 lg:pt-28">
-        <PrimaryHeadline text="Our Team" additionalClass="secondary-headline" />
+        <PrimaryHeadline text="Bizning jamoa" additionalClass="secondary-headline" />
         <TeamMembersCarousel textColor="text-white" />
       </div>
     </div>
