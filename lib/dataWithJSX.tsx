@@ -25,6 +25,7 @@ import {
   Volume2,
   ThumbsUp,
   DollarSign,
+  ListChecks,
 } from "lucide-react";
 
 // Data for Homepage Banner Icon Boxes
@@ -333,23 +334,23 @@ export const StatsWithIcon: StatsWithIconProps[] = [
     amountPreText: "",
     amount: 150,
     amountPostText: "+",
-    text: "Customers",
+    text: "Mijozlar",
     iconName: <Handshake size={72} className="border-2 p-4 text-white" />,
   },
   {
     id: 2,
-    amountPreText: "$",
-    amount: 23000000,
-    amountPostText: "",
-    text: "Recovered",
-    iconName: <DollarSign size={72} className="border-2 p-4 text-white" />,
+    amountPreText: "",
+    amount: 15,
+    amountPostText: "+",
+    text: "Xizmatlar",
+    iconName: <ListChecks size={72} className="border-2 p-4 text-white" />,
   },
   {
     id: 3,
     amountPreText: "",
     amount: 98,
     amountPostText: "%",
-    text: "Success Rato",
+    text: "Xizmat ko'rsatgichi",
     iconName: <ThumbsUp size={72} className="border-2 p-4 text-white" />,
   },
 ];
