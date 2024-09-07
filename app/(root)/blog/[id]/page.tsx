@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { URLParams } from "@/types";
-import { blogCategories, blogPosts, blogTags } from "@/lib/data";
+import { blogPosts } from "@/lib/data";
 import { formatDate } from "@/lib/utilFunctons";
 
 import Sidebar from "@/components/blog/Sidebar";
-import { Calendar, User, MessageCircle } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 import type { Metadata } from "next";
 
