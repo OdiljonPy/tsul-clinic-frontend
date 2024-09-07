@@ -274,6 +274,7 @@ export const PAData: PADataProps[] = [
     title: "Huquqiy maslahat berish",
     text: "Family law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage1,
+    category: "Oilaviy",
   },
   {
     id: 2,
@@ -281,6 +282,7 @@ export const PAData: PADataProps[] = [
     title: "Sudda vakillik",
     text: "Child custody involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage2,
+    category: "Ijtimoiy",
   },
   {
     id: 3,
@@ -288,6 +290,7 @@ export const PAData: PADataProps[] = [
     title: "Mutahasis xulosasi",
     text: "Emergency law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage3,
+    category: "Meros",
   },
   {
     id: 4,
@@ -295,6 +298,7 @@ export const PAData: PADataProps[] = [
     title: "Davlat organida vakillik",
     text: "Criminal law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage4,
+    category: "Uy-joy",
   },
   {
     id: 5,
@@ -302,6 +306,7 @@ export const PAData: PADataProps[] = [
     title: "Muzokaralarda qatnashish",
     text: "Business law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage5,
+    category: "Soliq",
   },
   {
     id: 6,
@@ -309,6 +314,7 @@ export const PAData: PADataProps[] = [
     title: "Shartnoma loyihalarini huquqiy ekspertizadan o'tkazish",
     text: "Real estate law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage6,
+    category: "Mehnat",
   },
 ];
 

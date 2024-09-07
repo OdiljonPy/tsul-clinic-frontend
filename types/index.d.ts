@@ -58,6 +58,7 @@ export interface PADataProps {
   title: string;
   text: string;
   image: StaticImageData;
+  category: string;
 }
 
 export interface attorneyEducatonProps {
