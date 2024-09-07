@@ -310,48 +310,6 @@ export const PAData: PADataProps[] = [
     text: "Real estate law involves a range of matters that are usually very personal, unique and emotionally challenging.",
     image: paimage6,
   },
-  {
-    id: 7,
-    href: "/single-practice-area",
-    title: "Personal Injury",
-    text: "Personal injury involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage7,
-  },
-  {
-    id: 8,
-    href: "/single-practice-area",
-    title: "Immigration Law",
-    text: "Immigration law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage8,
-  },
-  {
-    id: 9,
-    href: "/single-practice-area",
-    title: "Family Law",
-    text: "Family law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage1,
-  },
-  {
-    id: 10,
-    href: "/single-practice-area",
-    title: "Child Custody",
-    text: "Child custody involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage2,
-  },
-  {
-    id: 11,
-    href: "/single-practice-area",
-    title: "Emergency Law",
-    text: "Emergency law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage3,
-  },
-  {
-    id: 12,
-    href: "/single-practice-area",
-    title: "Criminal Law",
-    text: "Criminal law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage4,
-  },
 ];
 
 // Data for Team Member Education

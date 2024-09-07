@@ -19,7 +19,7 @@ const page = () => {
           notable practice areas in which we have helped number of our clients
           to achieve their goals according to the laws are as follows:"
       />
-      <PAList layout="2-column" />
+      <PAList />
       <PreFooter />
     </>
   );
