@@ -67,7 +67,7 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  placeholder="First Name"
+                  placeholder="Ism"
                   {...field}
                   className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
@@ -84,7 +84,7 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  placeholder="Last Name"
+                  placeholder="Familiya"
                   {...field}
                   className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
@@ -123,7 +123,7 @@ export function ContactForm() {
                 >
                   <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
                     <SelectValue
-                      placeholder="Your Case Falls In?"
+                      placeholder="Murojat turi"
                       className="font-normal"
                     />
                   </SelectTrigger>
@@ -146,7 +146,7 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Textarea
-                  placeholder="Type your message here."
+                  placeholder="Murojatingizni yozib qoldiring..."
                   {...field}
                   className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
