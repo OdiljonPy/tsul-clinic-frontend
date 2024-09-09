@@ -1,17 +1,25 @@
+"use client";
+
 import Link from "next/link";
 import { blogPosts } from "@/lib/data";
 import Image from "next/image";
 import { formatDate } from "@/lib/utilFunctons";
 import ButtonCustom from "../global/button";
-import {
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  MessageCircle,
-  User,
-} from "lucide-react";
+import { Calendar } from "lucide-react";
+import useNewsStore from "@/store/news/news";
+import { useEffect } from "react";
+import Pagination from "@/components/shared/Pagination";
+import { useSearchParams } from "next/navigation";
 
 const BlogList = ({ layoutClass }: { layoutClass: string }) => {
+  const searchParams = useSearchParams();
+  const { news, loading, fetchNews } = useNewsStore();
+
+  const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
+
+  useEffect(() => {
+    fetchNews(page, 1);
+  }, [fetchNews, page]);
   return (
     <div className={`pr-0 lg:pr-8 ${layoutClass}`}>
       {blogPosts.map((item) => (
@@ -56,22 +64,7 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
           </div>
         </div>
       ))}
-      <div>
-        <ul className="flex">
-          <li className="group mr-3 flex size-12 cursor-pointer items-center justify-center border-2 border-background bg-white hover:bg-background">
-            <ChevronLeft className="w-6 text-background group-hover:text-white" />
-          </li>
-          <li className="group mr-3 flex size-12 cursor-pointer items-center justify-center border-2 border-background bg-white text-xl font-bold text-background hover:bg-background hover:text-white">
-            1
-          </li>
-          <li className="group mr-3 flex size-12 cursor-pointer items-center justify-center border-2 border-background bg-white text-xl font-bold text-background hover:bg-background hover:text-white">
-            2
-          </li>
-          <li className="group mr-3 flex size-12 cursor-pointer items-center justify-center border-2 border-background bg-white hover:bg-background">
-            <ChevronRight className="w-6 text-background group-hover:text-white" />
-          </li>
-        </ul>
-      </div>
+      <Pagination totalPages={news.totalPages} page={news.number} />
     </div>
   );
 };
