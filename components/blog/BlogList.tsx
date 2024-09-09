@@ -19,7 +19,7 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
 
   useEffect(() => {
-    fetchNews(page, 1);
+    fetchNews(page, 4);
   }, [fetchNews, page]);
 
   if (loading) return <Loading />;
@@ -70,7 +70,9 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
           </div>
         </div>
       ))}
-      <Pagination totalPages={news.totalPages} page={news.number} />
+      {news.totalPages > 1 && (
+        <Pagination totalPages={news.totalPages} page={news.number} />
+      )}
     </div>
   );
 };

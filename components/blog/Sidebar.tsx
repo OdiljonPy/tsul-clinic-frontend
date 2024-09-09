@@ -8,18 +8,7 @@ import { ChevronRight, SearchIcon } from "lucide-react";
 const Sidebar = () => {
   return (
     <div className="basis-full pt-20 lg:basis-[30%] lg:pt-0">
-      <div className="relative">
-        <SearchIcon
-          size={20}
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-background"
-        />
-        <Input
-          type="text"
-          placeholder="Search"
-          className="h-12 w-full rounded-none border-2 border-[#e8e6e6] bg-white px-3 py-4 text-[#1a2431] focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
-        />
-      </div>
-      <div className="mt-12">
+      <div className="">
         <PrimaryHeadline
           text="Recent Posts"
           headlineType="h3"

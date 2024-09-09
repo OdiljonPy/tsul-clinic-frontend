@@ -6,3 +6,8 @@ export interface INews {
   content: string;
   created_at: string;
 }
+
+export interface INewsDetailRes {
+  ok: boolean;
+  response: INews;
+}
