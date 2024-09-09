@@ -10,7 +10,7 @@ const TeamMembers = () => {
   const { team, loading, fetchTeam } = useTeamStore();
 
   useEffect(() => {
-    fetchTeam();
+    if (team.length === 0) fetchTeam();
   }, [fetchTeam]);
 
   if (loading) return <Loading />;
