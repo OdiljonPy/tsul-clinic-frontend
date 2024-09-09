@@ -12,7 +12,7 @@ const BlogPosts = () => {
   const { news, loading, fetchNews } = useNewsStore();
 
   useEffect(() => {
-    fetchNews();
+    fetchNews(1, 6);
   }, [fetchNews]);
 
   if (loading) return <Loading />;
@@ -21,13 +21,13 @@ const BlogPosts = () => {
       <div className="relative bg-grey py-14 sm:py-20">
         <div className="container">
           <PrimaryHeadline text="Yangiliklar & Maqolalar" />
-          <div className="grid grid-rows-2 gap-7 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((item) => (
+          <div className="grid  gap-7 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {news?.content?.map((item) => (
               <BlogCard
                 key={`blog${item.id}`}
-                imageURL={item.featuredImage.node.mediaItem}
-                date={item.date}
-                linkHref={item.linkHref}
+                imageURL={item.image}
+                date={item.created_at}
+                linkHref={`/blog/${item.id}`}
                 title={item.title}
               />
             ))}

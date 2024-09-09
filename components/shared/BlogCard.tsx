@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface BlogCardProps {
-  imageURL: StaticImageData;
+  imageURL: StaticImageData | string;
   date: string;
   linkHref: string;
   title: string;
@@ -11,12 +11,14 @@ interface BlogCardProps {
 
 const BlogCard = ({ imageURL, date, linkHref, title }: BlogCardProps) => {
   return (
-    <div className="group basis-1/3">
+    <div className="group basis-1/3 cursor-pointer">
       <div className="overflow-hidden">
         <Image
           src={imageURL}
+          width={400}
+          height={260}
           alt="Home BLog Post"
-          className="scale-110 transition-transform duration-500 ease-in-out group-hover:scale-100"
+          className="scale-110 w-full h-[260px] transition-transform duration-500 ease-in-out group-hover:scale-100 object-cover"
         />
       </div>
       <div className="bg-white p-5">
@@ -26,7 +28,7 @@ const BlogCard = ({ imageURL, date, linkHref, title }: BlogCardProps) => {
         <h3>
           <Link
             href={linkHref}
-            className="inline-block cursor-pointer text-base font-semibold text-background hover:text-primary-main"
+            className="inline-block cursor-pointer text-base font-semibold text-background hover:text-primary-main line-clamp-2"
           >
             {title}
           </Link>
