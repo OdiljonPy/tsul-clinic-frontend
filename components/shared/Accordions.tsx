@@ -5,8 +5,9 @@ import {
   AccordionContent,
   AccordionTrigger,
 } from "../ui/accordion";
+import { IFaq } from "@/types/home/faq";
 
-const Accordions = ({ data }: { data: FAQsProps[] }) => {
+const Accordions = ({ data }: { data: IFaq[] }) => {
   return (
     <Accordion className="pt-3" type="single" collapsible>
       {data.map((item) => (

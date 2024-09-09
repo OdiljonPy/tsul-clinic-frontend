@@ -17,7 +17,7 @@ const useFAQStore = create<FaqStoreType>((set) => ({
   fetchFAQ: async () => {
     set({ loading: true, error: false });
     try {
-      const res = await API.get<ApiResponse<IFaq>>("/faqs");
+      const res = await API.get<ApiResponse<IFaq>>("/faq/");
       if (res.data.ok) set({ faq: res.data.response });
     } catch {
       set({ error: true });
