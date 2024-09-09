@@ -10,6 +10,7 @@ import useNewsStore from "@/store/news/news";
 import { useEffect } from "react";
 import Pagination from "@/components/shared/Pagination";
 import { useSearchParams } from "next/navigation";
+import Loading from "@/app/(root)/loading";
 
 const BlogList = ({ layoutClass }: { layoutClass: string }) => {
   const searchParams = useSearchParams();
@@ -20,23 +21,28 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
   useEffect(() => {
     fetchNews(page, 1);
   }, [fetchNews, page]);
+
+  if (loading) return <Loading />;
   return (
     <div className={`pr-0 lg:pr-8 ${layoutClass}`}>
-      {blogPosts.map((item) => (
+      {news.content?.map((item) => (
         <div
           className="relative mb-12 pb-12 before:absolute before:bottom-0 before:left-0 before:h-[3px] before:w-full before:bg-background before:content-[''] after:absolute after:bottom-0 after:left-0 after:z-[1] after:h-[3px] after:w-[150px] after:bg-primary-main after:content-['']"
           key={item.id}
         >
           <div className="overflow-hidden">
             <Image
-              src={item.featuredImage.node.mediaItem}
+              src={item.image}
               alt="Blog Post Image"
+              width={1000}
+              height={500}
+              className="w-full h-[340px] sm:h-[500px] object-cover"
             />
           </div>
           <div className=" bg-white">
             <h3 className="my-6">
               <Link
-                href={item.linkHref}
+                href={`/blog/${item.id}`}
                 className="inline-block cursor-pointer text-[25px] font-bold capitalize leading-9 text-background hover:text-primary-main sm:text-[32px]"
               >
                 {item.title}
@@ -49,16 +55,16 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
                   className="pl-2 text-base text-[#313131] hover:text-primary-main"
                   href="#"
                 >
-                  {formatDate(item.date)}
+                  {formatDate(item.created_at)}
                 </Link>
               </li>
             </ul>
-            <p className="text-base text-[#333]">{item.excerpt}</p>
+            <p className="text-base text-[#333]">{item.short_description}</p>
             <div className="pt-6 text-right">
               <ButtonCustom
-                href={item.linkHref}
+                href={`/blog/${item.id}`}
                 buttonType="dark"
-                text="Read More"
+                text="Batafsil o'qish"
               />
             </div>
           </div>
