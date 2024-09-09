@@ -10,7 +10,7 @@ type OpinionStoreType = {
   fetchOpinion: () => Promise<void>;
 };
 
-const useOpinion = create<OpinionStoreType>((set) => ({
+const useOpinionStore = create<OpinionStoreType>((set) => ({
   opinion: [],
   loading: false,
   error: false,
@@ -29,4 +29,4 @@ const useOpinion = create<OpinionStoreType>((set) => ({
   },
 }));
 
-export default useOpinion;
+export default useOpinionStore;

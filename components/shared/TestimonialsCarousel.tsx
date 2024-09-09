@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Carousel,
   CarouselContent,
@@ -6,9 +8,18 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
-import { Testimonials } from "@/lib/data";
+import useOpinionStore from "@/store/home/opinion";
+import { useEffect } from "react";
+import Loading from "@/app/(root)/loading";
 
 export function TestimonialsCarousel() {
+  const { opinion, fetchOpinion, loading } = useOpinionStore();
+
+  useEffect(() => {
+    fetchOpinion();
+  }, [fetchOpinion]);
+
+  if (loading) return <Loading />;
   return (
     <Carousel
       className="w-full"
@@ -18,24 +29,26 @@ export function TestimonialsCarousel() {
       }}
     >
       <CarouselContent>
-        {Testimonials.map((item) => (
+        {opinion?.map((item) => (
           <CarouselItem key={`testimonial${item.id}`}>
             <div className="m-auto *:text-white sm:w-full sm:px-[90px] lg:w-[850px] lg:px-0">
               <Image
-                src={item.image}
+                src={item.image ? item.image : "/assets/default_users.png"}
+                width={96}
+                height={96}
                 alt="Testimonial Img"
-                className="m-auto size-24 rounded-full border-4 border-white"
+                className="m-auto size-24 rounded-full border-4 border-white object-cover"
               />
               <h3 className="my-4 text-center text-[32px] font-bold">
-                {item.organization}
+                {item.position}
               </h3>
               <p className="mb-[18px]  text-left  text-base italic">
-                {item.text}
+                {item.opinion}
               </p>
               <h4 className="text-center text-base font-bold">
-                {item.designation}
+                {item.company_name}
               </h4>
-              <h4 className="text-center text-base">{item.name}</h4>
+              <h4 className="text-center text-base">{item.full_name}</h4>
             </div>
           </CarouselItem>
         ))}

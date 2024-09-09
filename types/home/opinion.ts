@@ -5,4 +5,5 @@ export interface IOpinion {
   full_name: string;
   opinion: string;
   created_at: string;
+  image: string;
 }
