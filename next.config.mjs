@@ -8,6 +8,7 @@ const nextConfig = {
       {
         protocol: "https",
         port: "8000",
+        hostname: "api.tsulclinic.uz",
         pathname: "/media/**",
       },
     ],

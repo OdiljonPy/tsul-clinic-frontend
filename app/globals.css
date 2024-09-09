@@ -98,6 +98,9 @@
   .input-field {
     @apply h-12 px-4 py-2 w-full text-background border-[1px] border-[#e8e6e6] placeholder:text-base placeholder:text-background font-bold placeholder:font-normal bg-white rounded-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0;
   }
+  .v-html img {
+    @apply w-full object-cover !h-[340px] sm:!h-[500px] my-1;
+  }
 
   .line-clamp-1 {
     word-break: break-word !important;
