@@ -1,18 +1,23 @@
+"use client";
+
 import InnerBanner from "@/components/global/inner-banner";
 import PreFooter from "@/components/shared/PreFooter";
-import React from "react";
+import React, { useEffect } from "react";
 
-import { Metadata } from "next";
 import PrimaryHeadline from "@/components/global/primary-headline";
-import TeamMembers from "@/components/home/TeamMembers";
-import { TeamMembersCarousel } from "@/components/shared/TeamMembersCarousel";
 
-export const metadata: Metadata = {
-  title: "Bizning Xizmatlar",
-  description: "Your one stop solution for legal matters",
-};
+import { TeamMembersCarousel } from "@/components/shared/TeamMembersCarousel";
+import useTeamStore from "@/store/home/team";
+import Loading from "@/app/(root)/loading";
 
 const Partners = () => {
+  const { team, loading, fetchTeam } = useTeamStore();
+
+  useEffect(() => {
+    if (team.length === 0) fetchTeam();
+  }, [fetchTeam]);
+
+  if (loading) return <Loading />;
   return (
     <>
       <InnerBanner text="Bizning Hamkorlar" />
@@ -24,7 +29,7 @@ const Partners = () => {
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
           />
-          <TeamMembersCarousel />
+          <TeamMembersCarousel team={team} />
         </div>
         <div className="pb-40 sm:pb-40 lg:pb-52">
           <PrimaryHeadline
@@ -33,7 +38,7 @@ const Partners = () => {
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
           />
-          <TeamMembersCarousel />
+          <TeamMembersCarousel team={team} />
         </div>
         <div className="pb-40  sm:pb-40 lg:pb-52 ">
           <PrimaryHeadline
@@ -42,7 +47,7 @@ const Partners = () => {
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
           />
-          <TeamMembersCarousel />
+          <TeamMembersCarousel team={team} />
         </div>
       </div>
 
