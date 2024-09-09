@@ -1,10 +1,28 @@
+"use client";
+
 import { StatsWithIcon } from "@/lib/dataWithJSX";
 import Image from "next/image";
 import StatsCounterIconBox from "../shared/statsCounterIconBox";
 import library from "@/public/assets/library-home.jpg";
 import libraryicon from "@/public/assets/library-icon.svg";
+import useStatisticsStore from "@/store/home/statistics";
+import { useEffect } from "react";
+import Loading from "@/app/(root)/loading";
 
 const IconsWithCounters = () => {
+  const { statistics, fetchStatistics, loading } = useStatisticsStore();
+
+  useEffect(() => {
+    fetchStatistics().then((res) => {
+      if (res?.ok) {
+        StatsWithIcon[0].amount = res.response?.customers_number;
+        StatsWithIcon[1].amount = res.response?.services_number;
+        StatsWithIcon[2].amount = res.response?.service_indicator;
+      }
+    });
+  }, [fetchStatistics]);
+
+  if (loading) return <Loading />;
   return (
     <div className="relative overflow-hidden bg-black py-16 before:absolute before:left-0 before:top-0 before:z-[2] before:size-full before:bg-[#1a2431] before:opacity-70 before:content-[''] sm:py-20">
       <Image src={library} alt="library" fill={true} className="object-cover" />

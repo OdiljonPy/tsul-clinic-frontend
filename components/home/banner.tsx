@@ -24,7 +24,6 @@ const Banner = () => {
 
     api.on("scroll", () => {
       setCurrent(api.selectedScrollSnap() + 1);
-      console.log("index", api.selectedScrollSnap(), "current", current);
     });
   }, [api]);
 
@@ -47,7 +46,7 @@ const Banner = () => {
           ]}
         >
           <CarouselContent className="relative ml-0">
-            {bannerItems.map((item,index) => (
+            {bannerItems.map((item, index) => (
               <CarouselItem
                 key={item.id}
                 className={`relative overflow-hidden pl-0 text-white before:absolute before:z-10 before:size-full before:bg-black/15 before:content-[''] ${
