@@ -9,20 +9,25 @@ import useServicesStore from "@/store/services/services";
 import Loading from "@/app/(root)/loading";
 
 const PAList = () => {
-  const { services, fetchServices, loading } = useServicesStore();
+  const {
+    services,
+    fetchServices,
+    loading,
+    service_category,
+    fetchServicesCategory,
+  } = useServicesStore();
 
   useEffect(() => {
     if (services.length === 0) fetchServices();
-  }, [fetchServices]);
+    if (service_category.length === 0) fetchServicesCategory();
+  }, [fetchServices, fetchServicesCategory]);
 
   if (loading) return <Loading />;
   return (
     <div className="container lg:pb-28 pb-20">
-      <div className="flex flex-col-reverse md:flex-row gap-2 sm:gap-4">
-        <div className="grow-1">
-          {services?.map((item) => (
-            <ServiceCard data={item} key={item.id} />
-          ))}
+      <div className="flex flex-col-reverse md:flex-row gap-3 sm:gap-4">
+        <div className="grow-1 gap-3">
+          {services?.map((item) => <ServiceCard data={item} key={item.id} />)}
         </div>
         <div className="md:basis-[30%] shrink-0">
           <PrimaryHeadline
@@ -31,10 +36,10 @@ const PAList = () => {
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
           />
-          <div className="flex gap-4 sm:gap-2 flex-wrap">
-            {PAData.map((item) => (
+          <div className="flex gap-2 flex-wrap">
+            {service_category?.map((item) => (
               <ServiceCategory
-                category={item.category}
+                category={item.name}
                 id={item.id}
                 key={item.id}
               />

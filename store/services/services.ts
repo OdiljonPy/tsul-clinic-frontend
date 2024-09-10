@@ -1,17 +1,20 @@
 import { create } from "zustand";
 import API from "@/lib/axios";
 import { ApiResponse } from "@/types/api-response";
-import { IServices } from "@/types/services/services";
+import { IServices, IServicesCategory } from "@/types/services/services";
 
 type ServicesStoreType = {
   services: IServices[];
+  service_category: IServicesCategory[];
   loading: boolean;
   error: boolean;
   fetchServices: () => Promise<void>;
+  fetchServicesCategory: () => Promise<void>;
 };
 
 const useServicesStore = create<ServicesStoreType>((set) => ({
   services: [],
+  service_category: [],
   loading: false,
   error: false,
 
@@ -21,6 +24,25 @@ const useServicesStore = create<ServicesStoreType>((set) => ({
       const res = await API.get<ApiResponse<IServices>>("/services/");
       if (res.data.ok)
         set({ services: res.data.response, loading: false, error: false });
+    } catch {
+      set({ loading: false, error: true });
+    } finally {
+      set({ loading: false });
+    }
+  },
+
+  fetchServicesCategory: async () => {
+    set({ loading: true, error: false });
+    try {
+      const res = await API.get<ApiResponse<IServicesCategory>>(
+        "/services/category/",
+      );
+      if (res.data.ok)
+        set({
+          service_category: res.data.response,
+          loading: false,
+          error: false,
+        });
     } catch {
       set({ loading: false, error: true });
     } finally {

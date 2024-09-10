@@ -5,3 +5,8 @@ export interface IServices {
   image: string;
   content: string;
 }
+
+export interface IServicesCategory {
+  id:number,
+  name:string
+}
