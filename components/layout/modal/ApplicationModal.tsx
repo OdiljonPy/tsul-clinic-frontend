@@ -23,11 +23,16 @@ import { useToast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
 import { useEffect } from "react";
+import {
+  ICreateMeeting,
+  MeetingType,
+} from "@/types/create-meeting/create-meeting";
+import useCreateMeetingStore from "@/store/create-meeting/create-meeting";
 
 interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
-  type: "phone" | "video";
+  type: MeetingType;
 }
 
 const formSchema = z.object({
@@ -42,6 +47,8 @@ const formSchema = z.object({
 const ApplicationModal = ({ open, setOpen, type }: props) => {
   const { toast } = useToast();
 
+  const { postCreateMeeting, loading } = useCreateMeetingStore();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,14 +58,40 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values, "form values");
-    toast({
-      title: "Form Submitted Successfully.",
-      className:
-        "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-background text-white",
-    });
+    const data: ICreateMeeting = {
+      customer_full_name: values.fullName,
+      customer_phone: values.phoneNumber,
+      meeting_type: type,
+    };
 
-    setOpen(false);
+    postCreateMeeting(data)
+      .then((res) => {
+        console.log(res, "res");
+        if (res?.ok) {
+          toast({
+            title: "Form Submitted Successfully.",
+            className:
+              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
+          });
+        } else {
+          toast({
+            title: "Something went wrong",
+            className:
+              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
+          });
+        }
+      })
+      .catch(() => {
+        toast({
+          title: "Something went wrong",
+          className:
+            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
+        });
+      })
+      .finally(() => {
+        form.reset();
+        setOpen(false);
+      });
   }
 
   useEffect(() => {
@@ -76,7 +109,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
             />
             <AlertDialogTitle>
               <div className="text-center font-medium text-2xl">
-                {type === "phone"
+                {type === MeetingType.phone
                   ? "Telefon orqali murojat qilish"
                   : "Video orqali murojat qilish"}
               </div>
@@ -136,7 +169,12 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                     />
                   </div>
                   <div className="flex justify-center mt-4">
-                    <ButtonCustom text="Jo'natish" type="submit" className="" />
+                    <ButtonCustom
+                      text="Jo'natish"
+                      type="submit"
+                      disabled={loading}
+                      loading={loading}
+                    />
                   </div>
                 </form>
               </Form>

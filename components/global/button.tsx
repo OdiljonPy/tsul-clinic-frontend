@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
+import Spinner from "@/components/shared/Spinner";
 
 export type TypeButton = "primary" | "secondary" | "dark";
 
 interface buttonCustomProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   href?: string;
+  loading?: boolean;
   buttonType?: TypeButton;
 }
 
@@ -16,6 +18,7 @@ const ButtonCustom = ({
   href,
   buttonType = "primary",
   className,
+  loading,
   ...props
 }: buttonCustomProps) => {
   const buttonStyle: Record<TypeButton, string> = {
@@ -28,7 +31,10 @@ const ButtonCustom = ({
     <>
       {href ? (
         <Link
-          className={cn(className, `group rounded-lg ${buttonStyle[buttonType]}`)}
+          className={cn(
+            className,
+            `group rounded-lg ${buttonStyle[buttonType]}`,
+          )}
           href={href}
         >
           {text}
@@ -40,8 +46,12 @@ const ButtonCustom = ({
       ) : (
         <button
           {...props}
-          className={cn(className, `group ${buttonStyle[buttonType]}`)}
+          className={cn(
+            className,
+            `group flex items-center gap-2 ${buttonStyle[buttonType]}`,
+          )}
         >
+          {loading && <Spinner />}
           {text}
           <ChevronRight
             size="15"

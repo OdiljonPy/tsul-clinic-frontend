@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import logo from "@/public/assets/logo.png";
 
 import DesktopHeaderLink from "@/components/layout/header/DesktopHeaderLink";
 import MobileHeaderLink from "@/components/layout/header/MobileHeaderLink";

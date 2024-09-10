@@ -4,10 +4,11 @@ import Link from "next/link";
 import { PhoneCall, Video } from "lucide-react";
 import ApplicationModal from "@/components/layout/modal/ApplicationModal";
 import { useState } from "react";
+import { MeetingType } from "@/types/create-meeting/create-meeting";
 
 const HeaderTop = () => {
   const [open, setOpen] = useState(false);
-  const [type, setType] = useState<"phone" | "video">("phone");
+  const [type, setType] = useState<MeetingType>(MeetingType.phone);
   return (
     <div className="bg-white px-4 py-3">
       <div className="sm:container ">
@@ -23,7 +24,7 @@ const HeaderTop = () => {
             <div
               onClick={() => {
                 setOpen(true);
-                setType("video");
+                setType(MeetingType.video);
               }}
               className="flex items-center gap-1 cursor-pointer font-medium transition-all duration-300 hover:text-primary-main"
             >
@@ -34,21 +35,13 @@ const HeaderTop = () => {
             <div
               onClick={() => {
                 setOpen(true);
-                setType("phone");
+                setType(MeetingType.phone);
               }}
               className="flex items-center gap-1 cursor-pointer font-medium transition-all duration-300 hover:text-primary-main"
             >
               <PhoneCall size={20} className="flex shrink-0" />
               Telefon orqali murojat qilish
             </div>
-            {/*<button className="flex items-center gap-1 border p-2 rounded-xl bg-primary-main text-white transition-all duration-300 hover:text-primary-main hover:border-primary-main hover:bg-white">*/}
-            {/*  <Video />*/}
-            {/*  Video orqali murojat qilish*/}
-            {/*</button>*/}
-            {/*<button className="flex items-center gap-1 border p-2 rounded-xl bg-primary-main text-white transition-all duration-300 hover:text-primary-main hover:border-primary-main hover:bg-white">*/}
-            {/*  <PhoneCall size={20} />*/}
-            {/*  Telefon orqali murojat qilish*/}
-            {/*</button>*/}
           </div>
         </div>
         <ApplicationModal open={open} setOpen={setOpen} type={type} />
