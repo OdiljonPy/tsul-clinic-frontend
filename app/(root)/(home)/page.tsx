@@ -35,7 +35,7 @@ const Home = () => {
       <TeamMembers />
       <CTA
         headline="Biz har bir ishni bir xil e'tibor va fidoyilik bilan ko'rib chiqamiz, chunki har bir mijoz muhim."
-        buttonLink="#"
+        buttonLink="/contant"
         buttonText="Request Consultation"
         ctaType="withImage"
       />
