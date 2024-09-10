@@ -7,6 +7,11 @@ export interface IServices {
 }
 
 export interface IServicesCategory {
-  id:number,
-  name:string
+  id: number;
+  name: string;
+}
+
+export interface IServiceDetailRes {
+  ok: boolean;
+  response: IServices;
 }
