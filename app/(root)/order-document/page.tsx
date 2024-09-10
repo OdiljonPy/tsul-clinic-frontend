@@ -1,7 +1,7 @@
 "use client";
 
 import InnerBanner from "@/components/global/inner-banner";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { blogPosts, orderDocumentData } from "@/lib/data";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import PrimaryHeadline from "@/components/global/primary-headline";
@@ -29,6 +29,10 @@ import { useToast } from "@/components/ui/use-toast";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import useOrderDocument from "@/store/order-document/order-document";
+import Loading from "@/app/(root)/loading";
+import { IPostOrderDocument } from "@/types/order-document/document-category";
+import Spinner from "@/components/shared/Spinner";
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
@@ -43,6 +47,13 @@ const formSchema = z.object({
 
 const OrderDocument = () => {
   const { toast } = useToast();
+  const {
+    loading,
+    creatLoading,
+    document_category,
+    fetchDocumentCategory,
+    createOrderDocument,
+  } = useOrderDocument();
 
   const [radioValue, setRadioValue] = useState("1");
 
@@ -57,13 +68,40 @@ const OrderDocument = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values, "form Values");
-    toast({
-      title: "Form Submitted Successfully.",
-      className:
-        "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-background text-white",
-    });
+    const orderDocumentData: IPostOrderDocument = {
+      customer_full_name: values.fullName,
+      customer_phone: values.phoneNumber,
+      customer_message: values.message,
+      document_category: Number(radioValue),
+      document_type: Number(values.type),
+    };
+    createOrderDocument(orderDocumentData)
+      .then((res) => {
+        if (res?.ok) {
+          toast({
+            title: "Form Submitted Successfully.",
+            className:
+              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
+          });
+        }
+      })
+      .catch(() => {
+        toast({
+          title: "Something went wrong",
+          className:
+            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
+        });
+      })
+      .finally(() => {
+        form.reset();
+      });
   }
+
+  useEffect(() => {
+    if (document_category?.length === 0) fetchDocumentCategory();
+  }, [fetchDocumentCategory]);
+
+  if (loading) return <Loading />;
   return (
     <div>
       <InnerBanner text="Hujjat buyurtma berish" />
@@ -81,7 +119,7 @@ const OrderDocument = () => {
               onValueChange={setRadioValue}
               className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3"
             >
-              {orderDocumentData.map((document) => (
+              {document_category?.map((document) => (
                 <div
                   key={document.id}
                   className="flex gap-2 items-center cursor-pointer group"
@@ -95,7 +133,7 @@ const OrderDocument = () => {
                     htmlFor={String(document.id)}
                     className="group-hover:text-primary-main cursor-pointer transition duration-300"
                   >
-                    {document.name}
+                    {document.category_name}
                   </label>
                 </div>
               ))}
@@ -127,13 +165,13 @@ const OrderDocument = () => {
                                 <SelectValue placeholder="Hujjat turini tanlang" />
                               </SelectTrigger>
                               <SelectContent>
-                                {orderDocumentData
-                                  .find(
+                                {document_category
+                                  ?.find(
                                     (item) => item.id === Number(radioValue),
                                   )
-                                  ?.documents.map((document) => (
+                                  ?.document_type?.map((document) => (
                                     <SelectItem value={document.id.toString()}>
-                                      {document.name}
+                                      {document.document_name}
                                     </SelectItem>
                                   ))}
                               </SelectContent>
@@ -221,8 +259,10 @@ const OrderDocument = () => {
 
                   <Button
                     type="submit"
-                    className="h-auto rounded-none border bg-primary-main px-7 py-[14px] text-base font-bold uppercase text-white transition-colors duration-300 ease-in hover:border-primary-main hover:bg-white hover:text-primary-main"
+                    disabled={creatLoading}
+                    className="h-auto rounded-none border bg-primary-main px-7 py-[14px] text-base font-bold uppercase text-white transition-colors duration-300 ease-in hover:border-primary-main hover:bg-white hover:text-primary-main flex items-center gap-2"
                   >
+                    {creatLoading && <Spinner />}
                     Yuborish
                   </Button>
                 </form>
