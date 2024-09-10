@@ -33,6 +33,7 @@ import useOrderDocument from "@/store/order-document/order-document";
 import Loading from "@/app/(root)/loading";
 import { IPostOrderDocument } from "@/types/order-document/document-category";
 import Spinner from "@/components/shared/Spinner";
+import Sidebar from "@/components/blog/Sidebar";
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
@@ -42,7 +43,7 @@ const formSchema = z.object({
     message: "Invalid phone number",
   }),
   type: z.string().min(1, { message: "Please select an option" }),
-  message: z.string().min(15),
+  message: z.string().min(10),
 });
 
 const OrderDocument = () => {
@@ -270,33 +271,7 @@ const OrderDocument = () => {
             </div>
           </div>
           <div className="col-span-12 md:col-span-4">
-            <div className="">
-              <PrimaryHeadline
-                text="So'ngi yangiliklar"
-                headlineType="h3"
-                additionalClass="text-[32px] primary-headline-left text-background"
-                formatTwoColor
-              />
-              <ul>
-                {blogPosts.slice(0, 5).map((item) => (
-                  <li
-                    className="relative border-b border-[#313131] py-4 pl-6"
-                    key={item.id}
-                  >
-                    <Link
-                      href="/blog/1"
-                      className="text-base leading-6 text-[#313131] hover:text-primary-main"
-                    >
-                      <ChevronRight
-                        size={20}
-                        className="absolute left-0 top-[30px] -translate-y-1/2 font-bold"
-                      />
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Sidebar />
           </div>
         </div>
       </div>

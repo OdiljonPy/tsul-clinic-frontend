@@ -18,7 +18,7 @@ const Sidebar = () => {
     <div className="basis-full pt-20 lg:basis-[30%] lg:pt-0">
       <div className="">
         <PrimaryHeadline
-          text="Recent Posts"
+          text="So'ngi yangiliklar"
           headlineType="h3"
           additionalClass="text-[32px] primary-headline-left text-background"
           formatTwoColor
