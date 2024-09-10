@@ -4,6 +4,7 @@ import PrimaryHeadline from "@/components/global/primary-headline";
 import Iframe from "@/components/shared/Iframe";
 import { MapPin, PhoneCallIcon } from "lucide-react";
 import { Metadata } from "next";
+import ContactInfo from "@/components/contact/ContactInfo";
 
 export const metadata: Metadata = {
   title: "Contact Us - Lawyero",
@@ -35,74 +36,7 @@ const page = () => {
               <ContactForm />
             </div>
             <div className="relative basis-full pb-16 pt-0 lg:basis-1/3 lg:pb-20 lg:pt-24">
-              <PrimaryHeadline
-                text="Aloqaga chiqish"
-                additionalClass="text-3xl primary-headline-left"
-                headlineType="h3"
-              />
-              <ul>
-                <li className="mb-[10px] flex items-center">
-                  <PhoneCallIcon size={15} className="text-primary-main" />
-                  <a
-                    className="ml-2 inline-block text-base text-background hover:text-primary-main transition duration-300"
-                    href="tel:+998991234567"
-                  >
-                    (99) 123-45-67
-                  </a>
-                </li>
-                <li className="mb-[10px] flex items-center">
-                  <PhoneCallIcon size={15} className="text-primary-main" />
-                  <a
-                    className="ml-2 inline-block text-base text-background hover:text-primary-main transition duration-300"
-                    href="tel:+998991234567"
-                  >
-                    (99) 123-45-67
-                  </a>
-                </li>
-              </ul>
-              <div>
-                <div className="mt-7">
-                  <h3 className="mb-5 text-2xl font-bold text-[#333]">
-                    Bosh Ofis
-                  </h3>
-                  <div className="flex">
-                    <MapPin size={15} className="mt-1 text-primary-main" />
-                    <p className="pl-2 text-background">
-                      Amir Temur Street 99 A Tashkent State University.
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-7">
-                  <h3 className="mb-5 text-2xl font-bold text-[#333]">
-                    Konsultatsiya Ofisi
-                  </h3>
-                  <div className="flex">
-                    <MapPin size={15} className="mt-1 text-primary-main" />
-                    <p className="pl-2 text-background">
-                      Amir Temur Street 99 A Tashkent State University.
-                    </p>
-                  </div>
-                </div>
-                {/*<div>*/}
-                {/*  <h3 className="mb-7 mt-8 text-2xl font-bold text-[#333]">*/}
-                {/*    Working Hours*/}
-                {/*  </h3>*/}
-                {/*  <ul className="text-base leading-6 text-[#313131]">*/}
-                {/*    <li className="relative flex border-b border-[#313131] py-4">*/}
-                {/*      <span className="w-1/2 font-bold">Mon-Wed</span>*/}
-                {/*      <span className="w-1/2 text-right">9:00am - 5:00pm</span>*/}
-                {/*    </li>*/}
-                {/*    <li className="relative flex border-b border-[#313131] py-4">*/}
-                {/*      <span className="w-1/2 font-bold">Thurs-Fri</span>*/}
-                {/*      <span className="w-1/2 text-right">9:00am - 5:00pm</span>*/}
-                {/*    </li>*/}
-                {/*    <li className="relative flex py-4">*/}
-                {/*      <span className="w-1/2 font-bold">Sat-Sun</span>*/}
-                {/*      <span className="w-1/2 text-right">Closed</span>*/}
-                {/*    </li>*/}
-                {/*  </ul>*/}
-                {/*</div>*/}
-              </div>
+              <ContactInfo />
             </div>
           </div>
         </div>
