@@ -22,27 +22,40 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useToast } from "../ui/use-toast";
+import useContactStore from "@/store/contact/contact";
+import { IContact } from "@/types/contact/contact";
+import ButtonCustom from "@/components/global/button";
+import useOrderDocument from "@/store/order-document/order-document";
+import { useEffect } from "react";
+import Loading from "@/app/(root)/loading";
 
 const formSchema = z.object({
-  firstName: z.string().min(3, {
+  fullName: z.string().min(3, {
     message: "First Name must be at least 3 characters.",
   }),
-  lastName: z.string().min(3, {
-    message: "Last Name must be at least 3 characters.",
+  phoneNumber: z.string().max(13).min(9, {
+    message: "Invalid phone number",
   }),
   email: z.string().email(),
-  case: z.string(),
+  case: z.string().min(1, { message: "Please select an option" }),
   yourMessage: z.string().min(15),
 });
 
 export function ContactForm() {
   const { toast } = useToast();
 
+  const { postContact, loading } = useContactStore();
+  const {
+    document_category,
+    loading: loadingOrder,
+    fetchDocumentCategory,
+  } = useOrderDocument();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      fullName: "",
+      phoneNumber: "",
       email: "",
       case: "",
       yourMessage: "",
@@ -50,26 +63,62 @@ export function ContactForm() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    toast({
-      title: "Form Submitted Successfully.",
-      className:
-        "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-background text-white",
-    });
+    const data: IContact = {
+      full_name: values.fullName,
+      email: values.email,
+      phone: values.phoneNumber,
+      type: Number(values.case),
+      message: values.yourMessage,
+    };
+    postContact(data)
+      .then((res) => {
+        if (res?.ok) {
+          toast({
+            title: "Form Submitted Successfully.",
+            className:
+              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
+          });
+        } else {
+          toast({
+            title: "Something went wrong",
+            className:
+              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
+          });
+        }
+      })
+      .catch(() => {
+        toast({
+          title: "Something went wrong",
+          className:
+            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
+        });
+      })
+      .finally(() => {
+        form.reset();
+      });
   }
+
+  useEffect(() => {
+    if (document_category?.length === 0) {
+      fetchDocumentCategory();
+    }
+  }, [fetchDocumentCategory]);
+
+  if (loadingOrder) return <Loading />;
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="firstName"
+          name="fullName"
           render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input
-                  placeholder="Ism"
+                  placeholder="Ism Familiya"
                   {...field}
-                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </FormControl>
               <FormMessage />
@@ -79,14 +128,14 @@ export function ContactForm() {
 
         <FormField
           control={form.control}
-          name="lastName"
+          name="phoneNumber"
           render={({ field }) => (
             <FormItem>
               <FormControl>
                 <Input
-                  placeholder="Familiya"
+                  placeholder="+998 90 123 45 67"
                   {...field}
-                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </FormControl>
               <FormMessage />
@@ -104,7 +153,7 @@ export function ContactForm() {
                   type="email"
                   placeholder="Email"
                   {...field}
-                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </FormControl>
               <FormMessage />
@@ -128,9 +177,14 @@ export function ContactForm() {
                     />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="family">Family Law</SelectItem>
-                    <SelectItem value="child">Child Custody</SelectItem>
-                    <SelectItem value="business">Business Fraud</SelectItem>
+                    {document_category?.map((document) => (
+                      <SelectItem
+                        key={document.id}
+                        value={document.id.toString()}
+                      >
+                        {document.category_name}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </FormControl>
@@ -148,20 +202,14 @@ export function ContactForm() {
                 <Textarea
                   placeholder="Murojatingizni yozib qoldiring..."
                   {...field}
-                  className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-bold text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-
-        <Button
-          type="submit"
-          className="h-auto rounded-none border bg-primary-main px-7 py-[14px] text-base font-bold uppercase text-white transition-colors duration-300 ease-in hover:border-primary-main hover:bg-white hover:text-primary-main"
-        >
-          Yuborish
-        </Button>
+        <ButtonCustom text="Yuborish" disabled={loading} loading={loading} />
       </form>
     </Form>
   );
