@@ -34,14 +34,6 @@ const DesktopHeaderLink = () => {
             Hujjat buyurtma qilish
           </Link>
         </li>
-        {/*<li className="group relative">*/}
-        {/*  <Link*/}
-        {/*      href="/entrepreneurs"*/}
-        {/*      className="relative block py-7 pr-5 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"*/}
-        {/*  >*/}
-        {/*    Tadbirkorlar uchun*/}
-        {/*  </Link>*/}
-        {/*</li>*/}
         <li className="group relative">
           <Link
             href="/blog"
@@ -50,15 +42,6 @@ const DesktopHeaderLink = () => {
             Yangiliklar
           </Link>
         </li>
-        {/*<li className="group relative">*/}
-        {/*  <Link*/}
-        {/*      href="/faqs"*/}
-        {/*      className="relative block py-7 pr-5 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"*/}
-        {/*  >*/}
-        {/*    FAQ*/}
-        {/*  </Link>*/}
-        {/*</li>*/}
-
         <li className="group relative">
           <Link
             href="/contact/"

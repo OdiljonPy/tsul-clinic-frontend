@@ -1,5 +1,12 @@
+"use client";
+
 import { Search, X } from "lucide-react";
 import DocumentNotFound from "@/components/layout/search-sidebar/DocumentNotFound";
+import useCheckDocumentStore from "@/store/check-document/check-document";
+import { ChangeEvent, useState } from "react";
+import Spinner from "@/components/shared/Spinner";
+import DownloadDocument from "@/components/layout/search-sidebar/DownloadDocument";
+import DocumentStatusSection from "@/components/layout/search-sidebar/DocumentStatus";
 
 interface props {
   open: boolean;
@@ -7,6 +14,16 @@ interface props {
 }
 
 const SearchSidebar = ({ open, setOpen }: props) => {
+  const { documentInfo, checkDocumentStatus, loading } =
+    useCheckDocumentStore();
+
+  const [orderNumber, setOrderNumber] = useState("");
+
+  const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    checkDocumentStatus(orderNumber);
+  };
+
   return (
     <div
       className={`fixed bg-white w-full h-screen top-0 left-0 overflow-hidden transition-all duration-500 ${open ? "opacity-100" : "opacity-0"}`}
@@ -20,19 +37,44 @@ const SearchSidebar = ({ open, setOpen }: props) => {
           <h2 className="text-gray-700 font-medium text-lg sm:text-2xl">
             Hujjat ID raqaminin kiriting...
           </h2>
-          <div className="relative w-full mt-4">
+          <form onSubmit={onSubmit} className="relative w-full mt-4">
             <input
               className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
               type="search"
               placeholder="Buyurtma id raqaminin kiriting..."
+              value={orderNumber}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setOrderNumber(e.target.value)
+              }
             />
-            <button className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-r-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <button
+              type="submit"
+              className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-700 bg-gray-100 border border-gray-300 rounded-r-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:cursor-not-allowed"
+              disabled={orderNumber.length < 1 || loading}
+            >
               <Search />
             </button>
-          </div>
-          <div className="mt-6 text-gray-700">
-            <DocumentNotFound />
-          </div>
+          </form>
+          {loading ? (
+            <div className="w-full my-6 grid place-items-center min-h-[35vh] border-gray-500">
+              <Spinner className="text-gray-700 text-3xl !w-8 !h-8" />
+            </div>
+          ) : (
+            <div className="mt-6 text-gray-700">
+              {documentInfo?.status === null ? (
+                <DocumentNotFound />
+              ) : (
+                documentInfo?.status >= 0 && (
+                  <div className="">
+                    <DocumentStatusSection documentInfo={documentInfo} />
+                    {documentInfo?.ready_documents?.length > 0 && (
+                      <DownloadDocument documentInfo={documentInfo} />
+                    )}
+                  </div>
+                )
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
