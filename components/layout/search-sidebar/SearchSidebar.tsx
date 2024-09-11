@@ -7,6 +7,7 @@ import { ChangeEvent, useState } from "react";
 import Spinner from "@/components/shared/Spinner";
 import DownloadDocument from "@/components/layout/search-sidebar/DownloadDocument";
 import DocumentStatusSection from "@/components/layout/search-sidebar/DocumentStatus";
+import { getTranslation } from "@/i18n";
 
 interface props {
   open: boolean;
@@ -16,6 +17,8 @@ interface props {
 const SearchSidebar = ({ open, setOpen }: props) => {
   const { documentInfo, checkDocumentStatus, loading } =
     useCheckDocumentStore();
+
+  const { t } = getTranslation();
 
   const [orderNumber, setOrderNumber] = useState("");
 
@@ -35,13 +38,13 @@ const SearchSidebar = ({ open, setOpen }: props) => {
         />
         <div className="max-w-[500px] mx-auto mt-20">
           <h2 className="text-gray-700 font-medium text-lg sm:text-2xl">
-            Hujjat ID raqaminin kiriting...
+            {t("enter_document_id")}
           </h2>
           <form onSubmit={onSubmit} className="relative w-full mt-4">
             <input
               className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
               type="search"
-              placeholder="Buyurtma id raqaminin kiriting..."
+              placeholder={t("enter_document_id")}
               value={orderNumber}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setOrderNumber(e.target.value)

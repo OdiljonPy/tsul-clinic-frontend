@@ -52,5 +52,14 @@
   "enter_your_message": "Xabaringizni yozib qoldiring",
   "service_price": "Xizmat narxi",
   "for_contact": "Aloqaga chiqish uchun",
-  "for_contact_desc": "Maslahat olish uchun bizga qo'ng'iroq qiling yoki quyidagi formani to'ldiring. Bizning vakillarimizdan biri sizga 24 soat ichida javob beradi."
+  "for_contact_desc": "Maslahat olish uchun bizga qo'ng'iroq qiling yoki quyidagi formani to'ldiring. Bizning vakillarimizdan biri sizga 24 soat ichida javob beradi.",
+  "enter_document_id": "Hujjat ID raqamini kiriting...",
+  "document_not_found": "Hujjat topilmadi",
+  "document_not_found_text": "Ayni vaqtda bunday ID lik hujjat mavjud emas",
+  "document_status": "Hujjat holati",
+  "download_document": "Hujjatlarni yuklab olish",
+  "pending": "Kutilmoqda",
+  "accepted": "Qabul qilingan",
+  "completed": "Tasdiqlangan",
+  "cancelled": "Bekor qilingan"
 }

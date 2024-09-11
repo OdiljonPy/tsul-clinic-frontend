@@ -1,15 +1,17 @@
 import { FolderDown } from "lucide-react";
 import { ICheckDocument } from "@/types/check-document/check-document";
+import {getTranslation} from "@/i18n";
 
 interface props {
   documentInfo: ICheckDocument;
 }
 
 const DownloadDocument = ({ documentInfo }: props) => {
+    const {t} = getTranslation()
   return (
     <div className="mt-4">
       <h2 className="text-gray-700 font-medium text-lg">
-        Hujjatni yuklab olish
+          {t('download_document')}
       </h2>
       <div className="mt-2 flex flex-col gap-4">
         {documentInfo?.ready_documents?.map((document) => (
