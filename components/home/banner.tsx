@@ -8,8 +8,10 @@ import { useEffect, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import useBannerStore from "@/store/home/banner";
 import Loading from "@/app/(root)/loading";
+import { getTranslation } from "@/i18n";
 
 const Banner = () => {
+  const { t } = getTranslation();
   const { bannerItems, loading, error, fetchBannerItems } = useBannerStore();
 
   const [api, setApi] = useState<CarouselApi>();
@@ -80,10 +82,7 @@ const Banner = () => {
                             : "translate-y-10 opacity-0"
                         }`}
                       >
-                        <ButtonCustom
-                          href="/services"
-                          text="Batafsil Malumot"
-                        />
+                        <ButtonCustom href="/services" text={t("more_info")} />
                       </div>
                     </div>
                   </div>

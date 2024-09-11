@@ -6,10 +6,11 @@ import FAQItem from "../shared/FAQItem";
 import useFAQStore from "@/store/faq/faq";
 import { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
+import { getTranslation } from "@/i18n";
 
 const FAQs = () => {
   const { faq, fetchFAQ, loading } = useFAQStore();
-
+  const { t } = getTranslation();
   useEffect(() => {
     if (faq.length === 0) fetchFAQ();
   }, [fetchFAQ]);
@@ -19,7 +20,7 @@ const FAQs = () => {
   return (
     <div className="bg-grey pb-11 pt-20">
       <div className="container">
-        <PrimaryHeadline text="Tez tez so'raladigan savollar" />
+        <PrimaryHeadline text={t("faq")} />
         <div className="flex flex-wrap pt-3 ">
           {faq?.map((item) => (
             <FAQItem

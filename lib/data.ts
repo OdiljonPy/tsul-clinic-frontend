@@ -413,11 +413,11 @@ export const homeBannerTypewriter: homeBannerTypewriterProps = {
 //Data for footer link
 export const footerLinks: IFooterLinks[] = [
   {
-    name: "Biz Haqimizda",
+    name: "about",
     link: "/about",
   },
   {
-    name: "Xizmatlar",
+    name: "services",
     link: "/services",
   },
   // {
@@ -425,15 +425,15 @@ export const footerLinks: IFooterLinks[] = [
   //   link: "/entrepreneurs",
   // },
   {
-    name: "Yangiliklar",
+    name: "news",
     link: "Blog",
   },
   {
-    name: "Hamkorlar",
+    name: "partners",
     link: "/partners",
   },
   {
-    name: "Contact",
+    name: "contact",
     link: "/contact",
   },
   {
@@ -442,68 +442,6 @@ export const footerLinks: IFooterLinks[] = [
   },
 ];
 
-export const footerResources: IFooterLinks[] = [
-  {
-    name: "Seminar Training",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Vakansiyalar",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Mediasiya",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Sayt Haqida",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Hamkorlar",
-    link: "footerResources",
-  },
-  {
-    name: "Seminar Training",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Vakansiyalar",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Mediasiya",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Sayt Haqida",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Hamkorlar",
-    link: "footerResources",
-  },
-  {
-    name: "Seminar Training",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Vakansiyalar",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Mediasiya",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Sayt Haqida",
-    link: "https://zerodev.uz/",
-  },
-  {
-    name: "Hamkorlar",
-    link: "footerResources",
-  },
-];
 
 // Data for ORDER DOCUMENT
 

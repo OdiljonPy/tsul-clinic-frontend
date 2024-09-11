@@ -32,9 +32,8 @@ import {
 export const BannerIconBoxes: BannerIconBoxesProps[] = [
   {
     id: 1,
-    headline: "15+ Yillik tajriba",
-    content:
-      "Biz 15 yildan ortiq vaqt mobaynida mijozlarimizga yuridik xizmat ko'rsatib kelmoqdamiz",
+    headline: "experience",
+    content: "experience_desc",
     iconName: (
       <User
         size="60"
@@ -45,9 +44,8 @@ export const BannerIconBoxes: BannerIconBoxesProps[] = [
   },
   {
     id: 2,
-    headline: "Malakali va tajribali yuristlar",
-    content:
-      "Bizning jamoamiz o'z sohasining yetuk mutaxassislaridan tashkil topgan",
+    headline: "experts",
+    content: "experts_desc",
     iconName: (
       <BriefcaseBusiness
         size="60"
@@ -58,9 +56,8 @@ export const BannerIconBoxes: BannerIconBoxesProps[] = [
   },
   {
     id: 3,
-    headline: "Mukofotlar va yutuqlar",
-    content:
-      "Biz yuristlar 2023 yilda 95% muvaffaqiyat  bilan eng yaxshi yuristlar mukofotini qo'lga kiritdik.",
+    headline: "awards",
+    content: "awards_desc",
     iconName: (
       <Trophy
         size="60"
@@ -334,7 +331,7 @@ export const StatsWithIcon: StatsWithIconProps[] = [
     amountPreText: "",
     amount: 150,
     amountPostText: "+",
-    text: "Mijozlar",
+    text: "customers",
     iconName: <Handshake size={72} className="border-2 p-4 text-white" />,
   },
   {
@@ -342,7 +339,7 @@ export const StatsWithIcon: StatsWithIconProps[] = [
     amountPreText: "",
     amount: 15,
     amountPostText: "+",
-    text: "Xizmatlar",
+    text: "services",
     iconName: <ListChecks size={72} className="border-2 p-4 text-white" />,
   },
   {
@@ -350,7 +347,7 @@ export const StatsWithIcon: StatsWithIconProps[] = [
     amountPreText: "",
     amount: 98,
     amountPostText: "%",
-    text: "Xizmat ko'rsatgichi",
+    text: "service_point",
     iconName: <ThumbsUp size={72} className="border-2 p-4 text-white" />,
   },
 ];

@@ -9,13 +9,14 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import Image from "next/image";
-import logo from "@/public/assets/logo.png";
+
 import SearchSidebar from "@/components/layout/search-sidebar/SearchSidebar";
 import { useState } from "react";
 import { Search } from "lucide-react";
+import { getTranslation } from "@/i18n";
 
 const MobileHeaderLink = () => {
+  const { t } = getTranslation();
   const [searchOpen, setSearchOpen] = useState(false);
   return (
     <Sheet>
@@ -40,7 +41,7 @@ const MobileHeaderLink = () => {
                     href="/about"
                     className="relative transition-all hover:text-primary-main hover:border-primary-main block border-b border-white py-3 text-white duration-300 ease-in-out after:transition-transform"
                   >
-                    <SheetTrigger>Biz Haqimizda</SheetTrigger>
+                    <SheetTrigger>{t("about")}</SheetTrigger>
                   </Link>
                 </li>
                 <li className="relative">
@@ -48,7 +49,7 @@ const MobileHeaderLink = () => {
                     href="/services"
                     className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
-                    <SheetTrigger>Xizmatlar</SheetTrigger>
+                    <SheetTrigger>{t("services")}</SheetTrigger>
                   </Link>
                 </li>
                 <li className="relative">
@@ -56,23 +57,16 @@ const MobileHeaderLink = () => {
                     href="/order-document"
                     className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
-                    <SheetTrigger>Xujjat buyurtma qilish</SheetTrigger>
+                    <SheetTrigger>{t("order_document")}</SheetTrigger>
                   </Link>
                 </li>
-                {/*<li className="relative">*/}
-                {/*  <Link*/}
-                {/*      href="/entrepreneurs"*/}
-                {/*      className="relative transition-all  hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"*/}
-                {/*  >*/}
-                {/*    <SheetTrigger>Tadbirkorlar uchun</SheetTrigger>*/}
-                {/*  </Link>*/}
-                {/*</li>*/}
+
                 <li className="relative">
                   <Link
                     href="/blog"
                     className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
-                    <SheetTrigger>Yangiliklar</SheetTrigger>
+                    <SheetTrigger>{t("news")}</SheetTrigger>
                   </Link>
                 </li>
                 <li className="relative">
@@ -88,7 +82,7 @@ const MobileHeaderLink = () => {
                     href="/contact"
                     className="relative transition-all hover:text-primary-main hover:border-primary-main  block border-b border-white py-3 duration-300 ease-in-out after:transition-transform"
                   >
-                    <SheetTrigger>Contact</SheetTrigger>
+                    <SheetTrigger>{t("contact")}</SheetTrigger>
                   </Link>
                 </li>
                 <li
@@ -98,7 +92,7 @@ const MobileHeaderLink = () => {
                   <SheetTrigger className="block">
                     <span className="relative transition-all hover:text-primary-main hover:border-primary-main  border-b border-white py-3 duration-300 ease-in-out after:transition-transform flex items-center gap-2">
                       <Search size={18} />
-                      Hujjat buyurtma qilish
+                      {t("check_document")}
                     </span>
                   </SheetTrigger>
                 </li>

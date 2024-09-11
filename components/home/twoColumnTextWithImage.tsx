@@ -6,8 +6,10 @@ import Image from "next/image";
 import homefirmimage from "@/public/assets/about2.jpg";
 import useAboutStore from "@/store/about/about";
 import Loading from "@/app/(root)/loading";
+import {getTranslation} from "@/i18n";
 
 const TwoColumnTextWithImage = () => {
+  const {t} = getTranslation()
   const { about, loading, fetchAbout } = useAboutStore();
   useEffect(() => {
     if (!about?.about_us) fetchAbout();
@@ -19,7 +21,7 @@ const TwoColumnTextWithImage = () => {
       <div className="flex flex-wrap gap-8 lg:flex-nowrap items-center">
         <div className="basis-full lg:basis-[70%]">
           <PrimaryHeadline
-            text="Biz Haqimizda"
+            text={t("about")}
             additionalClass="primary-headline-left"
           />
           <div
@@ -28,7 +30,7 @@ const TwoColumnTextWithImage = () => {
           ></div>
           <ButtonCustom
             href="/about"
-            text="Batafsil ma'lumot"
+            text={t('more_info')}
             buttonType="secondary"
           />
         </div>

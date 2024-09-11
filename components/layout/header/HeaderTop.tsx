@@ -7,8 +7,11 @@ import { useEffect, useState } from "react";
 import { MeetingType } from "@/types/create-meeting/create-meeting";
 import useInfoStore from "@/store/contact/info";
 import formatPhoneNumber from "@/utility/formatPhoneNumber";
+import { getTranslation } from "@/i18n";
 
 const HeaderTop = () => {
+  const { t } = getTranslation();
+
   const [open, setOpen] = useState(false);
   const [type, setType] = useState<MeetingType>(MeetingType.phone);
   const { info, fetchInfo } = useInfoStore();
@@ -22,7 +25,7 @@ const HeaderTop = () => {
         <div className="flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-between">
           <div className="basis-full text-center sm:basis-auto sm:text-left hidden md:block">
             {/*<Image src={"/logo.png"} alt="Logo" width={50} height={50} />*/}
-            Aloqa:{" "}
+            {t("contact")}:{" "}
             <Link className="font-medium" href={`tel:${info?.phone_number}`}>
               {formatPhoneNumber(info?.phone_number)}
             </Link>
@@ -36,7 +39,7 @@ const HeaderTop = () => {
               className="flex items-center gap-1 cursor-pointer font-medium transition-all duration-300 hover:text-primary-main"
             >
               <Video className="flex shrink-0" />
-              Video orqali murojat qilish
+              {t("call_video")}
             </div>
             <div className="w-px h-6 bg-black hidden sm:block"></div>
             <div
@@ -47,7 +50,7 @@ const HeaderTop = () => {
               className="flex items-center gap-1 cursor-pointer font-medium transition-all duration-300 hover:text-primary-main"
             >
               <PhoneCall size={20} className="flex shrink-0" />
-              Telefon orqali murojat qilish
+              {t("call_phone")}
             </div>
           </div>
         </div>

@@ -19,7 +19,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { useToast } from "../ui/use-toast";
 import useContactStore from "@/store/contact/contact";
@@ -28,6 +27,7 @@ import ButtonCustom from "@/components/global/button";
 import useOrderDocument from "@/store/order-document/order-document";
 import { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
+import { getTranslation } from "@/i18n";
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
@@ -43,6 +43,8 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const { toast } = useToast();
+
+  const { t } = getTranslation();
 
   const { postContact, loading } = useContactStore();
   const {
@@ -74,13 +76,13 @@ export function ContactForm() {
       .then((res) => {
         if (res?.ok) {
           toast({
-            title: "Form Submitted Successfully.",
+            title: t("successfully_sent"),
             className:
               "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
           });
         } else {
           toast({
-            title: "Something went wrong",
+            title: t("something_went_wrong"),
             className:
               "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
           });
@@ -88,7 +90,7 @@ export function ContactForm() {
       })
       .catch(() => {
         toast({
-          title: "Something went wrong",
+          title: t("something_went_wrong"),
           className:
             "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
         });
@@ -116,7 +118,7 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  placeholder="Ism Familiya"
+                  placeholder={t("full_name")}
                   {...field}
                   className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
@@ -151,7 +153,7 @@ export function ContactForm() {
               <FormControl>
                 <Input
                   type="email"
-                  placeholder="Email"
+                  placeholder={t("email")}
                   {...field}
                   className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
@@ -172,7 +174,7 @@ export function ContactForm() {
                 >
                   <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
                     <SelectValue
-                      placeholder="Murojat turi"
+                      placeholder={t("type_request")}
                       className="font-normal"
                     />
                   </SelectTrigger>
@@ -200,7 +202,7 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Textarea
-                  placeholder="Murojatingizni yozib qoldiring..."
+                  placeholder={t("write_your_message")}
                   {...field}
                   className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
@@ -209,7 +211,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <ButtonCustom text="Yuborish" disabled={loading} loading={loading} />
+        <ButtonCustom text={t("send")} disabled={loading} loading={loading} />
       </form>
     </Form>
   );

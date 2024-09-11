@@ -4,8 +4,10 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import SearchSidebar from "@/components/layout/search-sidebar/SearchSidebar";
 import { useState } from "react";
+import { getTranslation } from "@/i18n";
 
 const DesktopHeaderLink = () => {
+  const { t } = getTranslation();
   const [searchOpen, setSearchOpen] = useState(false);
   return (
     <nav>
@@ -15,7 +17,7 @@ const DesktopHeaderLink = () => {
             href="/about"
             className="relative block py-7 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"
           >
-            Biz Haqimizda
+            {t("about")}
           </Link>
         </li>
         <li className="group">
@@ -23,7 +25,7 @@ const DesktopHeaderLink = () => {
             href="/services"
             className="relative block py-7 pr-5 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"
           >
-            Xizmatlar
+            {t("services")}
           </Link>
         </li>
         <li className="group">
@@ -31,7 +33,7 @@ const DesktopHeaderLink = () => {
             href="/order-document"
             className="relative block py-7 pr-5 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"
           >
-            Hujjat buyurtma qilish
+            {t("order_document")}
           </Link>
         </li>
         <li className="group relative">
@@ -39,7 +41,7 @@ const DesktopHeaderLink = () => {
             href="/blog"
             className="relative block py-7 pr-5 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"
           >
-            Yangiliklar
+            {t("news")}
           </Link>
         </li>
         <li className="group relative">
@@ -47,7 +49,7 @@ const DesktopHeaderLink = () => {
             href="/contact/"
             className="relative block py-7 duration-300 ease-in-out after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:scale-x-0 after:bg-primary-main after:transition-transform after:content-[''] group-hover:after:scale-x-100"
           >
-            Contact
+            {t("contact")}
           </Link>
         </li>
         <li
@@ -55,7 +57,7 @@ const DesktopHeaderLink = () => {
           className="group relative flex h-full cursor-pointer shrink-0 items-center gap-2 transition-all duration-500 hover:text-primary-main hover:border-primary-main"
         >
           <Search />
-          Hujjatni tekshirish
+          {t("check_document")}
         </li>
       </ul>
       {searchOpen && (

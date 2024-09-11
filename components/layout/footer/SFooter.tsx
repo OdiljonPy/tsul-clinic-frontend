@@ -9,8 +9,11 @@ import { useEffect } from "react";
 import useInfoStore from "@/store/contact/info";
 import { Instagram, Linkedin, Send, Twitter, Youtube } from "lucide-react";
 import SocialIcon from "@/components/layout/footer/components/SocialIcon";
+import { getTranslation } from "@/i18n";
 
 const SFooter = () => {
+  const { t } = getTranslation();
+
   const { links, fetchLinks } = useLinkStore();
   const { info, fetchInfo } = useInfoStore();
 
@@ -33,7 +36,7 @@ const SFooter = () => {
               <span className="text-primary-main">CLINIC</span>
             </Link>
             <p className="py-8 text-sm text-white lg:max-w-xs text-center lg:text-left">
-              Bizni ijtimoiy tarmoqlar orqali kuzatib boring!
+              {t("follow_us")}
             </p>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               <SocialIcon url={info?.telegram}>
@@ -54,7 +57,9 @@ const SFooter = () => {
             </div>
           </div>
           <div className="lg:mx-auto text-center sm:text-left">
-            <h4 className="text-lg text-white font-medium mb-7">Havolalar</h4>
+            <h4 className="text-lg text-white font-medium mb-7">
+              {t("links")}
+            </h4>
             <ul className="text-sm  transition-all duration-500">
               {footerLinks.map((url, idx) => (
                 <li key={idx} className="mb-6">
@@ -62,14 +67,16 @@ const SFooter = () => {
                     href={url.link}
                     className="text-lime-50 hover:text-white"
                   >
-                    {url.name}
+                    {t(url.name)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div className="lg:mx-auto text-center sm:text-left">
-            <h4 className="text-lg text-white font-medium mb-7">Manbalar</h4>
+            <h4 className="text-lg text-white font-medium mb-7">
+              {t("sources")}
+            </h4>
             <ul className="text-sm  transition-all duration-500">
               {links
                 ?.slice(0, Math.floor(links.length / 3))
@@ -87,7 +94,9 @@ const SFooter = () => {
             </ul>
           </div>
           <div className="lg:mx-auto text-center sm:text-left">
-            <h4 className="text-lg text-white font-medium mb-7">Manbalar</h4>
+            <h4 className="text-lg text-white font-medium mb-7">
+              {t("sources")}
+            </h4>
             <ul className="text-sm  transition-all duration-500">
               {links
                 ?.slice(
@@ -108,7 +117,9 @@ const SFooter = () => {
             </ul>
           </div>
           <div className="lg:mx-auto text-center sm:text-left">
-            <h4 className="text-lg text-white font-medium mb-7">Qo`shimcha</h4>
+            <h4 className="text-lg text-white font-medium mb-7">
+              {t("sources")}
+            </h4>
             <ul className="text-sm  transition-all duration-500">
               {links
                 ?.slice(Math.floor(links.length / 3) * 2)

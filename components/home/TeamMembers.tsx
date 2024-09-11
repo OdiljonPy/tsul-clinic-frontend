@@ -5,8 +5,10 @@ import React, { useEffect } from "react";
 import { TeamMembersCarousel } from "../shared/TeamMembersCarousel";
 import useTeamStore from "@/store/home/team";
 import Loading from "@/app/(root)/loading";
+import { getTranslation } from "@/i18n";
 
 const TeamMembers = () => {
+  const { t } = getTranslation();
   const { team, loading, fetchTeam } = useTeamStore();
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const TeamMembers = () => {
   return (
     <>
       <div className="container pb-40 pt-16 sm:pb-40 sm:pt-20 lg:pb-52 lg:pt-28">
-        <PrimaryHeadline text="Bizning jamoa" />
+        <PrimaryHeadline text={t("our_team")} />
         <TeamMembersCarousel team={team} />
       </div>
     </>

@@ -7,12 +7,14 @@ import Loading from "@/app/(root)/loading";
 import formatPhoneNumber from "@/utility/formatPhoneNumber";
 import PrimaryHeadline from "@/components/global/primary-headline";
 import { cn } from "@/lib/utils";
+import { getTranslation } from "@/i18n";
 
 interface props {
   className?: string;
 }
 
 const ContactInfo = ({ className }: props) => {
+  const { t } = getTranslation();
   const { info, loading, fetchInfo } = useInfoStore();
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const ContactInfo = ({ className }: props) => {
   return (
     <div className={cn(className, "")}>
       <PrimaryHeadline
-        text="Aloqaga chiqish"
+        text={t("contact_with")}
         additionalClass="text-3xl primary-headline-left"
         headlineType="h3"
       />
@@ -45,7 +47,7 @@ const ContactInfo = ({ className }: props) => {
       <div>
         <div className="mt-7">
           <h3 className="mb-4 text-2xl font-bold text-[#333]">
-            Bizning manzillarmiz
+            {t("our_address")}
           </h3>
           {info?.office_address?.map((office) => (
             <a

@@ -11,12 +11,14 @@ import Banner from "@/components/home/banner";
 import PreFooter from "@/components/shared/PreFooter";
 import Testimonials from "@/components/home/Testimonials";
 import { Metadata } from "next";
+import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "TSUL CLINIC",
-  description: "Your one stop solution for legal matters",
+  description: "TSULCLINIC | Har qanday yuridik masalada biz bilan bog'laning",
 };
 const Home = () => {
+  const { t } = getTranslation();
   return (
     <>
       <Banner />
@@ -25,18 +27,18 @@ const Home = () => {
       <TwoColumnTextWithImage />
       {/*<Features />*/}
       <CTA
-        headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
+        headline={t("extraordinary_service")}
         buttonLink="/contact"
-        buttonText="Biz bilan bog'laning"
+        buttonText={t("contact_with")}
         ctaType="withBg"
       />
       {/*<PracticeAreas />*/}
       <BlogPosts />
       <TeamMembers />
       <CTA
-        headline="Biz har bir ishni bir xil e'tibor va fidoyilik bilan ko'rib chiqamiz, chunki har bir mijoz muhim."
+        headline={t("our_more_desc")}
         buttonLink="/contant"
-        buttonText="Request Consultation"
+        buttonText={t("contact_with")}
         ctaType="withImage"
       />
       <FAQs />

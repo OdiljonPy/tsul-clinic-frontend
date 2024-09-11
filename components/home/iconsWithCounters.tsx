@@ -8,8 +8,10 @@ import libraryicon from "@/public/assets/library-icon.svg";
 import useStatisticsStore from "@/store/home/statistics";
 import { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
+import {getTranslation} from "@/i18n";
 
 const IconsWithCounters = () => {
+    const {t} = getTranslation()
   const { statistics, fetchStatistics, loading } = useStatisticsStore();
 
   useEffect(() => {
@@ -36,7 +38,7 @@ const IconsWithCounters = () => {
                 amount={item.amount}
                 amountPreText={item.amountPreText}
                 amountPostText={item.amountPostText}
-                text={item.text}
+                text={t(item.text)}
               />
             );
           })}
