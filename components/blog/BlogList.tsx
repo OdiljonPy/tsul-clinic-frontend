@@ -11,10 +11,13 @@ import { useEffect } from "react";
 import Pagination from "@/components/shared/Pagination";
 import { useSearchParams } from "next/navigation";
 import Loading from "@/app/(root)/loading";
+import {getTranslation} from "@/i18n";
 
 const BlogList = ({ layoutClass }: { layoutClass: string }) => {
   const searchParams = useSearchParams();
   const { news, loading, fetchNews } = useNewsStore();
+
+  const { t } = getTranslation();
 
   const page = searchParams.get("page") ? Number(searchParams.get("page")) : 1;
 
@@ -64,7 +67,7 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
               <ButtonCustom
                 href={`/blog/${item.id}`}
                 buttonType="dark"
-                text="Batafsil o'qish"
+                text={t('read_more')}
               />
             </div>
           </div>

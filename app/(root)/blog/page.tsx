@@ -2,6 +2,7 @@ import BlogList from "@/components/blog/BlogList";
 import Sidebar from "@/components/blog/Sidebar";
 import InnerBanner from "@/components/global/inner-banner";
 import { Metadata } from "next";
+import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "Blog with Sidebar - Lawyero",
@@ -9,9 +10,10 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
+  const { t } = getTranslation();
   return (
     <>
-      <InnerBanner text="News" />
+      <InnerBanner text={t("news")} />
 
       <div className="relative py-[90px]">
         <div className="container">
