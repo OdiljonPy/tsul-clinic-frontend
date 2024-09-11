@@ -41,5 +41,14 @@
   "services_desc": "Biz deyarli barcha sohalarga o'zimizning huquqiy xizmatlarimizni berib kelganmiz. Biz ko'plab mijozlarimizga qonunga muvofiq o'z maqsadiga erishishiga yordam beramiz. Ulardan eng mashhurlari quyidagilar",
   "more": "Batafsil",
   "category_list": "Kategoriyalar ro'yxati",
-  "service_not_found": "Xizmatlar topilmadi"
+  "service_not_found": "Xizmatlar topilmadi",
+  "what_document_need": "Qanday hujjat kerak?",
+  "recent_news": "So'ngi yangiliklar",
+  "document_type": "Hujjat turi",
+  "choose_document_type": "Hujjat turini tanlang",
+  "enter_fullName": "Ism familiyangizni kiriting",
+  "phone_number": "Telefon raqam",
+  "message": "Xabar",
+  "enter_your_message": "Xabaringizni yozib qoldiring",
+  "service_price": "Xizmat narxi"
 }

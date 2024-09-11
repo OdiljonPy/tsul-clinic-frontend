@@ -5,8 +5,10 @@ import React, { useEffect } from "react";
 import PrimaryHeadline from "../global/primary-headline";
 import { ChevronRight } from "lucide-react";
 import useNewsStore from "@/store/news/news";
+import { getTranslation } from "@/i18n";
 
 const Sidebar = () => {
+  const { t } = getTranslation();
   const { news_popular, fetchNewsPopular } = useNewsStore();
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const Sidebar = () => {
     <div className="basis-full pt-20 lg:basis-[30%] lg:pt-0">
       <div className="">
         <PrimaryHeadline
-          text="So'ngi yangiliklar"
+          text={t("recent_news")}
           headlineType="h3"
           additionalClass="text-[32px] primary-headline-left text-background"
           formatTwoColor
