@@ -3,26 +3,26 @@ import InnerBanner from "@/components/global/inner-banner";
 import TeamMembers from "@/components/who-we-are/TeamMembers";
 import TopText from "@/components/who-we-are/TopText";
 import CTA from "@/components/shared/CTA";
-import WeAreBest from "@/components/who-we-are/WeAreBest";
-import WhyChooseUs from "@/components/who-we-are/WhyChooseUs";
 import PreFooter from "@/components/shared/PreFooter";
 import { Metadata } from "next";
+import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "TSUL CLINIC - About Us",
   description: "Your one stop solution for legal matters",
 };
 const page = () => {
+  const { t } = getTranslation();
   return (
     <>
-      <InnerBanner text="Biz Haqimizda" />
+      <InnerBanner text={t("about")} />
       <TopText />
       <TeamMembers />
       <CTA
         bgClass="bg-primary-main"
-        headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
+        headline={t("extraordinary_service")}
         buttonLink="#"
-        buttonText="Contact Us"
+        buttonText={t("contact_with")}
         ctaType="withBg"
         buttonType="dark"
       />
