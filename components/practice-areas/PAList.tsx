@@ -7,8 +7,11 @@ import ServiceCategory from "@/components/services/ServiceCategory";
 import useServicesStore from "@/store/services/services";
 import Loading from "@/app/(root)/loading";
 import { useSearchParams } from "next/navigation";
+import { getTranslation } from "@/i18n";
 
 const PAList = () => {
+  const { t } = getTranslation();
+
   const searchParams = useSearchParams();
 
   const {
@@ -46,13 +49,13 @@ const PAList = () => {
             </>
           ) : (
             <div className="w-full h-full flex justify-center items-center text-gray-700 text-2xl font-medium">
-              No Services Found
+              {t("service_not_found")}
             </div>
           )}
         </div>
         <div className="md:basis-[30%] shrink-0">
           <PrimaryHeadline
-            text="Category List"
+            text={t("category_list")}
             headlineType="h3"
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor

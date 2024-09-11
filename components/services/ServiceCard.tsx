@@ -5,12 +5,14 @@ import { Library } from "lucide-react";
 import ButtonCustom from "@/components/global/button";
 import React from "react";
 import { IServices } from "@/types/services/services";
+import { getTranslation } from "@/i18n";
 
 interface props {
   data: IServices;
 }
 
 const ServiceCard = ({ data }: props) => {
+  const { t } = getTranslation();
   return (
     <div>
       <div className="sm:flex block sm:p-4  border-DEFAULT border-[#ccc] rounded mt-2 sm:mt-0 ">
@@ -41,7 +43,7 @@ const ServiceCard = ({ data }: props) => {
           <div className="pt-4">
             <ButtonCustom
               href={`/services/${data.id}`}
-              text="Batafsil"
+              text={t("more")}
               buttonType="secondary"
               className="py-[8px] !text-sm px-4"
             />

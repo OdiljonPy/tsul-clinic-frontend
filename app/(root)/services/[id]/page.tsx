@@ -8,9 +8,11 @@ import PreFooter from "@/components/shared/PreFooter";
 import React, { useEffect } from "react";
 import useServiceDetailStore from "@/store/services/services_detail";
 import Loading from "@/app/(root)/loading";
+import { getTranslation } from "@/i18n";
 
 const ServiceDetail = ({ params }: { params: { id: string } }) => {
-  console.log(params.id);
+  const { t } = getTranslation();
+
   const { service_detail, fetchServiceDetail, loading } =
     useServiceDetailStore();
 
@@ -22,15 +24,15 @@ const ServiceDetail = ({ params }: { params: { id: string } }) => {
 
   return (
     <div>
-      <InnerBanner text="Huquqiy Maslahat Berish" image={singlepabanner} />
+      <InnerBanner text={service_detail?.name} image={singlepabanner} />
 
       <PAContent detail={service_detail} />
 
       <CTA
         bgClass="bg-primary-main"
-        headline="Eng murakkab huquqiy masalalar bo'yicha maslahat oling."
+        headline={t("extraordinary_service")}
         buttonLink="/contact"
-        buttonText="Contact Us"
+        buttonText={t("contact_with")}
         ctaType="withBg"
         buttonType="dark"
       />

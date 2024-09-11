@@ -4,20 +4,20 @@ import HeadlineWithText from "@/components/shared/HeadlineWithText";
 import PAList from "@/components/practice-areas/PAList";
 import PreFooter from "@/components/shared/PreFooter";
 import { Metadata } from "next";
+import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "Bizning Xizmatlar",
   description: "Your one stop solution for legal matters",
 };
 const page = () => {
+  const { t } = getTranslation();
   return (
     <>
-      <InnerBanner text="Bizning xizmatlar" />
+      <InnerBanner text={t("services")} />
       <HeadlineWithText
-        headlineText="Xizmatlar"
-        text="At lawyero we practice almost all areas of life. Some of the most
-          notable practice areas in which we have helped number of our clients
-          to achieve their goals according to the laws are as follows:"
+        headlineText={t("services")}
+        text={t("services_desc")}
       />
       <PAList />
       <PreFooter />

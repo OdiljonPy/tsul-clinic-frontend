@@ -37,5 +37,9 @@
   "links": "Havolalar",
   "sources": "Manbalar",
   "partners": "Hamkorlar",
-  "our_goal": "Bizning maqsadimiz"
+  "our_goal": "Bizning maqsadimiz",
+  "services_desc": "Biz deyarli barcha sohalarga o'zimizning huquqiy xizmatlarimizni berib kelganmiz. Biz ko'plab mijozlarimizga qonunga muvofiq o'z maqsadiga erishishiga yordam beramiz. Ulardan eng mashhurlari quyidagilar",
+  "more": "Batafsil",
+  "category_list": "Kategoriyalar ro'yxati",
+  "service_not_found": "Xizmatlar topilmadi"
 }
