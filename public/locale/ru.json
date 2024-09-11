@@ -50,5 +50,7 @@
   "phone_number": "Telefon raqam",
   "message": "Xabar",
   "enter_your_message": "Xabaringizni yozib qoldiring",
-  "service_price": "Xizmat narxi"
+  "service_price": "Xizmat narxi",
+  "for_contact": "Aloqaga chiqish uchun",
+  "for_contact_desc": "Maslahat olish uchun bizga qo'ng'iroq qiling yoki quyidagi formani to'ldiring. Bizning vakillarimizdan biri sizga 24 soat ichida javob beradi."
 }
