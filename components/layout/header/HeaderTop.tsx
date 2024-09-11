@@ -3,21 +3,28 @@
 import Link from "next/link";
 import { PhoneCall, Video } from "lucide-react";
 import ApplicationModal from "@/components/layout/modal/ApplicationModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MeetingType } from "@/types/create-meeting/create-meeting";
+import useInfoStore from "@/store/contact/info";
+import formatPhoneNumber from "@/utility/formatPhoneNumber";
 
 const HeaderTop = () => {
   const [open, setOpen] = useState(false);
   const [type, setType] = useState<MeetingType>(MeetingType.phone);
+  const { info, fetchInfo } = useInfoStore();
+
+  useEffect(() => {
+    if (!info?.id) fetchInfo;
+  }, [fetchInfo]);
   return (
     <div className="bg-white px-4 py-3">
       <div className="sm:container ">
         <div className="flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-between">
           <div className="basis-full text-center sm:basis-auto sm:text-left hidden md:block">
             {/*<Image src={"/logo.png"} alt="Logo" width={50} height={50} />*/}
-            Call Us:{" "}
-            <Link className="font-bold" href="tel:998991234567">
-              (99) 123-45-67
+            Aloqa:{" "}
+            <Link className="font-medium" href={`tel:${info?.phone_number}`}>
+              {formatPhoneNumber(info?.phone_number)}
             </Link>
           </div>
           <div className="flex items-center gap-3">
