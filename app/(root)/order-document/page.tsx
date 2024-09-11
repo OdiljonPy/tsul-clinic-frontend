@@ -68,6 +68,8 @@ const OrderDocument = () => {
     },
   });
 
+  const documentType = form.watch("type");
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     const orderDocumentData: IPostOrderDocument = {
       customer_full_name: values.fullName,
@@ -189,6 +191,22 @@ const OrderDocument = () => {
                       )}
                     />
                   </div>
+                  {documentType && (
+                    <div className="flex justify-between">
+                      <p className="text-background">Xizmat narxi</p>
+                      <p className="text-background">
+                        {document_category.length &&
+                          document_category
+                            ?.find(
+                              (document) => document.id === Number(radioValue),
+                            )
+                            ?.document_type?.find(
+                              (item) => item.id === Number(documentType),
+                            )?.price}{" "}
+                        USZ
+                      </p>
+                    </div>
+                  )}
                   <div>
                     <FormLabel
                       htmlFor="fullName"
