@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { URLParams } from "@/types";
-import { blogPosts } from "@/lib/data";
 import { formatDate } from "@/lib/utilFunctons";
 
 import Sidebar from "@/components/blog/Sidebar";
@@ -19,6 +18,7 @@ const Page = ({ params }: URLParams) => {
   }, [params.id]);
 
   if (loading) return <Loading />;
+  if (error) throw new Error();
   return (
     <>
       <div className="relative py-[90px]">

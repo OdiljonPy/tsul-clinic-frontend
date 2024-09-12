@@ -21,6 +21,7 @@ const PAList = () => {
     service_category,
     fetchServicesCategory,
     filterCategory,
+    error,
   } = useServicesStore();
 
   const category = searchParams.get("category");
@@ -37,6 +38,7 @@ const PAList = () => {
   }, [category]);
 
   if (loading) return <Loading />;
+  if (error) throw new Error();
   return (
     <div className="container lg:pb-28 pb-20">
       <div className="flex flex-col-reverse md:flex-row gap-3 sm:gap-4">

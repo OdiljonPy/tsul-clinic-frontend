@@ -11,13 +11,14 @@ import useTeamStore from "@/store/home/team";
 import Loading from "@/app/(root)/loading";
 
 const Partners = () => {
-  const { team, loading, fetchTeam } = useTeamStore();
+  const { team, loading, fetchTeam, error } = useTeamStore();
 
   useEffect(() => {
     if (team.length === 0) fetchTeam();
   }, [fetchTeam]);
 
   if (loading) return <Loading />;
+  if (error) throw new Error();
   return (
     <>
       <InnerBanner text="Bizning Hamkorlar" />

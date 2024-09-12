@@ -43,7 +43,7 @@
   "category_list": "Kategoriyalar ro'yxati",
   "service_not_found": "Xizmatlar topilmadi",
   "what_document_need": "Qanday hujjat kerak?",
-  "recent_news": "So'ngi yangiliklar",
+  "recent_news": "Mashhur yangiliklar",
   "document_type": "Hujjat turi",
   "choose_document_type": "Hujjat turini tanlang",
   "enter_fullName": "Ism familiyangizni kiriting",
@@ -62,5 +62,7 @@
   "accepted": "Qabul qilingan",
   "completed": "Tasdiqlangan",
   "cancelled": "Bekor qilingan",
-  "faq": "Tez-tez so'raladigan savollar"
+  "faq": "Tez-tez so'raladigan savollar",
+  "go_back": "Orqaga qaytish",
+  "page_not_found": "Bunday sahifa mavjud emas"
 }

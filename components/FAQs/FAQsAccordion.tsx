@@ -8,13 +8,14 @@ import useFAQStore from "@/store/faq/faq";
 import Loading from "@/app/(root)/loading";
 
 const FAQsAccordion = () => {
-  const { faq, fetchFAQ, loading } = useFAQStore();
+  const { faq, fetchFAQ, loading, error } = useFAQStore();
 
   useEffect(() => {
     if (faq.length === 0) fetchFAQ();
   }, [fetchFAQ]);
 
   if (loading) return <Loading />;
+  if (error) throw new Error();
   return (
     <div className="container lg:pt-[85px] pt-[70px] lg:pb-20 pb-16">
       <PrimaryHeadline text="FAQs Accordion" />

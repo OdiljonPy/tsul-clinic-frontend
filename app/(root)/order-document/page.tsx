@@ -56,6 +56,7 @@ const OrderDocument = () => {
     document_category,
     fetchDocumentCategory,
     createOrderDocument,
+    error,
   } = useOrderDocument();
 
   const [radioValue, setRadioValue] = useState("1");
@@ -113,6 +114,7 @@ const OrderDocument = () => {
   }, [fetchDocumentCategory]);
 
   if (loading) return <Loading />;
+  if (error) throw new Error();
   return (
     <div>
       <InnerBanner text={t("order_document")} />

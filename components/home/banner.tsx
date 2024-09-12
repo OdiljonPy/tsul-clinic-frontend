@@ -34,6 +34,7 @@ const Banner = () => {
   }, [fetchBannerItems]);
 
   if (loading) return <Loading />;
+  if (error) throw new Error();
 
   return (
     <>

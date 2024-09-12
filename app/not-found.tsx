@@ -1,39 +1,29 @@
 import { TriangleAlert } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
+import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "Page Not Found - Lawyero",
   description: "Your one stop solution for legal matters",
 };
 const page = () => {
+  const { t } = getTranslation();
   return (
-    <>
-      <div className="container py-[70px] text-center sm:py-[90px]">
-        <h1 className="mb-8 text-[25px] font-bold text-[#333] sm:text-[40px]">
-          OOPS! SOMETHING WENT WRONG
-        </h1>
-        <div className="flex w-full justify-center text-center">
-          <TriangleAlert size={60} />
-        </div>
-        <p className="mt-9 text-sm font-bold text-[#333]">
-          The Page You Are Trying To Access Is Not Accessable Or Moved To
-          Another Location.
+    <div className="w-full h-screen top-0 left-0 fixed flex  justify-center items-center !z-[9999] bg-gray-100">
+      <div className="flex flex-col items-center">
+        <h1 className="text-[120px] font-extrabold text-gray-700">404</h1>
+        <p className="text-2xl font-medium text-gray-600 mb-6">
+          {t("page_not_found")}
         </p>
-        <div className="mt-2 flex justify-center">
-          <span className="inline-block text-base text-[#333]">
-            Click Here to go to{" "}
-          </span>
-          <Link
-            className="ml-1 inline-block text-base text-primary-main"
-            href="/"
-          >
-            {" "}
-            Go Back to Home
-          </Link>
-        </div>
+        <Link
+          href="/"
+          className="px-4 py-2 font-medium text-white bg-indigo-500 rounded-md hover:bg-indigo-600 transition-all duration-200 ease-in-out"
+        >
+          {t("go_back")}
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

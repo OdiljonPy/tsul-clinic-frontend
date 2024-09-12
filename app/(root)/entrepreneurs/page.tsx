@@ -2,7 +2,7 @@ const Entrepreneurs = () =>{
     return (
         <div>
             entepreneurs
-                
+
         </div>
     )
 }
