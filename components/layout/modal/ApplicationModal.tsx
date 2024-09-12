@@ -28,6 +28,7 @@ import {
   MeetingType,
 } from "@/types/create-meeting/create-meeting";
 import useCreateMeetingStore from "@/store/create-meeting/create-meeting";
+import { getTranslation } from "@/i18n";
 
 interface props {
   open: boolean;
@@ -45,6 +46,7 @@ const formSchema = z.object({
 });
 
 const ApplicationModal = ({ open, setOpen, type }: props) => {
+  const { t } = getTranslation();
   const { toast } = useToast();
 
   const { postCreateMeeting, loading } = useCreateMeetingStore();
@@ -66,16 +68,15 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
 
     postCreateMeeting(data)
       .then((res) => {
-        console.log(res, "res");
         if (res?.ok) {
           toast({
-            title: "Form Submitted Successfully.",
+            title: t("successfully_sent"),
             className:
               "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
           });
         } else {
           toast({
-            title: "Something went wrong",
+            title: t("something_went_wrong"),
             className:
               "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
           });
@@ -83,7 +84,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
       })
       .catch(() => {
         toast({
-          title: "Something went wrong",
+          title: t("something_went_wrong"),
           className:
             "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
         });
@@ -109,9 +110,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
             />
             <AlertDialogTitle>
               <div className="text-center font-medium text-2xl">
-                {type === MeetingType.phone
-                  ? "Telefon orqali murojat qilish"
-                  : "Video orqali murojat qilish"}
+                {type === MeetingType.phone ? t("call_phone") : t("call_video")}
               </div>
             </AlertDialogTitle>
             <AlertDialogDescription>
@@ -125,7 +124,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                       htmlFor="fullName"
                       className="text-background mb-3 inline-block"
                     >
-                      Full Name
+                      {t("full_name")}
                     </FormLabel>
                     <FormField
                       control={form.control}
@@ -134,7 +133,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                         <FormItem>
                           <FormControl>
                             <Input
-                              placeholder="Full Name"
+                              placeholder={t("full_name")}
                               {...field}
                               className="h-12 w-full rounded-none border-DEFAULT border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
@@ -149,7 +148,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                       htmlFor="phoneNumber"
                       className="text-background mb-3 inline-block"
                     >
-                      Phone Number
+                      {t("phone_number")}
                     </FormLabel>
                     <FormField
                       control={form.control}
@@ -158,7 +157,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                         <FormItem>
                           <FormControl>
                             <Input
-                              placeholder="Phone Number"
+                              placeholder="+998 90 123 45 67"
                               {...field}
                               className="h-12 w-full rounded-none border-DEFAULT border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
@@ -170,7 +169,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                   </div>
                   <div className="flex justify-center mt-4">
                     <ButtonCustom
-                      text="Jo'natish"
+                      text={t("send")}
                       type="submit"
                       disabled={loading}
                       loading={loading}
