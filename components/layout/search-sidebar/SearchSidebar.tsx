@@ -3,7 +3,7 @@
 import { Search, X } from "lucide-react";
 import DocumentNotFound from "@/components/layout/search-sidebar/DocumentNotFound";
 import useCheckDocumentStore from "@/store/check-document/check-document";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Spinner from "@/components/shared/Spinner";
 import DownloadDocument from "@/components/layout/search-sidebar/DownloadDocument";
 import DocumentStatusSection from "@/components/layout/search-sidebar/DocumentStatus";
@@ -26,6 +26,11 @@ const SearchSidebar = ({ open, setOpen }: props) => {
     e.preventDefault();
     checkDocumentStatus(orderNumber);
   };
+
+  useEffect(() => {
+    if (open) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+  }, [open]);
 
   return (
     <div
