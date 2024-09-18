@@ -18,7 +18,7 @@ const LanguageSwitcher = () => {
   };
   useEffect(() => {
     if (!i18n.language) {
-      i18n.changeLanguage("uz");
+      i18n.changeLanguage("ru");
     }
   }, []);
   return (
@@ -27,7 +27,7 @@ const LanguageSwitcher = () => {
       onClick={changeLanguage}
     >
       <Globe size={20} />
-      <span className="uppercase font-medium">{i18n.language || "uz"}</span>
+      <span className="uppercase font-medium">{i18n.language || "ru"}</span>
     </div>
   );
 };

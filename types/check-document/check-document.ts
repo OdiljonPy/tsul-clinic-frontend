@@ -1,14 +1,16 @@
 export enum DocumentStatus {
   pending,
-  accepted,
-  completed,
+  payed,
+  prepared,
+  ready,
   cancelled,
 }
 
 export const DocumentStatusInfo: Record<DocumentStatus, string> = {
   [DocumentStatus.pending]: "pending",
-  [DocumentStatus.accepted]: "accepted",
-  [DocumentStatus.completed]: "completed",
+  [DocumentStatus.payed]: "payed",
+  [DocumentStatus.prepared]: "prepared",
+  [DocumentStatus.ready]: "ready",
   [DocumentStatus.cancelled]: "cancelled",
 };
 

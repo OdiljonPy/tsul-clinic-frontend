@@ -14,11 +14,10 @@ const DocumentStatusSection = ({ documentInfo }: props) => {
   return (
     <div className="flex justify-between items-center">
       <p className="text-gray-700 font-medium text-lg">
-
         {t("document_status")}
       </p>
       <p
-        className={`font-medium text-base ${documentInfo?.status === DocumentStatus.pending ? "text-orange-200" : documentInfo?.status === DocumentStatus.accepted ? "text-green-500" : documentInfo?.status === DocumentStatus.cancelled ? "text-red-500" : "text-primary-main"}`}
+        className={`font-medium text-base ${documentInfo?.status === DocumentStatus.pending ? "text-orange-200" : documentInfo?.status === DocumentStatus.payed ? "text-green-500" : documentInfo?.status === DocumentStatus.cancelled ? "text-red-500" : documentInfo?.status === DocumentStatus.prepared ? "text-yellow-300" : "text-primary-main"}`}
       >
         {t(DocumentStatusInfo[documentInfo?.status])}
       </p>
