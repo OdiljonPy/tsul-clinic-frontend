@@ -6,8 +6,8 @@ const API = axios.create({
 });
 
 API.interceptors.request.use((req) => {
-  req.headers["Accept-Language"] = Cookies.get("NEXT_LOCALE")
-    ? Cookies.get("NEXT_LOCALE")
+  req.headers["Accept-Language"] = Cookies.get("i18nextLng")
+    ? Cookies.get("i18nextLng")
     : "uz";
   return req;
 });
