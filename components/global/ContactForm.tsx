@@ -28,6 +28,7 @@ import useOrderDocument from "@/store/order-document/order-document";
 import { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
+import { PhoneInput } from "react-international-phone";
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
@@ -57,7 +58,7 @@ export function ContactForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
-      phoneNumber: "",
+      phoneNumber: "+998",
       email: "",
       case: "",
       yourMessage: "",
@@ -68,7 +69,7 @@ export function ContactForm() {
     const data: IContact = {
       full_name: values.fullName,
       email: values.email,
-      phone: values.phoneNumber,
+      phone: values.phoneNumber.slice(1),
       type: Number(values.case),
       message: values.yourMessage,
     };
@@ -134,10 +135,17 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input
-                  placeholder="+998 90 123 45 67"
-                  {...field}
-                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                <PhoneInput
+                  hideDropdown={true}
+                  inputClassName={
+                    "h-12 w-full rounded-none !border  bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                  }
+                  defaultCountry="uz"
+                  inputProps={{
+                    placeholder: "+998 90 123 45 67",
+                  }}
+                  value={field.value}
+                  onChange={(value) => field.onChange(value)}
                 />
               </FormControl>
               <FormMessage />

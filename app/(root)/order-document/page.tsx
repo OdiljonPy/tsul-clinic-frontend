@@ -35,6 +35,7 @@ import { IPostOrderDocument } from "@/types/order-document/document-category";
 import Spinner from "@/components/shared/Spinner";
 import Sidebar from "@/components/blog/Sidebar";
 import { getTranslation } from "@/i18n";
+import { PhoneInput } from "react-international-phone";
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
@@ -65,7 +66,7 @@ const OrderDocument = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
-      phoneNumber: "",
+      phoneNumber: "+998",
       type: "",
       message: "",
     },
@@ -76,7 +77,7 @@ const OrderDocument = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     const orderDocumentData: IPostOrderDocument = {
       customer_full_name: values.fullName,
-      customer_phone: values.phoneNumber,
+      customer_phone: values.phoneNumber.slice(1),
       customer_message: values.message,
       document_category: Number(radioValue),
       document_type: Number(values.type),
@@ -251,10 +252,17 @@ const OrderDocument = () => {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <Input
-                              placeholder="+99 123-45-67"
-                              {...field}
-                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                            <PhoneInput
+                              hideDropdown={true}
+                              inputClassName={
+                                "h-12 w-full rounded-none !border  bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                              }
+                              defaultCountry="uz"
+                              inputProps={{
+                                placeholder: "+998 90 123 45 67",
+                              }}
+                              value={field.value}
+                              onChange={(value) => field.onChange(value)}
                             />
                           </FormControl>
                           <FormMessage />

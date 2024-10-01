@@ -29,6 +29,7 @@ import {
 } from "@/types/create-meeting/create-meeting";
 import useCreateMeetingStore from "@/store/create-meeting/create-meeting";
 import { getTranslation } from "@/i18n";
+import { PhoneInput } from "react-international-phone";
 
 interface props {
   open: boolean;
@@ -55,14 +56,14 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: "",
-      phoneNumber: "",
+      phoneNumber: "+998",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const data: ICreateMeeting = {
       customer_full_name: values.fullName,
-      customer_phone: values.phoneNumber,
+      customer_phone: values.phoneNumber.slice(1),
       meeting_type: type,
     };
 
@@ -135,7 +136,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                             <Input
                               placeholder={t("full_name")}
                               {...field}
-                              className="h-12 w-full rounded-none border-DEFAULT border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                              className="h-12 w-full rounded-none border-DEFAULT border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                           </FormControl>
                           <FormMessage />
@@ -156,10 +157,17 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <Input
-                              placeholder="+998 90 123 45 67"
-                              {...field}
-                              className="h-12 w-full rounded-none border-DEFAULT border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                            <PhoneInput
+                              hideDropdown={true}
+                              inputClassName={
+                                "h-12 w-full rounded-none !border !border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                              }
+                              defaultCountry="uz"
+                              inputProps={{
+                                placeholder: "+998 90 123 45 67",
+                              }}
+                              value={field.value}
+                              onChange={(value) => field.onChange(value)}
                             />
                           </FormControl>
                           <FormMessage />
