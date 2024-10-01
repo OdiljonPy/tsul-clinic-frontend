@@ -174,7 +174,7 @@ const OrderDocument = () => {
                               onValueChange={field.onChange}
                               defaultValue={field.value}
                             >
-                              <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
+                              <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
                                 <SelectValue
                                   placeholder={t("choose_document_type")}
                                 />
@@ -229,7 +229,7 @@ const OrderDocument = () => {
                             <Input
                               placeholder={t("enter_fullName")}
                               {...field}
-                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                           </FormControl>
                           <FormMessage />
@@ -254,7 +254,7 @@ const OrderDocument = () => {
                             <Input
                               placeholder="+99 123-45-67"
                               {...field}
-                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                           </FormControl>
                           <FormMessage />
@@ -279,7 +279,7 @@ const OrderDocument = () => {
                             <Textarea
                               placeholder={t("enter_your_message")}
                               {...field}
-                              className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                              className="h-48 w-full resize-none rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background  placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                           </FormControl>
                           <FormMessage />
