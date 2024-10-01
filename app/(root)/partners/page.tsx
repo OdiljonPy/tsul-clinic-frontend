@@ -9,9 +9,12 @@ import PrimaryHeadline from "@/components/global/primary-headline";
 import { TeamMembersCarousel } from "@/components/shared/TeamMembersCarousel";
 import Loading from "@/app/(root)/loading";
 import usePartnerStore from "@/store/partners/partner";
+import { getTranslation } from "@/i18n";
 
 const Partners = () => {
   const { loading, error, fetchPartners, partners } = usePartnerStore();
+
+  const { t } = getTranslation();
 
   useEffect(() => {
     fetchPartners();
@@ -23,11 +26,11 @@ const Partners = () => {
   if (error) throw new Error();
   return (
     <>
-      <InnerBanner text="Bizning Hamkorlar" />
+      <InnerBanner text={t("our_partners")} />
       <div className="container">
         <div className="pb-40 pt-10 sm:pb-40 sm:pt-14 lg:pb-52 lg:pt-16">
           <PrimaryHeadline
-            text="Advakatlar"
+            text={t("advocate")}
             headlineType="h3"
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
@@ -36,7 +39,7 @@ const Partners = () => {
         </div>
         <div className="pb-40 sm:pb-40 lg:pb-52">
           <PrimaryHeadline
-            text="Nataruslar"
+            text={t("notary")}
             headlineType="h3"
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
@@ -45,7 +48,7 @@ const Partners = () => {
         </div>
         <div className="pb-40  sm:pb-40 lg:pb-52 ">
           <PrimaryHeadline
-            text="Auditorlar"
+            text={t("auditors")}
             headlineType="h3"
             additionalClass="text-[32px] primary-headline-left text-background"
             formatTwoColor
