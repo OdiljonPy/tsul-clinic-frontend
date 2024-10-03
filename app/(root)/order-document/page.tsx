@@ -41,7 +41,7 @@ const formSchema = z.object({
   fullName: z.string().min(3, {
     message: "First Name must be at least 3 characters.",
   }),
-  phoneNumber: z.string().max(13).min(9, {
+  phoneNumber: z.string().startsWith("+998").max(13).min(9, {
     message: "Invalid phone number",
   }),
   type: z.string().min(1, { message: "Please select an option" }),
