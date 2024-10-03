@@ -31,11 +31,16 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useOrderDocument from "@/store/order-document/order-document";
 import Loading from "@/app/(root)/loading";
-import { IPostOrderDocument } from "@/types/order-document/document-category";
+import {
+  IDocumentCategory,
+  IPostOrderDocument,
+} from "@/types/order-document/document-category";
 import Spinner from "@/components/shared/Spinner";
 import Sidebar from "@/components/blog/Sidebar";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
+import formatPhoneNumber from "@/utility/formatPhoneNumber";
+import { formatNumberWithSpices } from "@/utility/formatNumberWithSpices";
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
@@ -109,6 +114,14 @@ const OrderDocument = () => {
         form.reset();
       });
   }
+
+  const parseFormatNumber = (docs: IDocumentCategory[]) => {
+    const price = docs
+      ?.find((document) => document.id === Number(radioValue))
+      ?.document_type?.find((item) => item.id === Number(documentType))?.price;
+
+    return price ? formatNumberWithSpices(parseInt(price)) : "";
+  };
 
   useEffect(() => {
     if (document_category?.length === 0) fetchDocumentCategory();
@@ -203,14 +216,8 @@ const OrderDocument = () => {
                       <p className="text-background">{t("service_price")}</p>
                       <p className="text-background">
                         {document_category.length &&
-                          document_category
-                            ?.find(
-                              (document) => document.id === Number(radioValue),
-                            )
-                            ?.document_type?.find(
-                              (item) => item.id === Number(documentType),
-                            )?.price}{" "}
-                        USZ
+                          parseFormatNumber(document_category)}{" "}
+                        UZS
                       </p>
                     </div>
                   )}
