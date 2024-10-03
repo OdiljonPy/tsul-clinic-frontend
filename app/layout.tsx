@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
 import type { Metadata } from "next";
-import { Albert_Sans } from "next/font/google";
+import { Albert_Sans, Roboto } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/toaster";
@@ -9,10 +9,18 @@ import Header from "@/components/shared/Header";
 import React from "react";
 import SFooter from "@/components/layout/footer/SFooter";
 import Head from "next/head";
+import { getTranslation } from "@/i18n";
+import { cookies } from "next/headers";
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
   variable: "--font-albert-sans",
+});
+
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -28,6 +36,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { i18n } = getTranslation();
   return (
     <html lang="en">
       <Head>
@@ -45,7 +54,9 @@ export default function RootLayout({
           }}
         ></script>
       </Head>
-      <body className={`${albertSans.variable}`}>
+      <body
+        className={`${i18n.language === "uz" ? albertSans.variable : roboto.variable}`}
+      >
         <Header />
         {children}
         <SFooter />
