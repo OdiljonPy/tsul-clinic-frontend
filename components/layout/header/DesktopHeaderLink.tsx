@@ -17,7 +17,7 @@ const DesktopHeaderLink = () => {
           <li className="group" key={idx}>
             <Link
               href={item.link}
-              className="relative block py-5  transition-all duration-500 hover:text-primary-main hover:border-primary-main"
+              className="relative block py-5 transition-all duration-500 hover:text-primary-main hover:border-primary-main"
             >
               {t(item.name)}
             </Link>
