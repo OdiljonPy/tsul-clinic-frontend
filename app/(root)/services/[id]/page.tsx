@@ -9,6 +9,7 @@ import React, { useEffect } from "react";
 import useServiceDetailStore from "@/store/services/services_detail";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
+import Head from "next/head";
 
 const ServiceDetail = ({ params }: { params: { id: string } }) => {
   const { t } = getTranslation();
@@ -23,24 +24,29 @@ const ServiceDetail = ({ params }: { params: { id: string } }) => {
   if (loading) return <Loading />;
 
   return (
-    <div>
-      <InnerBanner text={service_detail?.name} image={singlepabanner} />
+    <>
+      <Head>
+        <title>{t("services")}</title>
+      </Head>
+      <div>
+        <InnerBanner text={service_detail?.name} image={singlepabanner} />
 
-      <PAContent detail={service_detail} />
+        <PAContent detail={service_detail} />
 
-      <CTA
-        bgClass="bg-primary-main"
-        headline={t("extraordinary_service")}
-        buttonLink="/contact"
-        buttonText={t("contact_with")}
-        ctaType="withBg"
-        buttonType="dark"
-      />
+        <CTA
+          bgClass="bg-primary-main"
+          headline={t("extraordinary_service")}
+          buttonLink="/contact"
+          buttonText={t("contact_with")}
+          ctaType="withBg"
+          buttonType="dark"
+        />
 
-      {/*<PABottomContent />*/}
+        {/*<PABottomContent />*/}
 
-      <PreFooter />
-    </div>
+        <PreFooter />
+      </div>
+    </>
   );
 };
 

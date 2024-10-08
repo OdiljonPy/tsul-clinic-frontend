@@ -3,6 +3,7 @@ import InnerBanner from "@/components/global/inner-banner";
 import PreFooter from "@/components/shared/PreFooter";
 import FAQsAccordion from "@/components/FAQs/FAQsAccordion";
 import { Metadata } from "next";
+import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions - Lawyero",
@@ -10,9 +11,11 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
+  const { t } = getTranslation();
+  metadata.title = t("faq");
   return (
     <>
-      <InnerBanner text="FAQS" />
+      <InnerBanner text={t("faq")} />
       <FAQsAccordion />
       <PreFooter />
     </>

@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 const page = () => {
   const { t } = getTranslation();
+  metadata.title = t("contact");
   return (
     <>
       <InnerBanner text={t("contact")} />

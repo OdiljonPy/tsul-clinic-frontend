@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   const { t } = getTranslation();
+  metadata.title = t("news");
   return (
     <>
       <InnerBanner text={t("news")} />
