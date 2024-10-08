@@ -20,6 +20,7 @@ const SearchSidebar = ({ open, setOpen }: props) => {
 
   const { t } = getTranslation();
 
+  const [onOpen, setOnOpen] = useState(open);
   const [orderNumber, setOrderNumber] = useState("");
 
   const onSubmit = (e: ChangeEvent<HTMLFormElement>) => {
@@ -28,18 +29,22 @@ const SearchSidebar = ({ open, setOpen }: props) => {
   };
 
   useEffect(() => {
-    if (open) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
-  }, [open]);
+    setOnOpen(open);
+    if (onOpen) document.body.style.overflow = "hidden";
+    else {
+      document.body.style.overflow = "auto";
+      setOpen(false);
+    }
+  }, [onOpen, open]);
 
   return (
     <div
-      className={`fixed bg-white w-full h-screen top-0 left-0 overflow-hidden transition-all duration-500 ${open ? "opacity-100" : "opacity-0"}`}
+      className={`fixed bg-white w-full h-screen top-0 left-0 overflow-hidden transition-all duration-500 ${onOpen ? "opacity-100" : "opacity-0"}`}
     >
       <div className="max-w-[80%] mx-auto">
         <X
           className="cursor-pointer m-4 ml-auto text-gray-700"
-          onClick={() => setOpen(false)}
+          onClick={() => setOnOpen(false)}
         />
         <div className="max-w-[500px] mx-auto mt-20">
           <h2 className="text-gray-700 font-medium text-lg sm:text-2xl">
