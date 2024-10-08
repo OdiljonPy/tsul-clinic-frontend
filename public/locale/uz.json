@@ -69,5 +69,8 @@
   "our_partners": "Bizning hamkorlarimiz",
   "advocate": "Advokatlar",
   "notary": "Notaruslar",
-  "auditors": "Auditorlar"
+  "auditors": "Auditorlar",
+  "invalid_phone": "Telefon raqam noto'g'ri",
+  "required": "Bu maydon to'ldirilishi shart",
+  "select_required": "Bu maydondan birini tanlang"
 }

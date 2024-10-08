@@ -31,6 +31,8 @@ import useCreateMeetingStore from "@/store/create-meeting/create-meeting";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
 
+const { t } = getTranslation();
+
 interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -39,11 +41,15 @@ interface props {
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
-    message: "First Name must be at least 3 characters.",
+    message: t("required"),
   }),
-  phoneNumber: z.string().startsWith("+998").max(13).min(9, {
-    message: "Invalid phone number",
-  }),
+  phoneNumber: z
+    .string()
+    .startsWith("+998")
+    .max(13)
+    .min(9, {
+      message: t("invalid_phone"),
+    }),
 });
 
 const ApplicationModal = ({ open, setOpen, type }: props) => {

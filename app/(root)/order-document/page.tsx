@@ -36,18 +36,23 @@ import Spinner from "@/components/shared/Spinner";
 import Sidebar from "@/components/blog/Sidebar";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
-import formatPhoneNumber from "@/utility/formatPhoneNumber";
 import { formatNumberWithSpices } from "@/utility/formatNumberWithSpices";
+
+const { t } = getTranslation();
 
 const formSchema = z.object({
   fullName: z.string().min(3, {
-    message: "First Name must be at least 3 characters.",
+    message: t("required"),
   }),
-  phoneNumber: z.string().startsWith("+998").max(13).min(9, {
-    message: "Invalid phone number",
-  }),
-  type: z.string().min(1, { message: "Please select an option" }),
-  message: z.string().min(10),
+  phoneNumber: z
+    .string()
+    .startsWith("+998")
+    .max(13)
+    .min(9, {
+      message: t("invalid_phone"),
+    }),
+  type: z.string().min(1, { message: t("select_required") }),
+  message: z.string().min(3),
 });
 
 const OrderDocument = () => {
