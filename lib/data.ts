@@ -420,13 +420,9 @@ export const footerLinks: IFooterLinks[] = [
     name: "services",
     link: "/services",
   },
-  // {
-  //   name: "Tadbirkorlar uchun",
-  //   link: "/entrepreneurs",
-  // },
   {
     name: "news",
-    link: "Blog",
+    link: "/blog",
   },
   {
     name: "partners",
@@ -442,6 +438,29 @@ export const footerLinks: IFooterLinks[] = [
   },
 ];
 
+export const headerLinks: IFooterLinks[] = [
+  {
+    name: "about",
+    link: "/about",
+  },
+  {
+    name: "services",
+    link: "/services",
+  },
+  {
+    name: "order_document",
+    link: "/order-document",
+  },
+  {
+    name: "news",
+    link: "/blog",
+  },
+
+  {
+    name: "contact",
+    link: "/contact",
+  },
+];
 
 // Data for ORDER DOCUMENT
 

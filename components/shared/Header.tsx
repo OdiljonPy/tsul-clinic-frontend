@@ -15,15 +15,15 @@ const Header = () => {
       <HeaderTop />
       <div className="relative bg-background">
         <div className="container">
-          <div className="flex  min-h-[80px] items-center gap-4  justify-between lg:min-h-full">
-            <div className="shrink-0 basis-[166px] py-3 sm:py-4">
+          <div className="flex min-h-[80px] items-center gap-4  justify-between lg:min-h-full">
+            <div className="shrink-0 basis-[166px] py-[2px] sm:py-2">
               <Link href="/" className="font-bold text-2xl">
                 <Image
                   src={`/logo_white.png`}
                   alt="Logo"
-                  width={80}
-                  height={80}
-                  className="object cover w-[60px] h-[60px] sm:w-[75px] sm:h-[75px]"
+                  width={70}
+                  height={70}
+                  className="object cover w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]"
                 />
                 {/*<span className="text-white">TSUL</span>*/}
                 {/*<span className="text-primary-main">CLINIC</span>*/}
