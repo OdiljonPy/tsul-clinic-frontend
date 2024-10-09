@@ -10,6 +10,7 @@ type CheckDocumentType = {
   loading: boolean;
   error: boolean;
   checkDocumentStatus: (id: string) => Promise<void>;
+  clearStore: () => void;
 };
 
 const useCheckDocumentStore = create<CheckDocumentType>((set) => ({
@@ -28,6 +29,9 @@ const useCheckDocumentStore = create<CheckDocumentType>((set) => ({
     } finally {
       set({ loading: false });
     }
+  },
+  clearStore: () => {
+    set({ documentInfo: {} as ICheckDocument });
   },
 }));
 

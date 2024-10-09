@@ -15,7 +15,7 @@ interface props {
 }
 
 const SearchSidebar = ({ open, setOpen }: props) => {
-  const { documentInfo, checkDocumentStatus, loading } =
+  const { documentInfo, checkDocumentStatus, loading, clearStore } =
     useCheckDocumentStore();
 
   const { t } = getTranslation();
@@ -44,7 +44,10 @@ const SearchSidebar = ({ open, setOpen }: props) => {
       <div className="max-w-[80%] mx-auto">
         <X
           className="cursor-pointer m-4 ml-auto text-gray-700"
-          onClick={() => setOnOpen(false)}
+          onClick={() => {
+            clearStore();
+            setOnOpen(false);
+          }}
         />
         <div className="max-w-[500px] mx-auto mt-20">
           <h2 className="text-gray-700 font-medium text-lg sm:text-2xl">
@@ -73,20 +76,26 @@ const SearchSidebar = ({ open, setOpen }: props) => {
               <Spinner className="text-gray-700 text-3xl !w-8 !h-8" />
             </div>
           ) : (
-            <div className="mt-6 text-gray-700">
-              {documentInfo?.status === null ? (
-                <DocumentNotFound />
+            <>
+              {orderNumber.length > 0 ? (
+                <div className="mt-6 text-gray-700">
+                  {documentInfo?.status === null ? (
+                    <DocumentNotFound />
+                  ) : (
+                    documentInfo?.status >= 0 && (
+                      <div className="">
+                        <DocumentStatusSection documentInfo={documentInfo} />
+                        {documentInfo?.ready_documents?.length > 0 && (
+                          <DownloadDocument documentInfo={documentInfo} />
+                        )}
+                      </div>
+                    )
+                  )}
+                </div>
               ) : (
-                documentInfo?.status >= 0 && (
-                  <div className="">
-                    <DocumentStatusSection documentInfo={documentInfo} />
-                    {documentInfo?.ready_documents?.length > 0 && (
-                      <DownloadDocument documentInfo={documentInfo} />
-                    )}
-                  </div>
-                )
+                ""
               )}
-            </div>
+            </>
           )}
         </div>
       </div>
