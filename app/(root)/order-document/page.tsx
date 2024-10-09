@@ -52,6 +52,7 @@ const formSchema = z.object({
       message: t("invalid_phone"),
     }),
   type: z.string().min(1, { message: t("select_required") }),
+  file: z.any().optional(),
   message: z.string().min(3),
 });
 
@@ -74,6 +75,7 @@ const OrderDocument = () => {
     defaultValues: {
       fullName: "",
       phoneNumber: "+998",
+      file: "",
       type: "",
       message: "",
     },
@@ -89,6 +91,7 @@ const OrderDocument = () => {
       document_category: Number(radioValue),
       document_type: Number(values.type),
     };
+    console.log(values, "values");
     createOrderDocument(orderDocumentData)
       .then((res) => {
         if (res?.ok) {
@@ -272,6 +275,34 @@ const OrderDocument = () => {
                               }}
                               value={field.value}
                               onChange={(value) => field.onChange(value)}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div>
+                    <FormLabel
+                      htmlFor="file"
+                      className="text-background mb-3 inline-block"
+                    >
+                      {t("download_file")}
+                    </FormLabel>
+                    <FormField
+                      control={form.control}
+                      name="file"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              placeholder={t("download_file")}
+                              type="file"
+                              onChange={(
+                                e: React.ChangeEvent<HTMLInputElement>,
+                              ) => form.setValue("file", e.target?.files?.[0])}
+                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 pb-2 pt-[14px] cursor-pointer font-medium text-background  placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                             />
                           </FormControl>
                           <FormMessage />
