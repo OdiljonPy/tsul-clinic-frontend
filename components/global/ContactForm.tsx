@@ -46,7 +46,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: t("required"),
   }),
-  case: z.string().min(1, { message: t("select_required") }),
+  case: z.string(),
   yourMessage: z.string().min(3, {
     message: t("required"),
   }),
