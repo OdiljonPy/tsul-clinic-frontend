@@ -73,5 +73,7 @@
   "invalid_phone": "Telefon raqam noto'g'ri",
   "required": "Bu maydon to'ldirilishi shart",
   "select_required": "Bu maydondan birini tanlang",
-  "contact_admin": "Xatolik mavjud bo'lsa Adminga aloqaga chiqing!"
+  "contact_admin": "Xatolik mavjud bo'lsa Adminga aloqaga chiqing!",
+  "document_complaint": "Shikoyatingiz bo'lsa yozib qoldiring",
+  "enter_your_complaint": "Shikoyatingizni yozib qoldiring"
 }

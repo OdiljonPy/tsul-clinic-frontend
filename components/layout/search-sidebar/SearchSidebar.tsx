@@ -8,6 +8,7 @@ import Spinner from "@/components/shared/Spinner";
 import DownloadDocument from "@/components/layout/search-sidebar/DownloadDocument";
 import DocumentStatusSection from "@/components/layout/search-sidebar/DocumentStatus";
 import { getTranslation } from "@/i18n";
+import DocumentMessage from "@/components/layout/search-sidebar/DocumentMessage";
 
 interface props {
   open: boolean;
@@ -39,7 +40,7 @@ const SearchSidebar = ({ open, setOpen }: props) => {
 
   return (
     <div
-      className={`fixed bg-white w-full h-screen top-0 left-0 overflow-hidden transition-all duration-500 ${onOpen ? "opacity-100" : "opacity-0"}`}
+      className={`fixed bg-white w-full h-screen top-0 left-0 overflow-x-hidden pb-10 transition-all duration-500 ${onOpen ? "opacity-100" : "opacity-0"}`}
     >
       <div className="max-w-[80%] mx-auto">
         <X
@@ -88,6 +89,7 @@ const SearchSidebar = ({ open, setOpen }: props) => {
                         {documentInfo?.ready_documents?.length > 0 && (
                           <DownloadDocument documentInfo={documentInfo} />
                         )}
+                        <DocumentMessage className="mt-6" />
                       </div>
                     )
                   )}
