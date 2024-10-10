@@ -6,16 +6,16 @@ import { ApiResponse } from "@/types/api-response";
 type ContactStoreType = {
   loading: boolean;
   error: boolean;
-  postContact: (data: IContact) => Promise<ApiResponse<IContact> | undefined>;
+  postContact: (data: FormData) => Promise<ApiResponse<FormData> | undefined>;
 };
 
 const useContactStore = create<ContactStoreType>((set) => ({
   loading: false,
   error: false,
-  postContact: async (data: IContact) => {
+  postContact: async (data: FormData) => {
     set({ loading: true, error: false });
     try {
-      const res = await API.post<ApiResponse<IContact>>(
+      const res = await API.post<ApiResponse<FormData>>(
         "create/contacts/",
         data,
       );

@@ -9,6 +9,7 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "../ui/form";
 import {
@@ -25,7 +26,7 @@ import useContactStore from "@/store/contact/contact";
 import { IContact } from "@/types/contact/contact";
 import ButtonCustom from "@/components/global/button";
 import useOrderDocument from "@/store/order-document/order-document";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
@@ -47,6 +48,7 @@ const formSchema = z.object({
     message: t("required"),
   }),
   case: z.string(),
+  file: z.any().optional(),
   yourMessage: z.string().min(3, {
     message: t("required"),
   }),
@@ -72,18 +74,26 @@ export function ContactForm() {
       email: "",
       case: "",
       yourMessage: "",
+      file: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const data: IContact = {
-      full_name: values.fullName,
-      email: values.email,
-      phone: values.phoneNumber.slice(1),
-      type: Number(values.case),
-      message: values.yourMessage,
-    };
-    postContact(data)
+    // const data: IContact = {
+    //   full_name: values.fullName,
+    //   email: values.email,
+    //   phone: values.phoneNumber.slice(1),
+    //   type: Number(values.case),
+    //   message: values.yourMessage,
+    // };
+    const PForm = new FormData();
+    PForm.append("full_name", values.fullName);
+    PForm.append("email", values.email);
+    PForm.append("phone", values.phoneNumber.slice(1));
+    PForm.append("type", values.case);
+    PForm.append("file", values.file);
+    PForm.append("message", values.yourMessage);
+    postContact(PForm)
       .then((res) => {
         if (res?.ok) {
           toast({
@@ -207,6 +217,26 @@ export function ContactForm() {
                     ))}
                   </SelectContent>
                 </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="file"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input
+                  placeholder={t("download_file")}
+                  type="file"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    form.setValue("file", e.target?.files?.[0])
+                  }
+                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 pb-2 pt-[14px] cursor-pointer   placeholder:font-normal !text-background/50 placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
