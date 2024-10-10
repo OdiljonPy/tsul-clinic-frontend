@@ -84,15 +84,22 @@ const OrderDocument = () => {
   const documentType = form.watch("type");
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    const orderDocumentData: IPostOrderDocument = {
-      customer_full_name: values.fullName,
-      customer_phone: values.phoneNumber.slice(1),
-      customer_message: values.message,
-      document_category: Number(radioValue),
-      document_type: Number(values.type),
-    };
-    console.log(values, "values");
-    createOrderDocument(orderDocumentData)
+    // const orderDocumentData: IPostOrderDocument = {
+    //   customer_full_name: values.fullName,
+    //   customer_phone: values.phoneNumber.slice(1),
+    //   customer_message: values.message,
+    //   document_category: Number(radioValue),
+    //   document_type: Number(values.type),
+    //   file: values.file,
+    // };
+    const PForm = new FormData();
+    PForm.append("customer_full_name", values.fullName);
+    PForm.append("customer_phone", values.phoneNumber.slice(1));
+    PForm.append("customer_message", values.message);
+    PForm.append("document_category", Number(radioValue));
+    PForm.append("document_type", Number(values.type));
+    PForm.append("file", values.file);
+    createOrderDocument(PForm)
       .then((res) => {
         if (res?.ok) {
           toast({

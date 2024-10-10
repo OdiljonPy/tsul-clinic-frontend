@@ -17,4 +17,5 @@ export interface IPostOrderDocument {
   customer_message: string;
   document_category: number;
   document_type: number;
+  file: FileList;
 }

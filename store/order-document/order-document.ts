@@ -13,7 +13,7 @@ type OrderDocumentType = {
   error: boolean;
   fetchDocumentCategory: () => Promise<void>;
   createOrderDocument: (
-    data: IPostOrderDocument,
+    data: FormData,
   ) => Promise<ApiResponse<IPostOrderDocument> | undefined>;
 };
 
@@ -38,7 +38,7 @@ const useOrderDocument = create<OrderDocumentType>((set) => ({
     }
   },
 
-  createOrderDocument: async (data: IPostOrderDocument) => {
+  createOrderDocument: async (data: FormData) => {
     set({ creatLoading: true, error: false });
     try {
       const res = await API.post<ApiResponse<IPostOrderDocument>>(
