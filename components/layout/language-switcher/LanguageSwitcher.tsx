@@ -2,7 +2,7 @@
 
 import { Globe } from "lucide-react";
 import { getTranslation } from "@/i18n";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
 const languageList = [
@@ -13,9 +13,11 @@ const languageList = [
 
 const LanguageSwitcher = () => {
   const { i18n, t } = getTranslation();
+  const [onOpen, setOnOpen] = useState(false);
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
+    setOnOpen(false)
     window.location.reload();
   };
   useEffect(() => {
@@ -25,7 +27,7 @@ const LanguageSwitcher = () => {
   }, []);
   return (
     <>
-      <DropdownMenu.Root>
+      <DropdownMenu.Root open={onOpen} onOpenChange={setOnOpen}>
         <DropdownMenu.Trigger asChild>
           <div className="p-[6px] lg:p-2 border border-white rounded-xl transition-all duration-500 hover:text-primary-main hover:border-primary-main flex items-center gap-1 cursor-pointer">
             <Globe size={20} />
