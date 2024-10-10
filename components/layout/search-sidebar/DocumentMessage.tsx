@@ -6,22 +6,48 @@ import Spinner from "@/components/shared/Spinner";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import useComplaintStore from "@/store/complaint-docs/complaint-docs";
+import { ICheckDocument } from "@/types/check-document/check-document";
+import { IComplaintDocs } from "@/types/complaint-docs/complaint-docs";
 
 interface props {
   className?: string;
+  documentInfo: ICheckDocument;
 }
 
-const DocumentMessage = ({ className }: props) => {
+const DocumentMessage = ({ className, documentInfo }: props) => {
   const { t } = getTranslation();
   const { toast } = useToast();
+
+  const { postComplaint } = useComplaintStore();
+
   const [complaint, setComplaint] = useState("");
 
   const sendComplaint = () => {
-    toast({
-      title: t("successfully_sent"),
-      className:
-        "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 border-none text-white",
-    });
+    const data: IComplaintDocs = {
+      complaint,
+      order_document: +documentInfo.order_number,
+    };
+    postComplaint({ id: documentInfo.id, data })
+      .then((res) => {
+        if (res.ok) {
+          toast({
+            title: t("successfully_sent"),
+            className:
+              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 border-none text-white",
+          });
+        }
+      })
+      .catch(() => {
+        toast({
+          title: t("something_went_wrong"),
+          className:
+            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 border-none text-white",
+        });
+      })
+      .finally(() => {
+        setComplaint("");
+      });
   };
   return (
     <div className={cn(className, "")}>

@@ -89,7 +89,10 @@ const SearchSidebar = ({ open, setOpen }: props) => {
                         {documentInfo?.ready_documents?.length > 0 && (
                           <DownloadDocument documentInfo={documentInfo} />
                         )}
-                        <DocumentMessage className="mt-6" />
+                        <DocumentMessage
+                          documentInfo={documentInfo}
+                          className="mt-6"
+                        />
                       </div>
                     )
                   )}
