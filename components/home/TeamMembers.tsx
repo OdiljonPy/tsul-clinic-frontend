@@ -19,8 +19,12 @@ const TeamMembers = () => {
 
   return (
     <>
-      <div className="container pb-40 pt-16 sm:pb-40 sm:pt-20 lg:pb-52 lg:pt-28">
+      <div className="container pb-40 pt-16 sm:pb-36 sm:pt-20 lg:pb-40 lg:pt-28">
         <PrimaryHeadline text={t("our_team")} />
+        <TeamMembersCarousel team={team} />
+      </div>
+      <div className="container pb-40 pt-4 sm:pb-40 lg:pb-52 ">
+        <PrimaryHeadline text={t("our_volunteer")} />
         <TeamMembersCarousel team={team} />
       </div>
     </>
