@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { IContact } from "@/types/contact/contact";
 import API from "@/lib/axios";
 import { ApiResponse } from "@/types/api-response";
 

@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -37,6 +36,7 @@ import Sidebar from "@/components/blog/Sidebar";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
 import { formatNumberWithSpices } from "@/utility/formatNumberWithSpices";
+import { toast } from "react-toastify";
 
 const { t } = getTranslation();
 
@@ -57,7 +57,6 @@ const formSchema = z.object({
 });
 
 const OrderDocument = () => {
-  const { toast } = useToast();
   const { t } = getTranslation();
   const {
     loading,
@@ -84,14 +83,6 @@ const OrderDocument = () => {
   const documentType = form.watch("type");
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // const orderDocumentData: IPostOrderDocument = {
-    //   customer_full_name: values.fullName,
-    //   customer_phone: values.phoneNumber.slice(1),
-    //   customer_message: values.message,
-    //   document_category: Number(radioValue),
-    //   document_type: Number(values.type),
-    //   file: values.file,
-    // };
     const PForm = new FormData();
     PForm.append("customer_full_name", values.fullName);
     PForm.append("customer_phone", values.phoneNumber.slice(1));
@@ -102,25 +93,13 @@ const OrderDocument = () => {
     createOrderDocument(PForm)
       .then((res) => {
         if (res?.ok) {
-          toast({
-            title: t("successfully_sent"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
-          });
+          toast.success(t("successfully_sent"));
         } else {
-          toast({
-            title: t("something_went_wrong"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
-          });
+          toast.error(t("something_went_wrong"));
         }
       })
       .catch(() => {
-        toast({
-          title: t("something_went_wrong"),
-          className:
-            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
-        });
+        toast.error(t("something_went_wrong"));
       })
       .finally(() => {
         form.reset();

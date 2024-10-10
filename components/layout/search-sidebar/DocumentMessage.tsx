@@ -4,12 +4,12 @@ import { Textarea } from "@/components/ui/textarea";
 
 import Spinner from "@/components/shared/Spinner";
 import { Button } from "@/components/ui/button";
-import React, { useRef, useState } from "react";
-import { useToast } from "@/components/ui/use-toast";
+import React, { useState } from "react";
 import useComplaintStore from "@/store/complaint-docs/complaint-docs";
 import { ICheckDocument } from "@/types/check-document/check-document";
 import { IComplaintDocs } from "@/types/complaint-docs/complaint-docs";
 import { ChevronDown } from "lucide-react";
+import { toast } from "react-toastify";
 
 interface props {
   className?: string;
@@ -18,7 +18,6 @@ interface props {
 
 const DocumentMessage = ({ className, documentInfo }: props) => {
   const { t } = getTranslation();
-  const { toast } = useToast();
 
   const { postComplaint, loading } = useComplaintStore();
 
@@ -33,19 +32,11 @@ const DocumentMessage = ({ className, documentInfo }: props) => {
     postComplaint({ id: documentInfo.id, data })
       .then((res) => {
         if (res.ok) {
-          toast({
-            title: t("successfully_sent"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 border-none text-white",
-          });
+          toast.success(t("successfully_sent"));
         }
       })
       .catch(() => {
-        toast({
-          title: t("something_went_wrong"),
-          className:
-            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 border-none text-white",
-        });
+        toast.error(t("something_went_wrong"));
       })
       .finally(() => {
         setComplaint("");

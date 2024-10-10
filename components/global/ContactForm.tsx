@@ -21,15 +21,14 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "../ui/input";
-import { useToast } from "../ui/use-toast";
 import useContactStore from "@/store/contact/contact";
-import { IContact } from "@/types/contact/contact";
 import ButtonCustom from "@/components/global/button";
 import useOrderDocument from "@/store/order-document/order-document";
 import React, { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
+import { toast } from "react-toastify";
 
 const { t } = getTranslation();
 
@@ -55,8 +54,6 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
-  const { toast } = useToast();
-
   const { t } = getTranslation();
 
   const { postContact, loading } = useContactStore();
@@ -96,25 +93,13 @@ export function ContactForm() {
     postContact(PForm)
       .then((res) => {
         if (res?.ok) {
-          toast({
-            title: t("successfully_sent"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
-          });
+          toast.success(t("successfully_sent"));
         } else {
-          toast({
-            title: t("something_went_wrong"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
-          });
+          toast.error(t("something_went_wrong"));
         }
       })
       .catch(() => {
-        toast({
-          title: t("something_went_wrong"),
-          className:
-            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
-        });
+        toast.error(t("something_went_wrong"));
       })
       .finally(() => {
         form.reset();

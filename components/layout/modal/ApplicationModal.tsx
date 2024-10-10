@@ -18,7 +18,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useToast } from "@/components/ui/use-toast";
 
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
@@ -30,6 +29,7 @@ import {
 import useCreateMeetingStore from "@/store/create-meeting/create-meeting";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
+import { toast } from "react-toastify";
 
 const { t } = getTranslation();
 
@@ -54,7 +54,6 @@ const formSchema = z.object({
 
 const ApplicationModal = ({ open, setOpen, type }: props) => {
   const { t } = getTranslation();
-  const { toast } = useToast();
 
   const { postCreateMeeting, loading } = useCreateMeetingStore();
 
@@ -76,25 +75,13 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
     postCreateMeeting(data)
       .then((res) => {
         if (res?.ok) {
-          toast({
-            title: t("successfully_sent"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-green-500 text-white",
-          });
+          toast.success(t("successfully_sent"));
         } else {
-          toast({
-            title: t("something_went_wrong"),
-            className:
-              "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
-          });
+          toast.error(t("something_went_wrong"));
         }
       })
       .catch(() => {
-        toast({
-          title: t("something_went_wrong"),
-          className:
-            "top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4 bg-red-500 text-white",
-        });
+        toast.error(t("something_went_wrong"));
       })
       .finally(() => {
         form.reset();
