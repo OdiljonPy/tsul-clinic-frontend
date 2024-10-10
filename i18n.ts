@@ -1,12 +1,13 @@
 import uz from "@/public/locale/uz.json";
 import ru from "@/public/locale/ru.json";
+import en from "@/public/locale/en.json";
 
 const cookieObj =
   typeof window === "undefined"
     ? require("next/headers")
     : require("js-cookie");
 
-const langObj: any = { ru, uz };
+const langObj: any = { ru, uz, en };
 
 const getLang = () => {
   let lang = null;
