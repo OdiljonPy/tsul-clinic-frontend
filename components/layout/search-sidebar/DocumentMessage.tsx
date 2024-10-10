@@ -4,11 +4,12 @@ import { Textarea } from "@/components/ui/textarea";
 
 import Spinner from "@/components/shared/Spinner";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import useComplaintStore from "@/store/complaint-docs/complaint-docs";
 import { ICheckDocument } from "@/types/check-document/check-document";
 import { IComplaintDocs } from "@/types/complaint-docs/complaint-docs";
+import { ChevronDown } from "lucide-react";
 
 interface props {
   className?: string;
@@ -19,9 +20,10 @@ const DocumentMessage = ({ className, documentInfo }: props) => {
   const { t } = getTranslation();
   const { toast } = useToast();
 
-  const { postComplaint } = useComplaintStore();
+  const { postComplaint, loading } = useComplaintStore();
 
   const [complaint, setComplaint] = useState("");
+  const [open, setOpen] = useState(false);
 
   const sendComplaint = () => {
     const data: IComplaintDocs = {
@@ -47,14 +49,25 @@ const DocumentMessage = ({ className, documentInfo }: props) => {
       })
       .finally(() => {
         setComplaint("");
+        setOpen(false);
       });
   };
   return (
     <div className={cn(className, "")}>
-      <p className="text-gray-700 font-medium text-lg">
-        {t("document_complaint")}
-      </p>
-      <div className="mt-2">
+      <div
+        className="flex items-center gap-3 cursor-pointer group text-gray-700 hover:text-primary-main"
+        onClick={() => setOpen(!open)}
+      >
+        <p className="transition-all duration-300 font-medium text-lg ">
+          {t("document_complaint")}
+        </p>
+        <ChevronDown
+          className={`transition-all duration-300  ${open ? "rotate-180" : "rotate-0"}`}
+        />
+      </div>
+      <div
+        className={`mt-2 transition-all duration-500 ease-in h-0 overflow-hidden ${open ? "h-[230px]" : ""}`}
+      >
         <Textarea
           placeholder={t("enter_your_complaint")}
           value={complaint}
@@ -69,7 +82,7 @@ const DocumentMessage = ({ className, documentInfo }: props) => {
             disabled={!complaint}
             className="h-auto rounded-none border bg-primary-main px-7 py-[14px] text-base font-bold uppercase text-white transition-colors duration-300 ease-in hover:border-primary-main hover:bg-white hover:text-primary-main flex items-center gap-2 disabled:cursor-not-allowed"
           >
-            {false && <Spinner />}
+            {loading && <Spinner />}
             {t("send")}
           </Button>
         </div>
