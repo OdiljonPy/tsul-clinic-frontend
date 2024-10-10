@@ -96,8 +96,8 @@ const OrderDocument = () => {
     PForm.append("customer_full_name", values.fullName);
     PForm.append("customer_phone", values.phoneNumber.slice(1));
     PForm.append("customer_message", values.message);
-    PForm.append("document_category", Number(radioValue));
-    PForm.append("document_type", Number(values.type));
+    PForm.append("document_category", radioValue);
+    PForm.append("document_type", values.type);
     PForm.append("file", values.file);
     createOrderDocument(PForm)
       .then((res) => {
