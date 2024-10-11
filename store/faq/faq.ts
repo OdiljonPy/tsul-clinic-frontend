@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import API from "@/lib/axios";
 import { ApiResponse } from "@/types/api-response";
-import { IFaq, IFaqCategory } from "@/types/home/faq";
+import { IFaqCategory, IFaqDetail, IFaqDetailResponse } from "@/types/home/faq";
 
 type FaqStoreType = {
-  faq: IFaq[];
+  faq: IFaqDetail;
   faq_category: IFaqCategory[];
   loading: boolean;
   error: boolean;
@@ -13,7 +13,7 @@ type FaqStoreType = {
 };
 
 const useFAQStore = create<FaqStoreType>((set) => ({
-  faq: [],
+  faq: {} as IFaqDetail,
   faq_category: [],
   loading: false,
   error: false,
@@ -31,7 +31,7 @@ const useFAQStore = create<FaqStoreType>((set) => ({
   fetchFAQ: async (id: number) => {
     set({ loading: true, error: false });
     try {
-      const res = await API.get<ApiResponse<IFaq>>(`/faq/category/${id}`);
+      const res = await API.get<IFaqDetailResponse>(`/faq/category/${id}`);
       if (res.data.ok) set({ faq: res.data.response });
     } catch {
       set({ error: true });

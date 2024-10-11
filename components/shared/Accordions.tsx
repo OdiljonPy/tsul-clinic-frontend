@@ -1,4 +1,3 @@
-import { FAQsProps } from "@/types";
 import {
   Accordion,
   AccordionItem,
@@ -8,6 +7,7 @@ import {
 import { IFaq } from "@/types/home/faq";
 
 const Accordions = ({ data }: { data: IFaq[] }) => {
+  console.log(data, "data");
   return (
     <Accordion className="pt-3" type="single" collapsible>
       {data.map((item) => (
