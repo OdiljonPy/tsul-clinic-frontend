@@ -45,7 +45,7 @@ const formSchema = z.object({
   email: z.string().email({
     message: t("required"),
   }),
-  case: z.string(),
+  type: z.string(),
   file: z.any().optional(),
   yourMessage: z.string().min(3, {
     message: t("required"),
@@ -56,11 +56,6 @@ export function ContactForm() {
   const { t } = getTranslation();
 
   const { postContact, loading } = useContactStore();
-  const {
-    document_category,
-    loading: loadingOrder,
-    fetchDocumentCategory,
-  } = useOrderDocument();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -68,25 +63,18 @@ export function ContactForm() {
       fullName: "",
       phoneNumber: "+998",
       email: "",
-      case: "",
+      type: "",
       yourMessage: "",
       file: "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // const data: IContact = {
-    //   full_name: values.fullName,
-    //   email: values.email,
-    //   phone: values.phoneNumber.slice(1),
-    //   type: Number(values.case),
-    //   message: values.yourMessage,
-    // };
     const PForm = new FormData();
     PForm.append("full_name", values.fullName);
     PForm.append("email", values.email);
     PForm.append("phone", values.phoneNumber.slice(1));
-    PForm.append("type", values.case);
+    PForm.append("type", values.type);
     PForm.append("file", values.file);
     PForm.append("message", values.yourMessage);
     postContact(PForm)
@@ -104,14 +92,6 @@ export function ContactForm() {
         form.reset();
       });
   }
-
-  // useEffect(() => {
-  //   if (document_category?.length === 0) {
-  //     fetchDocumentCategory();
-  //   }
-  // }, [fetchDocumentCategory]);
-
-  if (loadingOrder) return <Loading />;
 
   return (
     <Form {...form}>
@@ -132,7 +112,22 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-
+        <FormField
+          control={form.control}
+          name="type"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input
+                  placeholder={t("type_appeal")}
+                  {...field}
+                  className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="phoneNumber"
@@ -142,7 +137,7 @@ export function ContactForm() {
                 <PhoneInput
                   hideDropdown={true}
                   inputClassName={
-                    "h-12 w-full rounded-none !border  bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                    "h-12 w-full !mt-[-60px] rounded-none !border  bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                   }
                   defaultCountry="uz"
                   inputProps={{
@@ -174,38 +169,6 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        {/*<FormField*/}
-        {/*  control={form.control}*/}
-        {/*  name="case"*/}
-        {/*  render={({ field }) => (*/}
-        {/*    <FormItem>*/}
-        {/*      <FormControl>*/}
-        {/*        <Select*/}
-        {/*          onValueChange={field.onChange}*/}
-        {/*          defaultValue={field.value}*/}
-        {/*        >*/}
-        {/*          <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">*/}
-        {/*            <SelectValue*/}
-        {/*              placeholder={t("type_request")}*/}
-        {/*              className="font-normal !placeholder:text-background/50"*/}
-        {/*            />*/}
-        {/*          </SelectTrigger>*/}
-        {/*          <SelectContent>*/}
-        {/*            {document_category?.map((document) => (*/}
-        {/*              <SelectItem*/}
-        {/*                key={document.id}*/}
-        {/*                value={document.id.toString()}*/}
-        {/*              >*/}
-        {/*                {document.category_name}*/}
-        {/*              </SelectItem>*/}
-        {/*            ))}*/}
-        {/*          </SelectContent>*/}
-        {/*        </Select>*/}
-        {/*      </FormControl>*/}
-        {/*      <FormMessage />*/}
-        {/*    </FormItem>*/}
-        {/*  )}*/}
-        {/*/>*/}
 
         <FormField
           control={form.control}
