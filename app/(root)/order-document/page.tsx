@@ -27,10 +27,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import useOrderDocument from "@/store/order-document/order-document";
 import Loading from "@/app/(root)/loading";
-import {
-  IDocumentCategory,
-  IPostOrderDocument,
-} from "@/types/order-document/document-category";
+import { IDocumentCategory } from "@/types/order-document/document-category";
 import Spinner from "@/components/shared/Spinner";
 import Sidebar from "@/components/blog/Sidebar";
 import { getTranslation } from "@/i18n";
@@ -61,8 +58,7 @@ const OrderDocument = () => {
   const {
     loading,
     creatLoading,
-    document_category,
-    fetchDocumentCategory,
+
     createOrderDocument,
     error,
   } = useOrderDocument();
@@ -106,18 +102,6 @@ const OrderDocument = () => {
       });
   }
 
-  const parseFormatNumber = (docs: IDocumentCategory[]) => {
-    const price = docs
-      ?.find((document) => document.id === Number(radioValue))
-      ?.document_type?.find((item) => item.id === Number(documentType))?.price;
-
-    return price ? formatNumberWithSpices(parseInt(price)) : "";
-  };
-
-  useEffect(() => {
-    if (document_category?.length === 0) fetchDocumentCategory();
-  }, [fetchDocumentCategory]);
-
   if (loading) return <Loading />;
   if (error) throw new Error();
   return (
@@ -132,86 +116,36 @@ const OrderDocument = () => {
               additionalClass="text-[32px] primary-headline-left text-background"
               formatTwoColor
             />
-            <RadioGroup
-              defaultValue={radioValue}
-              onValueChange={setRadioValue}
-              className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3"
-            >
-              {document_category?.map((document) => (
-                <div
-                  key={document.id}
-                  className="flex gap-2 items-center cursor-pointer group"
-                >
-                  <RadioGroupItem
-                    value={String(document.id)}
-                    id={String(document.id)}
-                    className="text-primary-main group-hover:text-primary-main checked:border-primary-main"
-                  />
-                  <label
-                    htmlFor={String(document.id)}
-                    className="group-hover:text-primary-main cursor-pointer transition duration-300"
-                  >
-                    {document.category_name}
-                  </label>
-                </div>
-              ))}
-            </RadioGroup>
+            {/*<RadioGroup*/}
+            {/*  defaultValue={radioValue}*/}
+            {/*  onValueChange={setRadioValue}*/}
+            {/*  className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3"*/}
+            {/*>*/}
+            {/*  {document_category?.map((document) => (*/}
+            {/*    <div*/}
+            {/*      key={document.id}*/}
+            {/*      className="flex gap-2 items-center cursor-pointer group"*/}
+            {/*    >*/}
+            {/*      <RadioGroupItem*/}
+            {/*        value={String(document.id)}*/}
+            {/*        id={String(document.id)}*/}
+            {/*        className="text-primary-main group-hover:text-primary-main checked:border-primary-main"*/}
+            {/*      />*/}
+            {/*      <label*/}
+            {/*        htmlFor={String(document.id)}*/}
+            {/*        className="group-hover:text-primary-main cursor-pointer transition duration-300"*/}
+            {/*      >*/}
+            {/*        {document.category_name}*/}
+            {/*      </label>*/}
+            {/*    </div>*/}
+            {/*  ))}*/}
+            {/*</RadioGroup>*/}
             <div className="mt-6">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="space-y-4"
                 >
-                  <div>
-                    <FormLabel
-                      htmlFor="type"
-                      className="text-background mb-3 inline-block"
-                    >
-                      {t("document_type")}
-                    </FormLabel>
-                    <FormField
-                      control={form.control}
-                      name="type"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Select
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                            >
-                              <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
-                                <SelectValue
-                                  placeholder={t("choose_document_type")}
-                                />
-                              </SelectTrigger>
-                              <SelectContent>
-                                {document_category
-                                  ?.find(
-                                    (item) => item.id === Number(radioValue),
-                                  )
-                                  ?.document_type?.map((document) => (
-                                    <SelectItem value={document.id.toString()}>
-                                      {document.document_name}
-                                    </SelectItem>
-                                  ))}
-                              </SelectContent>
-                            </Select>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  {documentType && (
-                    <div className="flex justify-between">
-                      <p className="text-background">{t("service_price")}</p>
-                      <p className="text-background">
-                        {document_category.length &&
-                          parseFormatNumber(document_category)}{" "}
-                        UZS
-                      </p>
-                    </div>
-                  )}
                   <div>
                     <FormLabel
                       htmlFor="fullName"
@@ -236,7 +170,30 @@ const OrderDocument = () => {
                       )}
                     />
                   </div>
-
+                  <div>
+                    <FormLabel
+                      htmlFor="phoneNumber"
+                      className="text-background mb-3 inline-block"
+                    >
+                      {t("type_appeal")}
+                    </FormLabel>
+                    <FormField
+                      control={form.control}
+                      name="type"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              placeholder={t("type_appeal")}
+                              {...field}
+                              className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                   <div>
                     <FormLabel
                       htmlFor="phoneNumber"
@@ -253,7 +210,7 @@ const OrderDocument = () => {
                             <PhoneInput
                               hideDropdown={true}
                               inputClassName={
-                                "h-12 w-full rounded-none !border  bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                                "h-12 !mt-[-10px] w-full rounded-none !border  bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                               }
                               defaultCountry="uz"
                               inputProps={{
