@@ -24,7 +24,7 @@ const useTeamStore = create<TeamStoreType>((set) => ({
       if (data.ok) set({ team: data.response, loading: false });
 
       const volunteerRes = await API.get<ApiResponse<ITeam>>(
-        "/team/?type=volunteer/",
+        "/team/?type=volunteer",
       );
 
       if (volunteerRes.data.ok)
