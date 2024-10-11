@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { PhoneCall, Video } from "lucide-react";
+import { PhoneCall, Video, NotebookText } from "lucide-react";
 import ApplicationModal from "@/components/layout/modal/ApplicationModal";
 import { useEffect, useState } from "react";
 import { MeetingType } from "@/types/create-meeting/create-meeting";
 import useInfoStore from "@/store/contact/info";
-import formatPhoneNumber from "@/utility/formatPhoneNumber";
+
 import { getTranslation } from "@/i18n";
 
 const HeaderTop = () => {
@@ -22,12 +21,16 @@ const HeaderTop = () => {
   return (
     <div className="bg-white px-4 py-3">
       <div className="sm:container ">
-        <div className="flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-between">
-          <div className="basis-full text-center sm:basis-auto sm:text-left hidden md:block">
-            {t("contact")}:{" "}
-            <Link className="font-medium" href={`tel:${info?.phone_number}`}>
-              {formatPhoneNumber(info?.phone_number)}
-            </Link>
+        <div className="flex flex-wrap-reverse gap-2 items-center justify-center sm:flex-nowrap sm:justify-between">
+          <div
+            onClick={() => {
+              setOpen(true);
+              setType(MeetingType.meeting);
+            }}
+            className="flex items-center gap-1 cursor-pointer font-medium transition-all duration-300 hover:text-primary-main"
+          >
+            <NotebookText size={20} className="flex shrink-0" />
+            {t("call_meeting")}
           </div>
           <div className="flex items-center gap-3">
             <div

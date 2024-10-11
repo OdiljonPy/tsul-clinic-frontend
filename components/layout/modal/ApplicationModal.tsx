@@ -114,7 +114,11 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
             />
             <AlertDialogTitle>
               <div className="text-center font-medium text-2xl">
-                {type === MeetingType.phone ? t("call_phone") : t("call_video")}
+                {type === MeetingType.phone
+                  ? t("call_phone")
+                  : type === MeetingType.meeting
+                    ? t("call_meeting")
+                    : t("call_video")}
               </div>
             </AlertDialogTitle>
             <AlertDialogDescription>
