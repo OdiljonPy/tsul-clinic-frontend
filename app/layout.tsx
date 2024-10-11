@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Albert_Sans, Roboto } from "next/font/google";
 import "./globals.css";
 
-import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/shared/Header";
 import React from "react";
 import SFooter from "@/components/layout/footer/SFooter";
@@ -62,7 +61,6 @@ export default function RootLayout({
         <Header />
         {children}
         <SFooter />
-        <Toaster />
         <ToastContainer
           position="top-right"
           autoClose={1500}
