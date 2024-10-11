@@ -80,5 +80,9 @@
   "download_file": "Upload File",
   "our_volunteer": "Our volunteers",
   "type_appeal": "Brief application",
-  "select_language": "Select the communication language"
+  "select_language": "Select the communication language",
+  "working_hours": "Working hours",
+  "du_ju": "Mon-Fri",
+  "sha_ya": "Sat-Sun",
+  "closed": "Closed"
 }

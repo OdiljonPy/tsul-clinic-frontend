@@ -18,6 +18,7 @@ import {
 import SocialIcon from "@/components/layout/footer/components/SocialIcon";
 import { getTranslation } from "@/i18n";
 import Image from "next/image";
+import WorkingTime from "@/components/layout/footer/components/WorkingTime";
 
 const SFooter = () => {
   const { t } = getTranslation();
@@ -34,7 +35,7 @@ const SFooter = () => {
     <footer className="bg-background ">
       <div className="container px-6 lg:px-8  ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-6 sm:py-12 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
-          <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
+          <div className="col-span-full mb-6 sm:mb-10 lg:col-span-2 lg:mb-0">
             <Link
               href="#"
               className="flex justify-center lg:justify-start font-bold text-2xl"
@@ -47,7 +48,7 @@ const SFooter = () => {
                 className="object cover w-[85px] h-[85px]"
               />
             </Link>
-            <p className="py-6 text-sm text-white lg:max-w-xs text-center lg:text-left">
+            <p className="py-3 sm:py-6 text-sm text-white lg:max-w-xs text-center lg:text-left">
               {t("follow_us")}
             </p>
             <div className="flex mt-3 space-x-4 justify-center lg:justify-start sm:mt-0 ">
@@ -67,7 +68,7 @@ const SFooter = () => {
                 <Linkedin size={18} className="text-white" />
               </SocialIcon>
             </div>
-            <li className="flex items-center group mt-4">
+            <li className="flex items-center group mt-4 justify-center lg:justify-start">
               <BotMessageSquare
                 size={20}
                 className="text-white transition duration-300 group-hover:text-primary-main"
@@ -79,6 +80,7 @@ const SFooter = () => {
                 @TDYU_Yuridik_klinika_bot
               </a>
             </li>
+            <WorkingTime className="mt-3" />
           </div>
           <div className="lg:mx-auto text-center sm:text-left">
             <h4 className="text-lg text-white font-medium mb-7">
