@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, PhoneCallIcon } from "lucide-react";
+import { BotMessageSquare, MapPin, PhoneCallIcon } from "lucide-react";
 import useInfoStore from "@/store/contact/info";
 import { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
@@ -30,10 +30,10 @@ const ContactInfo = ({ className }: props) => {
         additionalClass="text-3xl primary-headline-left"
         headlineType="h3"
       />
-      <ul>
-        <li className="mb-[10px] flex items-center group">
+      <ul className="mb-[10px] space-y-2">
+        <li className=" flex items-center group">
           <PhoneCallIcon
-            size={15}
+            size={20}
             className="text-background transition duration-300 group-hover:text-primary-main"
           />
           <a
@@ -41,6 +41,18 @@ const ContactInfo = ({ className }: props) => {
             href={`tel:${info?.phone_number}`}
           >
             {formatPhoneNumber(info?.phone_number)}
+          </a>
+        </li>
+        <li className="flex items-center group">
+          <BotMessageSquare
+            size={20}
+            className="text-background transition duration-300 group-hover:text-primary-main"
+          />
+          <a
+            className="ml-2 inline-block text-base text-background transition duration-300 group-hover:text-primary-main"
+            href="https://t.me/@TDYU_Yuridik_klinika_bot"
+          >
+            @TDYU_Yuridik_klinika_bot
           </a>
         </li>
       </ul>

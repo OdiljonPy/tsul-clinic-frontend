@@ -7,7 +7,14 @@ import useLinkStore from "@/store/home/link";
 import { useEffect } from "react";
 
 import useInfoStore from "@/store/contact/info";
-import { Instagram, Linkedin, Send, Twitter, Youtube } from "lucide-react";
+import {
+  BotMessageSquare,
+  Instagram,
+  Linkedin,
+  Send,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 import SocialIcon from "@/components/layout/footer/components/SocialIcon";
 import { getTranslation } from "@/i18n";
 import Image from "next/image";
@@ -39,13 +46,11 @@ const SFooter = () => {
                 height={80}
                 className="object cover w-[85px] h-[85px]"
               />
-              {/*<span className="text-white">TSUL</span>*/}
-              {/*<span className="text-primary-main">CLINIC</span>*/}
             </Link>
-            <p className="py-8 text-sm text-white lg:max-w-xs text-center lg:text-left">
+            <p className="py-6 text-sm text-white lg:max-w-xs text-center lg:text-left">
               {t("follow_us")}
             </p>
-            <div className="flex mt-4 space-x-4 justify-center lg:justify-start sm:mt-0 ">
+            <div className="flex mt-3 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               <SocialIcon url={info?.telegram}>
                 <Send size={18} className="text-white" />
               </SocialIcon>
@@ -62,6 +67,18 @@ const SFooter = () => {
                 <Linkedin size={18} className="text-white" />
               </SocialIcon>
             </div>
+            <li className="flex items-center group mt-4">
+              <BotMessageSquare
+                size={20}
+                className="text-white transition duration-300 group-hover:text-primary-main"
+              />
+              <a
+                className="ml-2 inline-block text-base text-white transition duration-300 group-hover:text-primary-main"
+                href="https://t.me/@TDYU_Yuridik_klinika_bot"
+              >
+                @TDYU_Yuridik_klinika_bot
+              </a>
+            </li>
           </div>
           <div className="lg:mx-auto text-center sm:text-left">
             <h4 className="text-lg text-white font-medium mb-7">
