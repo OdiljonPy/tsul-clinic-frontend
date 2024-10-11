@@ -10,6 +10,7 @@ import {
 import useOpinionStore from "@/store/home/opinion";
 import { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
+import Autoplay from "embla-carousel-autoplay";
 
 export function TestimonialsCarousel() {
   const { opinion, fetchOpinion, loading } = useOpinionStore();
@@ -26,6 +27,7 @@ export function TestimonialsCarousel() {
         align: "start",
         loop: true,
       }}
+      plugins={[Autoplay({ playOnInit: true, delay: 3000 })]}
     >
       <CarouselContent>
         {opinion?.map((item) => (
