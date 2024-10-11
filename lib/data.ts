@@ -429,10 +429,6 @@ export const footerLinks: IFooterLinks[] = [
     link: "/partners",
   },
   {
-    name: "contact",
-    link: "/contact",
-  },
-  {
     name: "FAQ",
     link: "/faqs",
   },

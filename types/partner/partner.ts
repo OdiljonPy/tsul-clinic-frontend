@@ -1,16 +1,6 @@
-export interface IPartner {
+export interface IPartners {
   id: number;
-  full_name: string;
-  position: string;
+  company_name: string;
   image: string;
-  category: number;
 }
 
-export interface IPartnerResponse {
-  ok: boolean;
-  response: {
-    "1": IPartner[];
-    "2": IPartner[];
-    "3": IPartner[];
-  };
-}

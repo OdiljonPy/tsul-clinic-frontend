@@ -5,8 +5,6 @@ import useFAQStore from "@/store/faq/faq";
 import React, { useEffect } from "react";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
-import Link from "next/link";
-import { CircleChevronRight } from "lucide-react";
 import FaqCategories from "@/components/FAQs/FaqCategories";
 
 const FAQs = () => {

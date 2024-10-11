@@ -1,22 +1,23 @@
 import { create } from "zustand";
 import API from "@/lib/axios";
-import { IPartnerResponse } from "@/types/partner/partner";
+import { IPartners } from "@/types/partner/partner";
+import { ApiResponse } from "@/types/api-response";
 
 type TypePartnerStore = {
-  partners: IPartnerResponse["response"];
+  partners: IPartners[];
   loading: boolean;
   error: boolean;
   fetchPartners: () => Promise<void>;
 };
 
 const usePartnerStore = create<TypePartnerStore>((set) => ({
-  partners: {} as IPartnerResponse["response"],
+  partners: [],
   loading: false,
   error: false,
   fetchPartners: async () => {
     set({ loading: true, error: false });
     try {
-      const response = await API.get<IPartnerResponse>("/partners/");
+      const response = await API.get<ApiResponse<IPartners>>("/partners/");
       const res = response.data;
       if (res.ok) {
         set({ partners: res.response, error: false });
