@@ -9,9 +9,11 @@ const SocialIcon = ({ children, url }: props) => {
     <a
       href={url}
       target="_blank"
-      className="w-9 h-9 rounded-full bg-primary-main flex justify-center items-center hover:bg-primary-main"
+      className="w-10 h-10 group rounded-full bg-white transition-all duration-300 flex justify-center items-center hover:bg-primary-main"
     >
-      {children}
+      <span className="text-black group-hover:text-white transition-all duration-300 group-hover:rotate-[720deg]">
+        {children}
+      </span>
     </a>
   );
 };

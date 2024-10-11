@@ -53,19 +53,19 @@ const SFooter = () => {
             </p>
             <div className="flex mt-3 space-x-4 justify-center lg:justify-start sm:mt-0 ">
               <SocialIcon url={info?.telegram}>
-                <Send size={18} className="text-white" />
+                <Send size={20} />
               </SocialIcon>
               <SocialIcon url={info?.instagram}>
-                <Instagram size={18} className="text-white" />
+                <Instagram size={20}  />
               </SocialIcon>
               <SocialIcon url={info?.twitter}>
-                <Twitter size={18} className="text-white" />
+                <Twitter size={20}  />
               </SocialIcon>
               <SocialIcon url={info?.youtube}>
-                <Youtube size={18} className="text-white" />
+                <Youtube size={20}  />
               </SocialIcon>
               <SocialIcon url={info?.linkedin}>
-                <Linkedin size={18} className="text-white" />
+                <Linkedin size={20}  />
               </SocialIcon>
             </div>
             <li className="flex items-center group mt-4 justify-center lg:justify-start">
