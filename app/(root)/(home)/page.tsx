@@ -1,9 +1,7 @@
 import PostBannerBox from "@/components/home/postBannerBox";
 import IconsWithCounters from "@/components/home/iconsWithCounters";
 import TwoColumnTextWithImage from "@/components/home/twoColumnTextWithImage";
-import Features from "@/components/home/Features";
 import CTA from "@/components/shared/CTA";
-import PracticeAreas from "@/components/home/PracticeAreas";
 import BlogPosts from "@/components/home/BlogPosts";
 import FAQs from "@/components/home/FAQs";
 import TeamMembers from "@/components/home/TeamMembers";
@@ -25,14 +23,12 @@ const Home = () => {
       <PostBannerBox />
       <IconsWithCounters />
       <TwoColumnTextWithImage />
-      {/*<Features />*/}
       <CTA
         headline={t("extraordinary_service")}
         buttonLink="/contact"
         buttonText={t("contact_with")}
         ctaType="withBg"
       />
-      {/*<PracticeAreas />*/}
       <BlogPosts />
       <TeamMembers />
       <CTA

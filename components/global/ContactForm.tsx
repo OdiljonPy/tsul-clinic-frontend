@@ -9,7 +9,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "../ui/form";
 import {
@@ -24,7 +23,7 @@ import { Input } from "../ui/input";
 import useContactStore from "@/store/contact/contact";
 import ButtonCustom from "@/components/global/button";
 import useOrderDocument from "@/store/order-document/order-document";
-import React, { useEffect } from "react";
+import React from "react";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
@@ -106,11 +105,11 @@ export function ContactForm() {
       });
   }
 
-  useEffect(() => {
-    if (document_category?.length === 0) {
-      fetchDocumentCategory();
-    }
-  }, [fetchDocumentCategory]);
+  // useEffect(() => {
+  //   if (document_category?.length === 0) {
+  //     fetchDocumentCategory();
+  //   }
+  // }, [fetchDocumentCategory]);
 
   if (loadingOrder) return <Loading />;
 
@@ -175,38 +174,38 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="case"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">
-                    <SelectValue
-                      placeholder={t("type_request")}
-                      className="font-normal !placeholder:text-background/50"
-                    />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {document_category?.map((document) => (
-                      <SelectItem
-                        key={document.id}
-                        value={document.id.toString()}
-                      >
-                        {document.category_name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        {/*<FormField*/}
+        {/*  control={form.control}*/}
+        {/*  name="case"*/}
+        {/*  render={({ field }) => (*/}
+        {/*    <FormItem>*/}
+        {/*      <FormControl>*/}
+        {/*        <Select*/}
+        {/*          onValueChange={field.onChange}*/}
+        {/*          defaultValue={field.value}*/}
+        {/*        >*/}
+        {/*          <SelectTrigger className="h-12 w-full rounded-none border-DEFAULT border-[#e8e6e6] bg-white px-4 py-2 text-base text-background placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0">*/}
+        {/*            <SelectValue*/}
+        {/*              placeholder={t("type_request")}*/}
+        {/*              className="font-normal !placeholder:text-background/50"*/}
+        {/*            />*/}
+        {/*          </SelectTrigger>*/}
+        {/*          <SelectContent>*/}
+        {/*            {document_category?.map((document) => (*/}
+        {/*              <SelectItem*/}
+        {/*                key={document.id}*/}
+        {/*                value={document.id.toString()}*/}
+        {/*              >*/}
+        {/*                {document.category_name}*/}
+        {/*              </SelectItem>*/}
+        {/*            ))}*/}
+        {/*          </SelectContent>*/}
+        {/*        </Select>*/}
+        {/*      </FormControl>*/}
+        {/*      <FormMessage />*/}
+        {/*    </FormItem>*/}
+        {/*  )}*/}
+        {/*/>*/}
 
         <FormField
           control={form.control}
