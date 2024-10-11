@@ -3,7 +3,6 @@
 import type { Metadata } from "next";
 import { Albert_Sans, Roboto } from "next/font/google";
 import "./globals.css";
-
 import Header from "@/components/shared/Header";
 import React from "react";
 import SFooter from "@/components/layout/footer/SFooter";

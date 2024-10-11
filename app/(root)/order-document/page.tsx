@@ -116,30 +116,6 @@ const OrderDocument = () => {
               additionalClass="text-[32px] primary-headline-left text-background"
               formatTwoColor
             />
-            {/*<RadioGroup*/}
-            {/*  defaultValue={radioValue}*/}
-            {/*  onValueChange={setRadioValue}*/}
-            {/*  className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3"*/}
-            {/*>*/}
-            {/*  {document_category?.map((document) => (*/}
-            {/*    <div*/}
-            {/*      key={document.id}*/}
-            {/*      className="flex gap-2 items-center cursor-pointer group"*/}
-            {/*    >*/}
-            {/*      <RadioGroupItem*/}
-            {/*        value={String(document.id)}*/}
-            {/*        id={String(document.id)}*/}
-            {/*        className="text-primary-main group-hover:text-primary-main checked:border-primary-main"*/}
-            {/*      />*/}
-            {/*      <label*/}
-            {/*        htmlFor={String(document.id)}*/}
-            {/*        className="group-hover:text-primary-main cursor-pointer transition duration-300"*/}
-            {/*      >*/}
-            {/*        {document.category_name}*/}
-            {/*      </label>*/}
-            {/*    </div>*/}
-            {/*  ))}*/}
-            {/*</RadioGroup>*/}
             <div className="mt-6">
               <Form {...form}>
                 <form

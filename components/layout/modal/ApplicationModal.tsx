@@ -21,7 +21,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   ICreateMeeting,
   MeetingType,
@@ -30,6 +30,8 @@ import useCreateMeetingStore from "@/store/create-meeting/create-meeting";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
 import { toast } from "react-toastify";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { languageList } from "@/components/layout/language-switcher/LanguageSwitcher";
 
 const { t } = getTranslation();
 
@@ -43,6 +45,10 @@ const formSchema = z.object({
   fullName: z.string().min(3, {
     message: t("required"),
   }),
+  short_description: z.string().min(3, {
+    message: t("required"),
+  }),
+  language: z.string().min(1, { message: t("required") }),
   phoneNumber: z
     .string()
     .startsWith("+998")
@@ -62,6 +68,8 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
     defaultValues: {
       fullName: "",
       phoneNumber: "+998",
+      short_description: "",
+      language: "uz",
     },
   });
 
@@ -69,6 +77,8 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
     const data: ICreateMeeting = {
       customer_full_name: values.fullName,
       customer_phone: values.phoneNumber.slice(1),
+      short_description: values.short_description,
+      language: values.language as "uz" | "ru" | "en",
       meeting_type: type,
     };
 
@@ -111,12 +121,12 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
-                  className="flex flex-col gap-4 mt-3"
+                  className="flex flex-col !text-start gap-4 mt-3"
                 >
                   <div>
                     <FormLabel
                       htmlFor="fullName"
-                      className="text-background mb-3 inline-block"
+                      className="text-background mb-3 inline-block "
                     >
                       {t("full_name")}
                     </FormLabel>
@@ -139,6 +149,73 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                   </div>
                   <div>
                     <FormLabel
+                      htmlFor="type_appeal"
+                      className="text-background mb-3 inline-block"
+                    >
+                      {t("type_appeal")}
+                    </FormLabel>
+                    <FormField
+                      control={form.control}
+                      name="short_description"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              placeholder={t("type_appeal")}
+                              {...field}
+                              className="h-12 w-full rounded-none border-DEFAULT border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div>
+                    <FormLabel
+                      htmlFor="language"
+                      className="text-background mb-3 inline-block"
+                    >
+                      {t("select_language")}
+                    </FormLabel>
+                    <FormField
+                      control={form.control}
+                      name="language"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <RadioGroup
+                              defaultValue={field.value}
+                              onValueChange={field.onChange}
+                              className="grid grid-cols-3 gap-2 sm:gap-3"
+                            >
+                              {languageList?.map((lang) => (
+                                <div
+                                  key={lang.code}
+                                  className="flex gap-2 items-center cursor-pointer group"
+                                >
+                                  <RadioGroupItem
+                                    value={lang.code}
+                                    id={lang.code}
+                                    className="text-primary-main group-hover:text-primary-main checked:border-primary-main"
+                                  />
+                                  <label
+                                    htmlFor={lang.code}
+                                    className="group-hover:text-primary-main cursor-pointer transition duration-300"
+                                  >
+                                    {lang.name}
+                                  </label>
+                                </div>
+                              ))}
+                            </RadioGroup>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                  <div>
+                    <FormLabel
                       htmlFor="phoneNumber"
                       className="text-background mb-3 inline-block"
                     >
@@ -153,7 +230,7 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                             <PhoneInput
                               hideDropdown={true}
                               inputClassName={
-                                "h-12 w-full rounded-none !border !border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
+                                "h-12 mt-[-10px] w-full rounded-none !border !border-black bg-white px-4 py-2 font-medium text-background placeholder:text-base placeholder:font-normal placeholder:text-background/50 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
                               }
                               defaultCountry="uz"
                               inputProps={{

@@ -5,9 +5,9 @@ import { getTranslation } from "@/i18n";
 import { useEffect, useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
-const languageList = [
-  { code: "ru", name: "russian" },
+export const languageList = [
   { code: "uz", name: "uzbek" },
+  { code: "ru", name: "russian" },
   { code: "en", name: "english" },
 ];
 
@@ -17,7 +17,7 @@ const LanguageSwitcher = () => {
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
-    setOnOpen(false)
+    setOnOpen(false);
     window.location.reload();
   };
   useEffect(() => {

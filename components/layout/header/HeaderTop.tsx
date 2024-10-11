@@ -17,14 +17,13 @@ const HeaderTop = () => {
   const { info, fetchInfo } = useInfoStore();
 
   useEffect(() => {
-    if (!info?.id) fetchInfo;
+    if (!info?.id) fetchInfo();
   }, [fetchInfo]);
   return (
     <div className="bg-white px-4 py-3">
       <div className="sm:container ">
         <div className="flex flex-wrap items-center justify-center sm:flex-nowrap sm:justify-between">
           <div className="basis-full text-center sm:basis-auto sm:text-left hidden md:block">
-            {/*<Image src={"/logo.png"} alt="Logo" width={50} height={50} />*/}
             {t("contact")}:{" "}
             <Link className="font-medium" href={`tel:${info?.phone_number}`}>
               {formatPhoneNumber(info?.phone_number)}
