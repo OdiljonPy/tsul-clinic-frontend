@@ -4,3 +4,8 @@ export interface IFaq {
   answer: string;
   created_at: string;
 }
+
+export interface IFaqCategory {
+  id: number;
+  name: string;
+}
