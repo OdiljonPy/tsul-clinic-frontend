@@ -7,7 +7,7 @@ import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
 
 const TeamMembers = () => {
-  const { team, loading, fetchTeam } = useTeamStore();
+  const { team, loading, fetchTeam, volunteer } = useTeamStore();
 
   const { t } = getTranslation();
   useEffect(() => {
@@ -17,12 +17,19 @@ const TeamMembers = () => {
   if (loading) return <Loading />;
   return (
     <div className="bg-background">
-      <div className="container pb-40 pt-20 lg:pb-52 lg:pt-28">
+      <div className="container pb-28 sm:pb-36 sm:pt-24 lg:pb-40 lg:pt-28">
         <PrimaryHeadline
           text={t("our_team")}
           additionalClass="secondary-headline"
         />
         <TeamMembersCarousel team={team} textColor="text-white" />
+      </div>
+      <div className="container pb-40 pt-4 sm:pb-40 lg:pb-52 ">
+        <PrimaryHeadline
+          text={t("our_volunteer")}
+          additionalClass="secondary-headline"
+        />
+        <TeamMembersCarousel team={volunteer} />
       </div>
     </div>
   );

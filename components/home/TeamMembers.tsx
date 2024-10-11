@@ -9,7 +9,7 @@ import { getTranslation } from "@/i18n";
 
 const TeamMembers = () => {
   const { t } = getTranslation();
-  const { team, loading, fetchTeam } = useTeamStore();
+  const { team, loading, fetchTeam, volunteer } = useTeamStore();
 
   useEffect(() => {
     if (team.length === 0) fetchTeam();
@@ -25,7 +25,7 @@ const TeamMembers = () => {
       </div>
       <div className="container pb-40 pt-4 sm:pb-40 lg:pb-52 ">
         <PrimaryHeadline text={t("our_volunteer")} />
-        <TeamMembersCarousel team={team} />
+        <TeamMembersCarousel team={volunteer} />
       </div>
     </>
   );
