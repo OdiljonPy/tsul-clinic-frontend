@@ -205,9 +205,9 @@ const ApplicationModal = ({ open, setOpen, type }: props) => {
                                   />
                                   <label
                                     htmlFor={lang.code}
-                                    className="group-hover:text-primary-main cursor-pointer transition duration-300 uppercase"
+                                    className="group-hover:text-primary-main cursor-pointer transition duration-300 "
                                   >
-                                    {lang.name}
+                                    {t(lang.name)}
                                   </label>
                                 </div>
                               ))}
