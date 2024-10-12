@@ -14,9 +14,14 @@ import { ITeam } from "@/types/home/team";
 interface props {
   team: ITeam[];
   textColor?: string;
+  isBorder?: boolean;
 }
 
-export function TeamMembersCarousel({ team, textColor }: props) {
+export function TeamMembersCarousel({
+  team,
+  textColor,
+  isBorder
+}: props) {
   return (
     <Carousel
       opts={{
@@ -39,16 +44,22 @@ export function TeamMembersCarousel({ team, textColor }: props) {
                   alt="Team Member Img"
                   className="w-full h-[280px] object-cover"
                 />
-                <Image
-                  src={teammemberbefore}
-                  alt="Team Member Before"
-                  className="absolute left-0 top-0 size-11"
-                />
-                <Image
-                  src={teammemberbefore}
-                  alt="Team Member Before"
-                  className="absolute bottom-0 right-0 size-11 rotate-180"
-                />
+                {isBorder ? (
+                  <>
+                    <Image
+                      src={teammemberbefore}
+                      alt="Team Member Before"
+                      className="absolute left-0 top-0 size-11"
+                    />
+                    <Image
+                      src={teammemberbefore}
+                      alt="Team Member Before"
+                      className="absolute bottom-0 right-0 size-11 rotate-180"
+                    />
+                  </>
+                ) : (
+                  ""
+                )}
               </div>
               <div
                 className={`${

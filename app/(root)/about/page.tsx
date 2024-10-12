@@ -28,8 +28,6 @@ const page = () => {
         ctaType="withBg"
         buttonType="dark"
       />
-      {/*<WhyChooseUs />*/}
-      {/*<WeAreBest />*/}
       <PreFooter />
     </>
   );

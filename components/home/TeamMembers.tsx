@@ -21,11 +21,11 @@ const TeamMembers = () => {
     <>
       <div className="container pb-40 pt-16 sm:pb-36 sm:pt-20 lg:pb-40 lg:pt-28">
         <PrimaryHeadline text={t("our_team")} />
-        <TeamMembersCarousel team={team} />
+        <TeamMembersCarousel team={team} isBorder />
       </div>
       <div className="container pb-40 pt-4 sm:pb-40 lg:pb-52 ">
         <PrimaryHeadline text={t("our_volunteer")} />
-        <TeamMembersCarousel team={volunteer} />
+        <TeamMembersCarousel team={volunteer} isBorder />
       </div>
     </>
   );
