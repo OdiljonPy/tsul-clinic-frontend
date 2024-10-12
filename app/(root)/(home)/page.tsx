@@ -34,7 +34,7 @@ const Home = () => {
       <TeamMembers />
       <CTA
         headline={t("our_more_desc")}
-        buttonLink="/contant"
+        buttonLink="/contact"
         buttonText={t("contact_with")}
         ctaType="withImage"
       />

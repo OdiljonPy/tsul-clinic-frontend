@@ -56,16 +56,16 @@ const SFooter = () => {
                 <Send size={20} />
               </SocialIcon>
               <SocialIcon url={info?.instagram}>
-                <Instagram size={20}  />
+                <Instagram size={20} />
               </SocialIcon>
               <SocialIcon url={info?.twitter}>
-                <Twitter size={20}  />
+                <Twitter size={20} />
               </SocialIcon>
               <SocialIcon url={info?.youtube}>
-                <Youtube size={20}  />
+                <Youtube size={20} />
               </SocialIcon>
               <SocialIcon url={info?.linkedin}>
-                <Linkedin size={20}  />
+                <Linkedin size={20} />
               </SocialIcon>
             </div>
             <li className="flex items-center group mt-4 justify-center lg:justify-start">
@@ -76,6 +76,7 @@ const SFooter = () => {
               <a
                 className="ml-2 inline-block text-base text-white transition duration-300 group-hover:text-primary-main"
                 href="https://t.me/@TDYU_Yuridik_klinika_bot"
+                target="_blank"
               >
                 @TDYU_Yuridik_klinika_bot
               </a>
