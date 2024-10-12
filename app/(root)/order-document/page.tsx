@@ -1,7 +1,7 @@
 "use client";
 
 import InnerBanner from "@/components/global/inner-banner";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import PrimaryHeadline from "@/components/global/primary-headline";
 import {
@@ -65,6 +65,8 @@ const OrderDocument = () => {
 
   const [radioValue, setRadioValue] = useState("1");
 
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -99,6 +101,9 @@ const OrderDocument = () => {
       })
       .finally(() => {
         form.reset();
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
       });
   }
 
@@ -216,6 +221,7 @@ const OrderDocument = () => {
                         <FormItem>
                           <FormControl>
                             <Input
+                              ref={fileInputRef}
                               placeholder={t("download_file")}
                               type="file"
                               onChange={(

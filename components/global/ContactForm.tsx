@@ -23,7 +23,7 @@ import { Input } from "../ui/input";
 import useContactStore from "@/store/contact/contact";
 import ButtonCustom from "@/components/global/button";
 import useOrderDocument from "@/store/order-document/order-document";
-import React from "react";
+import React, { useRef } from "react";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
 import { PhoneInput } from "react-international-phone";
@@ -56,6 +56,8 @@ export function ContactForm() {
   const { t } = getTranslation();
 
   const { postContact, loading } = useContactStore();
+
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -90,6 +92,7 @@ export function ContactForm() {
       })
       .finally(() => {
         form.reset();
+        if (fileInputRef.current) fileInputRef.current.value = "";
       });
   }
 
@@ -177,6 +180,7 @@ export function ContactForm() {
             <FormItem>
               <FormControl>
                 <Input
+                  ref={fileInputRef}
                   placeholder={t("download_file")}
                   type="file"
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
