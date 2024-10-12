@@ -8,7 +8,7 @@ interface props {
 const ProjectsCard = ({ project }: props) => {
   return (
     <div className="flex flex-wrap sm:gap-1 md:gap-3 md:flex-nowrap shadow rounded group  transform duration-500 hover:-translate-y-1">
-      <div className="md:w-[500px] w-full h-[180px] sm:h-[220px] md:h-[200px] overflow-hidden rounded">
+      <div className="md:w-[500px] w-full h-[180px] sm:h-[220px] md:h-[240px] overflow-hidden rounded">
         <img
           className="w-full h-full object-cover "
           src={project.image}

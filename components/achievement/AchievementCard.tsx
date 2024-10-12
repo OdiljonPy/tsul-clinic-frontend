@@ -4,6 +4,7 @@ import { Layers } from "lucide-react";
 import { SlideshowLightbox } from "lightbox.js-react";
 import "lightbox.js-react/dist/index.css";
 import { useState } from "react";
+import {getTranslation} from "@/i18n";
 
 interface props {
   achievement: IAchievement;
@@ -11,6 +12,7 @@ interface props {
 
 const AchievementCard = ({ achievement }: props) => {
   const [onOpen, setOnOpen] = useState(false);
+  const {t} = getTranslation()
   return (
     <div
       className="rounded overflow-hidden shadow-lg flex flex-col group"
@@ -27,7 +29,7 @@ const AchievementCard = ({ achievement }: props) => {
         </div>
         <div className="cursor-pointer">
           <div className="absolute top-0 right-0 bg-background px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-background transition duration-500 ease-in-out flex items-center gap-2">
-            <Layers /> {achievement?.images.length} photos
+            <Layers /> {achievement?.images.length} {t('photos')}
           </div>
         </div>
       </div>
