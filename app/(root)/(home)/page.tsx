@@ -10,7 +10,6 @@ import PreFooter from "@/components/shared/PreFooter";
 import Testimonials from "@/components/home/Testimonials";
 import { Metadata } from "next";
 import { getTranslation } from "@/i18n";
-import MarqueeSlider from "@/components/home/partners/MarqueeSlider";
 import PartnersSection from "@/components/home/partners/PartnersSection";
 
 export const metadata: Metadata = {

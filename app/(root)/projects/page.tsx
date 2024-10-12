@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <div>
       <InnerBanner text={t("our_projects")} />
-      <div className="relative py-[70px]">
+      <div className="relative py-6 sm:py-10 md:py-[60px]">
         <div className="container">
           <ProjectsList />
         </div>
