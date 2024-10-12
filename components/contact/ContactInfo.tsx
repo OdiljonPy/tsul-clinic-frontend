@@ -50,7 +50,7 @@ const ContactInfo = ({ className }: props) => {
           />
           <a
             className="ml-2 inline-block text-base text-background transition duration-300 group-hover:text-primary-main"
-            href="https://t.me/@TDYU_Yuridik_klinika_bot"
+            href="https://t.me/TDYU_Yuridik_klinika_bot"
             target="_blank"
           >
             @TDYU_Yuridik_klinika_bot
