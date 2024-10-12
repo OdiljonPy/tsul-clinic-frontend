@@ -19,11 +19,11 @@ const Header = () => {
             <div className="shrink-0 basis-[166px] py-[2px] sm:py-2">
               <Link href="/" className="font-bold text-2xl">
                 <Image
-                  src={`/logo_white.png`}
+                  src={`/logo_bg.png`}
                   alt="Logo"
                   width={70}
                   height={70}
-                  className="object cover w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]"
+                  className="object-cover w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]"
                 />
               </Link>
             </div>
