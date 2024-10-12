@@ -11,7 +11,7 @@ interface props {
 const MarqueeSlider = ({ className, partners }: props) => {
   return (
     <Marquee className={cn(className)}>
-      <div className="flex h-[70px] w-full items-center justify-between sm:h-[100px]">
+      <div className="flex h-[70px] w-full items-center justify-between sm:h-[120px]">
         {partners?.length &&
           partners?.map((partner, idx) => (
             <PartnerCard partner={partner} key={idx} />

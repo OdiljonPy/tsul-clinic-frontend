@@ -21,7 +21,6 @@ import {
 import { IFooterLinks } from "@/types/footer";
 import { IOrderDocument } from "@/types/order-document";
 
-
 // Data for Blog Posts
 export const blogPosts: blogPostsProps[] = [
   {
@@ -195,10 +194,6 @@ export const TeamMembers: TeamMembersProps[] = [
   },
 ];
 
-
-
-
-
 // Data for Team Member Education
 export const attorneyEducaton: attorneyEducatonProps[] = [
   {
@@ -245,7 +240,6 @@ export const attorneyEducaton: attorneyEducatonProps[] = [
   },
 ];
 
-
 //Data for footer link
 export const footerLinks: IFooterLinks[] = [
   {
@@ -260,10 +254,7 @@ export const footerLinks: IFooterLinks[] = [
     name: "news",
     link: "/blog",
   },
-  {
-    name: "partners",
-    link: "/partners",
-  },
+
   {
     name: "FAQ",
     link: "/faqs",
@@ -293,4 +284,3 @@ export const headerLinks: IFooterLinks[] = [
     link: "/contact",
   },
 ];
-
