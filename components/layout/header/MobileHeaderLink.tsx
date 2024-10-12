@@ -37,8 +37,8 @@ const MobileHeaderLink = () => {
                 <Image
                   src={`/logo_bg.png`}
                   alt="Logo"
-                  width={70}
-                  height={70}
+                  width={500}
+                  height={500}
                   className="object cover w-[60px] h-[60px] sm:w-[70px] sm:h-[70px]"
                 />
               </Link>

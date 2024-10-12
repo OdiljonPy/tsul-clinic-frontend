@@ -43,8 +43,8 @@ const SFooter = () => {
               <Image
                 src={`/logo_bg.png`}
                 alt="Logo"
-                width={80}
-                height={80}
+                width={500}
+                height={500}
                 className="object cover w-[85px] h-[85px]"
               />
             </Link>
