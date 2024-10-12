@@ -21,7 +21,7 @@ const FaqCategories = ({ faqCategory, className }: props) => {
           className="text-black group text-lg cursor-pointer flex items-center gap-2"
         >
           <CircleChevronRight className="mt-1 shrink-0 rounded-full bg-white text-primary-main" />
-          <span className="transition-all duration-300 group-hover:text-primary-main">
+          <span className="transition-all duration-300 group-hover:text-primary-main font-medium text-lg">
             {item.name}
           </span>
         </Link>

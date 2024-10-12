@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title: "TSUL CLINIC",
   description: "Your one stop solution for legal matters",
   icons: {
-    icon: "/logo_white.png",
+    icon: "/logo_bg.png",
   },
 };
 

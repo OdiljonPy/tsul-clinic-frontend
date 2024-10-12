@@ -35,7 +35,7 @@ const MobileHeaderLink = () => {
             <SheetTitle>
               <Link href="/" className="font-bold text-2xl">
                 <Image
-                  src={`/logo_white.png`}
+                  src={`/logo_bg.png`}
                   alt="Logo"
                   width={70}
                   height={70}

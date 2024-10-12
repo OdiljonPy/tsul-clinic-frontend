@@ -41,7 +41,7 @@ const SFooter = () => {
               className="flex justify-center lg:justify-start font-bold text-2xl"
             >
               <Image
-                src={`/logo_white.png`}
+                src={`/logo_bg.png`}
                 alt="Logo"
                 width={80}
                 height={80}
