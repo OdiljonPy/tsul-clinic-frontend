@@ -7,7 +7,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
 import { getTranslation } from "@/i18n";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Lawyero",
+  title: "Contact Us",
   description: "Your one stop solution for legal matters",
 };
 

@@ -15,10 +15,16 @@ const useProjectsStore = create<TypeProjectStore>((set) => ({
   error: false,
   projects: [] as IProjects[],
   fetchProjects: async () => {
-    set({ loading: true });
-    const response = await API.get<ApiResponse<IProjects>>("/projects/");
-    const data = response.data;
-    if (data.ok) set({ projects: data.response, loading: false });
+    try {
+      set({ loading: true });
+      const response = await API.get<ApiResponse<IProjects>>("/projects/");
+      const data = response.data;
+      if (data.ok) set({ projects: data.response, loading: false });
+    } catch (err) {
+      set({ error: true, loading: false });
+    } finally {
+      set({ loading: false });
+    }
   },
 }));
 
