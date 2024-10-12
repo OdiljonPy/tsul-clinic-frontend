@@ -15,11 +15,13 @@ import { useState } from "react";
 import { Search } from "lucide-react";
 import { getTranslation } from "@/i18n";
 import Image from "next/image";
-import { headerLinks } from "@/lib/data";
+
+import { useIsActiveLink } from "@/hooks/useIsActiveLink";
 
 const MobileHeaderLink = () => {
   const { t } = getTranslation();
   const [searchOpen, setSearchOpen] = useState(false);
+  const { headerLinks } = useIsActiveLink();
   return (
     <Sheet>
       <SheetTrigger className="block lg:hidden">

@@ -5,14 +5,18 @@ import { Search } from "lucide-react";
 import SearchSidebar from "@/components/layout/search-sidebar/SearchSidebar";
 import { useState } from "react";
 import { getTranslation } from "@/i18n";
-import { headerLinks } from "@/lib/data";
+
+import { useIsActiveLink } from "@/hooks/useIsActiveLink";
 
 const DesktopHeaderLink = () => {
   const { t } = getTranslation();
   const [searchOpen, setSearchOpen] = useState(false);
+  const { headerLinks, isActive } = useIsActiveLink();
   return (
     <nav>
-      <ul className="hidden items-center lg:flex lg:gap-4 xl:gap-8">
+      <ul
+        className={`hidden items-center lg:flex lg:gap-4  ${isActive ? "xl:gap-6" : "xl:gap-8"}`}
+      >
         {headerLinks?.map((item, idx) => (
           <li className="group" key={idx}>
             <Link

@@ -9,55 +9,18 @@ import teammember2 from "@/public/assets/team-member-2.jpg";
 import teammember3 from "@/public/assets/team-member-3.jpg";
 import teammember4 from "@/public/assets/team-member-4.jpg";
 import teammember5 from "@/public/assets/team-member-5.jpg";
-import testimonialimg1 from "@/public/assets/customer.jpg";
-import testimonialimg2 from "@/public/assets/customer2.jpg";
-import testimonialimg3 from "@/public/assets/home-testimonial-img-3.jpeg";
-import paimage4 from "@/public/assets/pa-img-4.jpg";
-import paimage5 from "@/public/assets/pa-img-5.jpg";
-import homepageTypewriter from "@/public/assets/lawyer-ticker-min.jpg";
-import banner1 from "@/public/assets/banner/banner6.webp";
-import banner2 from "@/public/assets/banner/banner1.webp";
-import banner3 from "@/public/assets/banner/banner1.jpg";
+
 import {
   FAQsProps,
-  PADataProps,
   TeamMembersProps,
-  TestimonialsProps,
   attorneyEducatonProps,
-  bannerItemsType,
   blogCategoriesProps,
   blogPostsProps,
-  blogTagsProps,
-  homeBannerTypewriterProps,
 } from "@/types";
 
 import { IFooterLinks } from "@/types/footer";
 import { IOrderDocument } from "@/types/order-document";
 
-// Data for Homepage Banner
-export const bannerItems: bannerItemsType[] = [
-  {
-    id: 1,
-    content: "Har qanday huquqiy masalada biz bilan bog'laning",
-    linkText: "Batafsil Malumot",
-    image: banner1,
-    linkHref: "/services",
-  },
-  {
-    id: 2,
-    content: "Har qanday huquqiy masalada biz bilan bog'laning",
-    linkText: "Batafsil Malumot",
-    image: banner2,
-    linkHref: "/services",
-  },
-  {
-    id: 3,
-    content: "Har qanday huquqiy masalada biz bilan bog'laning",
-    linkText: "Batafsil Malumot",
-    image: banner3,
-    linkHref: "/services",
-  },
-];
 
 // Data for Blog Posts
 export const blogPosts: blogPostsProps[] = [
@@ -232,85 +195,9 @@ export const TeamMembers: TeamMembersProps[] = [
   },
 ];
 
-// Data for Testimonials
-export const Testimonials: TestimonialsProps[] = [
-  {
-    id: 1,
-    image: testimonialimg1,
-    name: "Odiljon Abduvaitov",
-    text: "TSUL Clinic xodimlari bilan ishlash juda qulay va samarali bo'ldi. Ular huquqiy masalalarni batafsil tushuntirib, murakkab vaziyatni oson tushunib olishimga yordam berishdi. Menga shaxsiy yondashuv va e'tibor juda yoqdi. Xizmatlari yuqori darajada",
-    organization: "ZERODEV LLC",
-    designation: "Founder / CEO",
-  },
-  {
-    id: 2,
-    image: testimonialimg2,
-    name: "Valisher Botirov",
-    text: "TSUL Clinic men kutgandan ham tezroq natijaga erishdi. Ularning yuridik bilimlari va tajribasi muammoni muvaffaqiyatli hal qilishda muhim rol o'ynadi. Jamoa har bir bosqichda mening manfaatlarimni himoya qildi va samarali maslahatlar berdi. Ishonch bilan tavsiya qilaman.",
-    organization: "ZERODEV LLC",
-    designation: "Frontend TL",
-  },
-  {
-    id: 3,
-    image: testimonialimg3,
-    name: "John Doe",
-    text: "TSUL Clinic bilan ishlash tajribam juda ijobiy bo‘ldi. Ular mening huquqiy muammolarimni jiddiy qabul qilib, tezkor yechimlarni taklif qilishdi. Ularning kasbiy yondashuvi va mijozlarga g‘amxo‘rligi ishonchli ekanini ko‘rsatdi",
-    organization: "Daily Times Network",
-    designation: "Assistant Finance Manager",
-  },
-];
 
-// Data for Practice Areas
-export const PAData: PADataProps[] = [
-  {
-    id: 1,
-    href: "/single-practice-area",
-    title: "Huquqiy maslahat berish",
-    text: "Family law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage5,
-    category: "Oilaviy",
-  },
-  {
-    id: 2,
-    href: "/single-practice-area",
-    title: "Sudda vakillik",
-    text: "Child custody involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage4,
-    category: "Ijtimoiy",
-  },
-  {
-    id: 3,
-    href: "/single-practice-area",
-    title: "Mutahasis xulosasi",
-    text: "Emergency law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage5,
-    category: "Meros",
-  },
-  {
-    id: 4,
-    href: "/single-practice-area",
-    title: "Davlat organida vakillik",
-    text: "Criminal law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage4,
-    category: "Uy-joy",
-  },
-  {
-    id: 5,
-    href: "/single-practice-area",
-    title: "Muzokaralarda qatnashish",
-    text: "Business law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage5,
-    category: "Soliq",
-  },
-  {
-    id: 6,
-    href: "/single-practice-area",
-    title: "Shartnoma loyihalarini huquqiy ekspertizadan o'tkazish",
-    text: "Real estate law involves a range of matters that are usually very personal, unique and emotionally challenging.",
-    image: paimage4,
-    category: "Mehnat",
-  },
-];
+
+
 
 // Data for Team Member Education
 export const attorneyEducaton: attorneyEducatonProps[] = [
@@ -358,57 +245,6 @@ export const attorneyEducaton: attorneyEducatonProps[] = [
   },
 ];
 
-// Data for Blog Categories
-export const blogCategories: blogCategoriesProps[] = [
-  {
-    id: 1,
-    title: "Attorney Law",
-  },
-  {
-    id: 2,
-    title: "Family Law",
-  },
-  {
-    id: 3,
-    title: "Criminal Law",
-  },
-  {
-    id: 4,
-    title: "Real Estate Law",
-  },
-  {
-    id: 5,
-    title: "Immigration Law",
-  },
-];
-
-// Data for Blog Tags
-export const blogTags: blogTagsProps[] = [
-  {
-    id: 1,
-    name: "Accident",
-  },
-  {
-    id: 2,
-    name: "Law",
-  },
-  {
-    id: 3,
-    name: "Attorney",
-  },
-];
-
-// Data for Home Banner Typewriter
-export const homeBannerTypewriter: homeBannerTypewriterProps = {
-  image: homepageTypewriter,
-  words: [
-    "Criminal Law",
-    "Divorce Law",
-    "Family Law",
-    "Immigration Law",
-    "Real Estate Law",
-  ],
-};
 
 //Data for footer link
 export const footerLinks: IFooterLinks[] = [
@@ -458,115 +294,3 @@ export const headerLinks: IFooterLinks[] = [
   },
 ];
 
-// Data for ORDER DOCUMENT
-
-export const orderDocumentData: IOrderDocument[] = [
-  {
-    id: 1,
-    name: "Korxonani royxatdan o'tkazish",
-    documents: [
-      {
-        id: 1,
-        name: "MCHJ ni ro'yxatdan o'tkazish",
-      },
-      {
-        id: 2,
-        name: "YTT ni ro'yxatdan o'tkazish",
-      },
-      {
-        id: 3,
-        name: "Tasis hujjatlari",
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Sudga xujjatlar",
-    documents: [
-      {
-        id: 4,
-        name: "Davo arizasi",
-      },
-      {
-        id: 5,
-        name: "Qarshi savo ariza",
-      },
-      {
-        id: 6,
-        name: "Ariza",
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Mansabdor shaxslar ustidan shikoyat",
-    documents: [
-      {
-        id: 1,
-        name: "MCHJ ni ro'yxatdan o'tkazish",
-      },
-      {
-        id: 2,
-        name: "YTT ni ro'yxatdan o'tkazish",
-      },
-      {
-        id: 3,
-        name: "Tasis hujjatlari",
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Shartnoma tuzish",
-    documents: [
-      {
-        id: 4,
-        name: "Davo arizasi",
-      },
-      {
-        id: 5,
-        name: "Qarshi savo ariza",
-      },
-      {
-        id: 6,
-        name: "Ariza",
-      },
-    ],
-  },
-  {
-    id: 5,
-    name: "Istemolchilarning shikoyatlari",
-    documents: [
-      {
-        id: 1,
-        name: "MCHJ ni ro'yxatdan o'tkazish",
-      },
-      {
-        id: 2,
-        name: "YTT ni ro'yxatdan o'tkazish",
-      },
-      {
-        id: 3,
-        name: "Tasis hujjatlari",
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: "Boshqa xujjatlar",
-    documents: [
-      {
-        id: 4,
-        name: "Davo arizasi",
-      },
-      {
-        id: 5,
-        name: "Qarshi savo ariza",
-      },
-      {
-        id: 6,
-        name: "Ariza",
-      },
-    ],
-  },
-];
