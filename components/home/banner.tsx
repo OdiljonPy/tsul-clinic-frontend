@@ -9,6 +9,8 @@ import Autoplay from "embla-carousel-autoplay";
 import useBannerStore from "@/store/home/banner";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
+import { Youtube } from "lucide-react";
+import VideoModal from "@/components/home/VideoModal";
 
 const Banner = () => {
   const { t } = getTranslation();
@@ -16,6 +18,8 @@ const Banner = () => {
 
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+
+  const [openVideo, setOpenVideo] = useState(false);
 
   useEffect(() => {
     if (!api) {
@@ -68,7 +72,7 @@ const Banner = () => {
                   <div className="container">
                     <div className="carousel-caption">
                       <h2
-                        className={`mb-5 max-w-full text-3xl font-bold uppercase leading-tight transition delay-500 duration-1000 sm:w-full sm:text-4xl md:text-5xl lg:w-2/3 lg:text-6xl ${
+                        className={`mb-2 sm:mb-3 max-w-full text-3xl font-bold uppercase leading-tight transition delay-500 duration-1000 sm:w-full sm:text-4xl md:text-5xl lg:w-2/3 lg:text-6xl ${
                           current === index + 1
                             ? "translate-y-0 opacity-100"
                             : "translate-y-10 opacity-0"
@@ -76,6 +80,19 @@ const Banner = () => {
                       >
                         {item.text}
                       </h2>
+                      <div
+                        onClick={() => setOpenVideo(true)}
+                        className={`transition delay-500 duration-1000 inline-flex items-center gap-3 text-lg mb-3 sm:mb-4 cursor-pointer group ${
+                          current === index + 1
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-10 opacity-0"
+                        }`}
+                      >
+                        <Youtube className="transition duration-300 group-hover:text-primary-main" />
+                        <span className="transition duration-300 group-hover:text-primary-main">
+                          {t("video_manual")}
+                        </span>
+                      </div>
                       <div
                         className={`transition delay-700 duration-1000 ${
                           current === index + 1
@@ -95,6 +112,7 @@ const Banner = () => {
       ) : (
         <div className="min-h-screen"></div>
       )}
+      <VideoModal open={openVideo} setOpen={setOpenVideo} />
     </>
   );
 };
