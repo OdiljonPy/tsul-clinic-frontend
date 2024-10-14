@@ -8,12 +8,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import useOpinionStore from "@/store/home/opinion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loading from "@/app/(root)/loading";
 import Autoplay from "embla-carousel-autoplay";
 
 export function TestimonialsCarousel() {
   const { opinion, fetchOpinion, loading } = useOpinionStore();
+
+  const [isPlay, setIsPlay] = useState(false);
 
   useEffect(() => {
     fetchOpinion();
@@ -27,7 +29,7 @@ export function TestimonialsCarousel() {
         align: "start",
         loop: true,
       }}
-      plugins={[Autoplay({ playOnInit: true, delay: 3000 })]}
+      plugins={[Autoplay({ playOnInit: !isPlay, delay: 3000 })]}
     >
       <CarouselContent>
         {opinion?.map((item) => (
@@ -40,6 +42,8 @@ export function TestimonialsCarousel() {
                     height={1920}
                     controls
                     className="h-full w-full object-cover"
+                    onPlay={() => setIsPlay(true)}
+                    onPause={() => setIsPlay(false)}
                   >
                     <source src={item.video} type="video/mp4" />
                   </video>
@@ -55,8 +59,14 @@ export function TestimonialsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-auto right-[60px] top-[112%] size-12 rounded-none border-2 border-white bg-transparent text-white opacity-100 disabled:opacity-100 sm:left-0 sm:right-auto sm:top-1/2" />
-      <CarouselNext className="right-0 top-[112%] size-12 rounded-none border-2 border-white bg-transparent text-white opacity-100 disabled:opacity-100 sm:top-1/2" />
+      <CarouselPrevious
+        disabled={isPlay}
+        className="left-auto right-[60px] top-[112%] size-12 rounded-none border-2 border-white bg-transparent text-white opacity-100 disabled:opacity-50 !disabled:cursor-not-allowed sm:left-0 sm:right-auto sm:top-1/2"
+      />
+      <CarouselNext
+        disabled={isPlay}
+        className="right-0 top-[112%] size-12 rounded-none border-2 border-white bg-transparent text-white opacity-100 disabled:opacity-50 sm:top-1/2 disabled:cursor-not-allowed"
+      />
     </Carousel>
   );
 }
