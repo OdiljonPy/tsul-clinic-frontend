@@ -37,7 +37,7 @@ export const useIsActiveLink = () => {
 
   useEffect(() => {
     const docsLink = {
-      name: "order_document",
+      name: "order-document",
       link: "/order_document",
     };
     !isActive
