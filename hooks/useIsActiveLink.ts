@@ -37,8 +37,8 @@ export const useIsActiveLink = () => {
 
   useEffect(() => {
     const docsLink = {
-      name: "order-document",
-      link: "/order_document",
+      name: "order_document",
+      link: "/order-document",
     };
     !isActive
       ? fetchReq().then((res) => {
