@@ -284,3 +284,28 @@ export const headerLinks: IFooterLinks[] = [
     link: "/contact",
   },
 ];
+
+// rating list
+
+export const ratingList = [
+  {
+    id: 1,
+    text: "rating_text1",
+  },
+  {
+    id: 2,
+    text: "rating_text2",
+  },
+  {
+    id: 3,
+    text: "rating_text3",
+  },
+  {
+    id: 4,
+    text: "rating_text4",
+  },
+  {
+    id: 5,
+    text: "rating_text5",
+  },
+];

@@ -102,5 +102,7 @@
   "rating_text2": "2 grade - bad",
   "rating_text3": "3 grade - satisfactory",
   "rating_text4": "4 grade - good",
-  "rating_text5": "5 grade - perfect"
+  "rating_text5": "5 grade - perfect",
+  "back_to_home": "Home page",
+  "rated_text": "You have left a rating for this service!"
 }
