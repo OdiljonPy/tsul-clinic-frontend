@@ -97,5 +97,10 @@
   "video_manual": "Video qo'llanma",
   "enter_your_opinion": "Fikringizni yozib qoldiring",
   "write_note": "Sharh yozish",
-  "rating5": "Besh ballik shkalada baholang"
+  "rating5": "Besh ballik shkalada baholang",
+  "rating_text1": "1 baho - qoniqarsiz",
+  "rating_text2": "2 baho - yomon",
+  "rating_text3": "3 baho - qoniqarli",
+  "rating_text4": "4 baho - yaxshi",
+  "rating_text5": "5 baho - a'lo"
 }

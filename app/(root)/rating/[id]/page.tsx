@@ -13,23 +13,23 @@ const Page = ({ params }: { params: { id: string } }) => {
   const ratingList = [
     {
       id: 1,
-      text: "1 baho",
+      text: "rating_text1",
     },
     {
       id: 2,
-      text: "2 baho",
+      text: "rating_text2",
     },
     {
       id: 3,
-      text: "3 baho",
+      text: "rating_text3",
     },
     {
       id: 4,
-      text: "4 baho",
+      text: "rating_text4",
     },
     {
       id: 5,
-      text: "5 baho",
+      text: "rating_text5",
     },
   ];
   const [rating, setRating] = useState(5);
@@ -50,7 +50,7 @@ const Page = ({ params }: { params: { id: string } }) => {
               <RadioGroupItem
                 value={rating.id.toString()}
                 id={rating.id.toString()}
-                className="text-primary-main inline-block group-hover:text-primary-main checked:border-primary-main"
+                className="text-primary-main group-hover:text-primary-main checked:border-primary-main"
               />
               <label
                 htmlFor={rating.id.toString()}

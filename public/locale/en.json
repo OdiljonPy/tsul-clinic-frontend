@@ -97,5 +97,10 @@
   "video_manual": "Video guide",
   "enter_your_opinion": "Leave your comment",
   "write_note": "Write a review",
-  "rating5": "Rate on a five-point scale"
+  "rating5": "Rate on a five-point scale",
+  "rating_text1": "1 grade - unsatisfied",
+  "rating_text2": "2 grade - bad",
+  "rating_text3": "3 grade - satisfactory",
+  "rating_text4": "4 grade - good",
+  "rating_text5": "5 grade - perfect"
 }
