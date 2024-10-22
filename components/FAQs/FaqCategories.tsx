@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CircleChevronRight } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface props {
   faqCategory: IFaqCategory[];
@@ -11,7 +12,10 @@ interface props {
 
 const FaqCategories = ({ faqCategory, className }: props) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
       className={cn(className, "grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3")}
     >
       {faqCategory?.map((item) => (
@@ -26,7 +30,7 @@ const FaqCategories = ({ faqCategory, className }: props) => {
           </span>
         </Link>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

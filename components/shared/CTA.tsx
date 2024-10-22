@@ -1,8 +1,11 @@
+"use client";
+
 import React from "react";
-import ButtonCustom, {TypeButton} from "../global/button";
+import ButtonCustom, { TypeButton } from "../global/button";
 import Link from "next/link";
 import Image from "next/image";
 import homeconsultationcall from "@/public/assets/home-request-consultation.jpg";
+import { motion } from "framer-motion";
 
 interface CTAProps {
   bgClass?: string;
@@ -29,17 +32,27 @@ const CTA = ({
         <div className="container">
           <div className="flex flex-wrap items-center lg:flex-nowrap">
             <div className="basis-full lg:basis-1/2">
-              <h3 className="text-center text-xl text-white lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: -100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="text-center text-xl text-white lg:text-left"
+              >
                 {headline}
-              </h3>
+              </motion.div>
             </div>
-            <div className="mt-7 basis-full text-center lg:mt-0 lg:basis-1/2 lg:text-right">
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="mt-7 basis-full text-center lg:mt-0 lg:basis-1/2 lg:text-right"
+            >
               <ButtonCustom
                 href={buttonLink}
                 text={buttonText}
                 buttonType={`${buttonType || "secondary"}`}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -54,7 +67,12 @@ const CTA = ({
           fill={true}
           className="object-cover"
         />
-        <div className="container relative z-[3] text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="container relative z-[3] text-center"
+        >
           <h2 className="mb-9 inline-block text-center text-[25px] font-bold leading-10 text-white sm:px-0 sm:text-[40px] lg:px-14">
             {headline}
           </h2>
@@ -64,7 +82,7 @@ const CTA = ({
           >
             {buttonText}
           </Link>
-        </div>
+        </motion.div>
       </div>
     ));
 

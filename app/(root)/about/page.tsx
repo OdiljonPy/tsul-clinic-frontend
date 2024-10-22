@@ -10,6 +10,9 @@ import { getTranslation } from "@/i18n";
 export const metadata: Metadata = {
   title: "TSUL CLINIC - About Us",
   description: "Your one stop solution for legal matters",
+    icons: {
+        icon: "/logo_bg.png",
+    },
 };
 const page = () => {
   const { t } = getTranslation();

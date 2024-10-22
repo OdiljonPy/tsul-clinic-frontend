@@ -28,6 +28,7 @@
     "embla-carousel-react": "^8.0.2",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "framer-motion": "^12.0.0-alpha.0",
     "gsap": "^3.12.5",
     "js-cookie": "^3.0.5",
     "lightbox.js-react": "^1.1.5",
@@ -47,6 +48,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/gsap": "^3.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
