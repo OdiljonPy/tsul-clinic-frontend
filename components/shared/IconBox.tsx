@@ -15,8 +15,8 @@ const IconBox = ({ iconName, headline, content, type }: propTypes) => {
   useGSAP(() => {
     gsap.to(".box", {
       opacity: 1,
-      duration: 1,
-      stagger: 0.3,
+      duration: 3,
+      stagger: 0.5,
       y: 0,
     });
   });

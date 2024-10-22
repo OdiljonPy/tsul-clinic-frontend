@@ -21,7 +21,7 @@ const DesktopHeaderLink = () => {
           <li className="group" key={idx}>
             <Link
               href={item.link}
-              className="relative block py-5 transition-all duration-500 hover:text-primary-main hover:border-primary-main"
+              className="relative block py-5 transition-all duration-500 hover:text-dark_blue hover:border-primary-main"
             >
               {t(item.name)}
             </Link>
@@ -30,7 +30,7 @@ const DesktopHeaderLink = () => {
 
         <li
           onClick={() => setSearchOpen(true)}
-          className="group relative flex h-full cursor-pointer shrink-0 items-center gap-2 transition-all duration-500 hover:text-primary-main hover:border-primary-main"
+          className="group relative flex h-full cursor-pointer shrink-0 items-center gap-2 transition-all duration-500 hover:text-dark_blue hover:border-primary-main"
         >
           <Search />
           {t("check_document")}

@@ -7,6 +7,7 @@ import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
 import FaqCategories from "@/components/FAQs/FaqCategories";
 
+
 const FAQs = () => {
   const { faq_category, fetchFAQCategory, loading } = useFAQStore();
   const { t } = getTranslation();
