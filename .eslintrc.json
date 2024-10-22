@@ -8,6 +8,7 @@
   "rules": {
     "spaced-comment": "off",
     "class-order": "off",
+    "camelcase": "off",
     "tailwindcss/classnames-order": "off",
     "tailwindcss/no-custom-classname": "off",
     "no-unused-vars": "off",

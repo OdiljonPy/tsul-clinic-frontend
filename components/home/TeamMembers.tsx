@@ -6,6 +6,7 @@ import { TeamMembersCarousel } from "../shared/TeamMembersCarousel";
 import useTeamStore from "@/store/home/team";
 import Loading from "@/app/(root)/loading";
 import { getTranslation } from "@/i18n";
+import { motion } from "framer-motion";
 
 const TeamMembers = () => {
   const { t } = getTranslation();
@@ -19,14 +20,24 @@ const TeamMembers = () => {
 
   return (
     <>
-      <div className="container pb-40 pt-16 sm:pb-36 sm:pt-20 lg:pb-40 lg:pt-28">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        className="container pb-40 pt-16 sm:pb-36 sm:pt-20 lg:pb-40 lg:pt-28"
+      >
         <PrimaryHeadline text={t("our_team")} />
         <TeamMembersCarousel team={team} isBorder />
-      </div>
-      <div className="container pb-40 pt-4 sm:pb-40 lg:pb-52 ">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        className="container pb-40 pt-4 sm:pb-40 lg:pb-52 "
+      >
         <PrimaryHeadline text={t("our_volunteer")} />
         <TeamMembersCarousel team={volunteer} isBorder />
-      </div>
+      </motion.div>
     </>
   );
 };

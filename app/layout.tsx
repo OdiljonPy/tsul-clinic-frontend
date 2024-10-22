@@ -37,6 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const { i18n } = getTranslation();
+
   return (
     <html lang="en">
       <Head>
