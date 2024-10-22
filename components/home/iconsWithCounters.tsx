@@ -6,20 +6,25 @@ import StatsCounterIconBox from "../shared/statsCounterIconBox";
 import library from "@/public/assets/library-home.jpg";
 import libraryicon from "@/public/assets/library-icon.svg";
 import useStatisticsStore from "@/store/home/statistics";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Loading from "@/app/(root)/loading";
-import {getTranslation} from "@/i18n";
+import { getTranslation } from "@/i18n";
+import { StatsWithIconProps } from "@/types";
 
 const IconsWithCounters = () => {
-    const {t} = getTranslation()
+  const { t } = getTranslation();
   const { statistics, fetchStatistics, loading } = useStatisticsStore();
+  const [data, setData] = useState<StatsWithIconProps[]>([]);
 
   useEffect(() => {
     fetchStatistics().then((res) => {
       if (res?.ok) {
-        StatsWithIcon[0].amount = res.response?.customers_number;
-        StatsWithIcon[1].amount = res.response?.services_number;
-        StatsWithIcon[2].amount = res.response?.service_indicator;
+        console.log(res, "rs");
+        setData([
+          { ...StatsWithIcon[0], amount: res.response?.customers_number },
+          { ...StatsWithIcon[1], amount: res.response?.services_number },
+          { ...StatsWithIcon[2], amount: res.response?.service_indicator },
+        ]);
       }
     });
   }, [fetchStatistics]);
@@ -30,18 +35,19 @@ const IconsWithCounters = () => {
       <Image src={library} alt="library" fill={true} className="object-cover" />
       <div className="container relative z-[3]">
         <div className="flex flex-wrap justify-between lg:flex-nowrap">
-          {StatsWithIcon.map((item) => {
-            return (
-              <StatsCounterIconBox
-                key={`statbox${item.id}`}
-                iconName={item.iconName}
-                amount={item.amount}
-                amountPreText={item.amountPreText}
-                amountPostText={item.amountPostText}
-                text={t(item.text)}
-              />
-            );
-          })}
+          {data?.length &&
+            data?.map((item) => {
+              return (
+                <StatsCounterIconBox
+                  key={`statbox${item.id}`}
+                  iconName={item.iconName}
+                  amount={item.amount}
+                  amountPreText={item.amountPreText}
+                  amountPostText={item.amountPostText}
+                  text={t(item.text)}
+                />
+              );
+            })}
         </div>
       </div>
 

@@ -32,7 +32,7 @@ const SFooter = () => {
   }, [fetchLinks, fetchInfo]);
 
   return (
-    <footer className="bg-background ">
+    <footer className="bg-[#0179AE]">
       <div className="container px-6 lg:px-8  ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-6 sm:py-12 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full mb-6 sm:mb-10 lg:col-span-2 lg:mb-0">

@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-20 font-albert ">
       <HeaderTop />
-      <div className="relative bg-background">
+      <div className="relative bg-[#233585]">
         <div className="container">
           <div className="flex min-h-[80px] items-center gap-4  justify-between lg:min-h-full">
             <div className="shrink-0 basis-[166px] py-[2px] sm:py-2">

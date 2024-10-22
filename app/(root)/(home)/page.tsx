@@ -15,6 +15,9 @@ import PartnersSection from "@/components/home/partners/PartnersSection";
 export const metadata: Metadata = {
   title: "TSUL CLINIC",
   description: "TSULCLINIC | Har qanday yuridik masalada biz bilan bog'laning",
+    icons: {
+        icon: "/logo_bg.png",
+    },
 };
 const Home = () => {
   const { t } = getTranslation();
