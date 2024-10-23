@@ -31,6 +31,7 @@ const Pagination = ({ totalPages, page }: props) => {
         </button>
         {Array.from({ length: totalPages }).map((_, idx) => (
           <li
+            key={idx + 1}
             onClick={() => changePage(idx + 1)}
             className={`group mr-3 flex size-12 cursor-pointer items-center justify-center border-2 border-background bg-white text-xl font-bold text-background hover:bg-background hover:text-white ${idx + 1 === customPage ? "!bg-background !text-white" : ""}`}
           >

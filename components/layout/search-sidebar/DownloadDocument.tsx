@@ -1,21 +1,22 @@
 import { FolderDown } from "lucide-react";
 import { ICheckDocument } from "@/types/check-document/check-document";
-import {getTranslation} from "@/i18n";
+import { getTranslation } from "@/i18n";
 
 interface props {
   documentInfo: ICheckDocument;
 }
 
 const DownloadDocument = ({ documentInfo }: props) => {
-    const {t} = getTranslation()
+  const { t } = getTranslation();
   return (
     <div className="mt-4">
       <h2 className="text-gray-700 font-medium text-lg">
-          {t('download_document')}
+        {t("download_document")}
       </h2>
       <div className="mt-2 flex flex-col gap-4">
         {documentInfo?.ready_documents?.map((document) => (
           <a
+            key={document?.id}
             href={document?.document}
             target="_blank"
             className="flex items-center justify-between shadow p-3 bg-gray-100  group"
