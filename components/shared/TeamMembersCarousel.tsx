@@ -7,9 +7,9 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import teammemberbefore from "@/public/assets/team-meber-before.svg";
-import { TeamMembers } from "@/lib/data";
-import Link from "next/link";
+
 import { ITeam } from "@/types/home/team";
+import Autoplay from "embla-carousel-autoplay";
 
 interface props {
   team: ITeam[];
@@ -17,17 +17,14 @@ interface props {
   isBorder?: boolean;
 }
 
-export function TeamMembersCarousel({
-  team,
-  textColor,
-  isBorder
-}: props) {
+export function TeamMembersCarousel({ team, textColor, isBorder }: props) {
   return (
     <Carousel
       opts={{
         align: "start",
         loop: true,
       }}
+      plugins={[Autoplay({ playOnInit: true, delay: 3000 })]}
     >
       <CarouselContent className="pt-3">
         {team?.map((item) => (

@@ -15,11 +15,11 @@ interface props {
 }
 
 const VideoModal = ({ open, setOpen }: props) => {
-  const { video_url , fetchVideoUrl } = useVideoStore();
+  const { video_url, fetchVideoUrl } = useVideoStore();
 
   useEffect(() => {
     if (!video_url) fetchVideoUrl();
-  }, [fetchVideoUrl]);
+  }, []);
   // @ts-ignore
   return (
     <div className="bg-white px-3">

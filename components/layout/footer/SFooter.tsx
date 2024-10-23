@@ -8,9 +8,9 @@ import { useEffect } from "react";
 
 import useInfoStore from "@/store/contact/info";
 import {
-  BotMessageSquare,
+  BotMessageSquare, Facebook,
   Instagram,
-  Linkedin,
+  Linkedin, Music2,
   Send,
   Twitter,
   Youtube,
@@ -24,12 +24,11 @@ const SFooter = () => {
   const { t } = getTranslation();
 
   const { links, fetchLinks } = useLinkStore();
-  const { info, fetchInfo } = useInfoStore();
+  const { info } = useInfoStore();
 
   useEffect(() => {
     if (links?.length === 0) fetchLinks();
-    if (!(info?.id === 0)) fetchInfo();
-  }, [fetchLinks, fetchInfo]);
+  }, [fetchLinks]);
 
   return (
     <footer className="bg-[#233585]">
@@ -59,13 +58,13 @@ const SFooter = () => {
                 <Instagram size={20} />
               </SocialIcon>
               <SocialIcon url={info?.twitter}>
-                <Twitter size={20} />
+                <Music2 size={20} />
               </SocialIcon>
               <SocialIcon url={info?.youtube}>
                 <Youtube size={20} />
               </SocialIcon>
               <SocialIcon url={info?.linkedin}>
-                <Linkedin size={20} />
+                <Facebook size={20} />
               </SocialIcon>
             </div>
             <li className="flex items-center group mt-4 justify-center lg:justify-start">

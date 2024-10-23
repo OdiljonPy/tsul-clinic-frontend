@@ -13,11 +13,6 @@ const HeaderTop = () => {
 
   const [open, setOpen] = useState(false);
   const [type, setType] = useState<MeetingType>(MeetingType.phone);
-  const { info, fetchInfo } = useInfoStore();
-
-  useEffect(() => {
-    if (!info?.id) fetchInfo();
-  }, [fetchInfo]);
   return (
     <div className="bg-white px-4 py-3">
       <div className="sm:container ">
