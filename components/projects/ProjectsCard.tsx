@@ -18,7 +18,7 @@ const ProjectsCard = ({ project }: props) => {
 
       <div className="flex flex-col gap-3 justify-between p-3 md:p-2 grow w-full">
         <div className="">
-          <h1 className="text-2xl font-semibold text-gray-800 line-clamp-1">
+          <h1 className="text-2xl font-semibold text-gray-800 line-clamp-2">
             {project.name}
           </h1>
           <p className="text-lg text-gray-400 mt-1 line-clamp-3">
