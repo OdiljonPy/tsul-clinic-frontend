@@ -24,12 +24,11 @@ const SFooter = () => {
   const { t } = getTranslation();
 
   const { links, fetchLinks } = useLinkStore();
-  const { info, fetchInfo } = useInfoStore();
+  const { info } = useInfoStore();
 
   useEffect(() => {
     if (links?.length === 0) fetchLinks();
-    if (!(info?.id === 0)) fetchInfo();
-  }, [fetchLinks, fetchInfo]);
+  }, [fetchLinks]);
 
   return (
     <footer className="bg-[#233585]">
