@@ -11,6 +11,7 @@ import { getTranslation } from "@/i18n";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import JivoChat from "@/components/JivoChat";
 
 const albertSans = Albert_Sans({
   subsets: ["latin"],
@@ -40,15 +41,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
-        <script src="//code.jivosite.com/widget/b5BYeZYhWX" async></script>
-      </Head>
       <body
-        className={`${i18n.language === "uz" ? albertSans.variable : roboto.variable}`}
+        className={`!overflow-x-hidden ${i18n.language === "uz" ? albertSans.variable : roboto.variable}`}
       >
         <Header />
         {children}
         <SFooter />
+        <JivoChat />
         <ToastContainer
           position="top-right"
           autoClose={1500}
