@@ -46,8 +46,8 @@ export default function RootLayout({
       >
         <Header />
         {children}
-        <SFooter />
         <JivoChat />
+        <SFooter />
         <ToastContainer
           position="top-right"
           autoClose={1500}
