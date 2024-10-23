@@ -63,7 +63,8 @@ const Banner = () => {
                 <Image
                   src={item.image}
                   alt="homepage banner image"
-                  fill={true}
+                  fill
+                  objectFit="cover"
                   className="object-cover w-full h-full"
                 />
                 <div
