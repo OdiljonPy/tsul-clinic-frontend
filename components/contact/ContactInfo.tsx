@@ -19,7 +19,7 @@ const ContactInfo = ({ className }: props) => {
 
   useEffect(() => {
     if (!info?.id) fetchInfo();
-  }, [fetchInfo]);
+  }, [info]);
 
   if (loading) return <Loading />;
 
