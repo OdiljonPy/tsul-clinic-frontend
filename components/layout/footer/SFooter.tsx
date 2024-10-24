@@ -8,9 +8,9 @@ import { useEffect } from "react";
 
 import useInfoStore from "@/store/contact/info";
 import {
-  BotMessageSquare,
+  BotMessageSquare, Facebook,
   Instagram,
-  Linkedin,
+  Linkedin, Music2,
   Send,
   Twitter,
   Youtube,
@@ -24,15 +24,14 @@ const SFooter = () => {
   const { t } = getTranslation();
 
   const { links, fetchLinks } = useLinkStore();
-  const { info, fetchInfo } = useInfoStore();
+  const { info } = useInfoStore();
 
   useEffect(() => {
     if (links?.length === 0) fetchLinks();
-    if (!(info?.id === 0)) fetchInfo();
-  }, [fetchLinks, fetchInfo]);
+  }, [fetchLinks]);
 
   return (
-    <footer className="bg-[#233585]">
+    <footer className="bg-[#018DAE]">
       <div className="container px-6 lg:px-8  ">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-8 py-6 sm:py-12 max-w-xs mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-full">
           <div className="col-span-full mb-6 sm:mb-10 lg:col-span-2 lg:mb-0">
@@ -59,13 +58,13 @@ const SFooter = () => {
                 <Instagram size={20} />
               </SocialIcon>
               <SocialIcon url={info?.twitter}>
-                <Twitter size={20} />
+                <Music2 size={20} />
               </SocialIcon>
               <SocialIcon url={info?.youtube}>
                 <Youtube size={20} />
               </SocialIcon>
               <SocialIcon url={info?.linkedin}>
-                <Linkedin size={20} />
+                <Facebook size={20} />
               </SocialIcon>
             </div>
             <li className="flex items-center group mt-4 justify-center lg:justify-start">

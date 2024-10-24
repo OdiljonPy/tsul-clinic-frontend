@@ -16,7 +16,7 @@ const Page = () => {
     <>
       <InnerBanner text={t("news")} />
 
-      <div className="relative py-[90px]">
+      <div className="relative py-[25px] sm:py-[40px] md:py-[80px]">
         <div className="container">
           <div className="flex flex-wrap lg:flex-nowrap">
             <BlogList layoutClass="lg:basis-[70%] basis-full" />

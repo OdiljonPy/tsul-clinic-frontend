@@ -34,8 +34,8 @@ const Banner = () => {
   }, [api]);
 
   useEffect(() => {
-    fetchBannerItems();
-  }, [fetchBannerItems]);
+    if (bannerItems.length === 0) fetchBannerItems();
+  }, [bannerItems]);
 
   if (loading) return <Loading />;
   if (error) throw new Error();
@@ -63,7 +63,8 @@ const Banner = () => {
                 <Image
                   src={item.image}
                   alt="homepage banner image"
-                  fill={true}
+                  fill
+                  objectFit="cover"
                   className="object-cover w-full h-full"
                 />
                 <div

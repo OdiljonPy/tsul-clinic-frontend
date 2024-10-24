@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { blogPosts } from "@/lib/data";
 import Image from "next/image";
 import { formatDate } from "@/lib/utilFunctons";
 import ButtonCustom from "../global/button";
@@ -11,7 +10,7 @@ import { useEffect } from "react";
 import Pagination from "@/components/shared/Pagination";
 import { useSearchParams } from "next/navigation";
 import Loading from "@/app/(root)/loading";
-import {getTranslation} from "@/i18n";
+import { getTranslation } from "@/i18n";
 
 const BlogList = ({ layoutClass }: { layoutClass: string }) => {
   const searchParams = useSearchParams();
@@ -39,7 +38,7 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
               alt="Blog Post Image"
               width={1000}
               height={500}
-              className="w-full h-[340px] sm:h-[500px] object-cover"
+              className="w-full h-[400px] sm:h-[600px] sm:object-contain"
             />
           </div>
           <div className=" bg-white">
@@ -67,7 +66,7 @@ const BlogList = ({ layoutClass }: { layoutClass: string }) => {
               <ButtonCustom
                 href={`/blog/${item.id}`}
                 buttonType="dark"
-                text={t('read_more')}
+                text={t("read_more")}
               />
             </div>
           </div>

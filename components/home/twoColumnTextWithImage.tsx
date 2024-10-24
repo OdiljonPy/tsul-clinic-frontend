@@ -14,7 +14,7 @@ const TwoColumnTextWithImage = () => {
   const { about, loading, fetchAbout } = useAboutStore();
   useEffect(() => {
     if (!about?.about_us) fetchAbout();
-  }, [fetchAbout]);
+  }, [about]);
 
   if (loading) return <Loading />;
   return (
@@ -31,7 +31,7 @@ const TwoColumnTextWithImage = () => {
             additionalClass="primary-headline-left"
           />
           <div
-            className="text-base text-[#333] mb-4"
+            className="text-base text-[#333] mb-4 line-clamp-[14]"
             dangerouslySetInnerHTML={{ __html: about?.about_us }}
           ></div>
           <ButtonCustom

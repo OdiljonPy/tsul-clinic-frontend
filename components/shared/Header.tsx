@@ -13,11 +13,11 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-20 font-albert ">
       <HeaderTop />
-      <div className="relative bg-primary-main">
+      <div className="relative bg-[#018DAE]">
         <div className="container">
           <div className="flex min-h-[80px] items-center gap-4  justify-between lg:min-h-full">
             <div className="shrink-0 basis-[166px] py-[2px] sm:py-2">
-              <Link href="/" className="font-bold text-2xl">
+              <Link href="/" className="font-bold text-2xl shadow">
                 <Image
                   src={`/logo_bg.png`}
                   alt="Logo"

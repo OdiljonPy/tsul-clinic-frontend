@@ -14,8 +14,8 @@ const BlogPosts = () => {
   const { news, loading, fetchNews } = useNewsStore();
 
   useEffect(() => {
-    fetchNews(1, 6);
-  }, [fetchNews]);
+    if (news.content?.length === 0) fetchNews(1, 6);
+  }, [news]);
 
   if (loading) return <Loading />;
   return (

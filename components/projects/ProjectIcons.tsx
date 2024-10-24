@@ -1,9 +1,10 @@
 "use client";
 
 import {
+  Facebook,
   Globe,
   Instagram,
-  Linkedin,
+  Linkedin, Music2,
   Send,
   Twitter,
   Youtube,
@@ -31,10 +32,11 @@ const ProjectIcons = ({ project, className }: props) => {
       )}
       {project?.twitter_url && (
         <a href={project.twitter_url} className="cursor-pointer group">
-          <Twitter
-            size={26}
-            className="transition duration-300 text-[#1DA1F2]/80 group-hover:text-[#1DA1F2]"
-          />
+          {/*<Twitter*/}
+          {/*  size={26}*/}
+          {/*  className="transition duration-300 text-[#1DA1F2]/80 group-hover:text-[#1DA1F2]"*/}
+          {/*/>*/}
+          <Music2 size={24} className="transition duration-300 text-[#000]/80 group-hover:text-[#000]" />
         </a>
       )}
       {project?.youtube_url && (
@@ -52,10 +54,7 @@ const ProjectIcons = ({ project, className }: props) => {
       )}
       {project?.linkedin_url && (
         <a href={project.linkedin_url} className="cursor-pointer group">
-          <Linkedin
-            size={24}
-            className="transition duration-300 text-[#0a66c2]/80 group-hover:text-[#0a66c2]"
-          />
+          <Facebook size={24} className="transition duration-300 text-[#4267B2]/80 group-hover:text-[#4267B2]" />
         </a>
       )}
     </div>
