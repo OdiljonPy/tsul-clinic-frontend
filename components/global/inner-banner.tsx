@@ -9,7 +9,7 @@ const InnerBanner = ({
   image?: StaticImageData;
 }) => {
   return (
-    <div className="relative overflow-hidden py-[70px] before:absolute before:left-0 before:top-0 before:z-[2] before:size-full before:bg-background before:opacity-70 before:content-['']">
+    <div className="relative overflow-hidden py-[50px] sm:py-[70px] before:absolute before:left-0 before:top-0 before:z-[2] before:size-full before:bg-background before:opacity-70 before:content-['']">
       <Image
         src={image || innerbanner}
         alt="Page Banner With Title"

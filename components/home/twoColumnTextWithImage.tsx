@@ -31,7 +31,7 @@ const TwoColumnTextWithImage = () => {
             additionalClass="primary-headline-left"
           />
           <div
-            className="text-base text-[#333] mb-4"
+            className="text-base text-[#333] mb-4 line-clamp-[14]"
             dangerouslySetInnerHTML={{ __html: about?.about_us }}
           ></div>
           <ButtonCustom
