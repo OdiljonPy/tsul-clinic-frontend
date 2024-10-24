@@ -18,17 +18,18 @@ const IconsWithCounters = () => {
   const [data, setData] = useState<StatsWithIconProps[]>([]);
 
   useEffect(() => {
-    fetchStatistics().then((res) => {
-      if (res?.ok) {
-        console.log(res, "rs");
-        setData([
-          { ...StatsWithIcon[0], amount: res.response?.customers_number },
-          { ...StatsWithIcon[1], amount: res.response?.services_number },
-          { ...StatsWithIcon[2], amount: res.response?.service_indicator },
-        ]);
-      }
-    });
-  }, [fetchStatistics]);
+    if (!statistics.id)
+      fetchStatistics().then((res) => {
+        if (res?.ok) {
+          console.log(res, "rs");
+          setData([
+            { ...StatsWithIcon[0], amount: res.response?.customers_number },
+            { ...StatsWithIcon[1], amount: res.response?.services_number },
+            { ...StatsWithIcon[2], amount: res.response?.service_indicator },
+          ]);
+        }
+      });
+  }, [statistics]);
 
   if (loading) return <Loading />;
   return (

@@ -14,7 +14,7 @@ const TwoColumnTextWithImage = () => {
   const { about, loading, fetchAbout } = useAboutStore();
   useEffect(() => {
     if (!about?.about_us) fetchAbout();
-  }, [fetchAbout]);
+  }, [about]);
 
   if (loading) return <Loading />;
   return (

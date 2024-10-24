@@ -13,7 +13,7 @@ const PartnersSection = () => {
 
   useEffect(() => {
     if (partners?.length === 0) fetchPartners();
-  }, [fetchPartners]);
+  }, [partners]);
   return (
     <div className="pb-10 sm:pb-20 pt-6 sm:pt-10">
       <motion.div

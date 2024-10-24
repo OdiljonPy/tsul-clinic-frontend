@@ -18,8 +18,8 @@ export function TestimonialsCarousel() {
   const [isPlay, setIsPlay] = useState(false);
 
   useEffect(() => {
-    fetchOpinion();
-  }, [fetchOpinion]);
+    if (opinion.length === 0) fetchOpinion();
+  }, [opinion]);
 
   if (loading) return <Loading />;
   return (

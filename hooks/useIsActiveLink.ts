@@ -52,7 +52,7 @@ export const useIsActiveLink = () => {
           }
         })
       : null;
-  }, []);
+  }, [isActive]);
 
   return { headerLinks, isActive };
 };
