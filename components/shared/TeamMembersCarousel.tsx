@@ -30,7 +30,7 @@ export function TeamMembersCarousel({ team, textColor, isBorder }: props) {
         {team?.map((item) => (
           <CarouselItem
             key={`team${item.id}`}
-            className="md:basis-1/2 lg:basis-1/4"
+            className="sm:basis-1/2 lg:basis-1/4"
           >
             <div className="group">
               <div className="before::content-[''] relative cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:bg-black before:opacity-30 before:transition-all before:duration-300 before:ease-in group-hover:before:w-full">
@@ -39,7 +39,7 @@ export function TeamMembersCarousel({ team, textColor, isBorder }: props) {
                   width={700}
                   height={300}
                   alt="Team Member Img"
-                  className="w-full h-[280px] object-cover"
+                  className="w-full h-[310px] sm:h-[290px] object-cover"
                 />
                 {isBorder ? (
                   <>

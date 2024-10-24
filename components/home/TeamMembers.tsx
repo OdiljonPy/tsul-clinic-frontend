@@ -14,7 +14,7 @@ const TeamMembers = () => {
 
   useEffect(() => {
     if (team.length === 0) fetchTeam();
-  }, [fetchTeam]);
+  }, [team]);
 
   if (loading) return <Loading />;
 

@@ -34,8 +34,8 @@ const Banner = () => {
   }, [api]);
 
   useEffect(() => {
-    fetchBannerItems();
-  }, []);
+    if (bannerItems.length === 0) fetchBannerItems();
+  }, [bannerItems]);
 
   if (loading) return <Loading />;
   if (error) throw new Error();
