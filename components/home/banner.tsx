@@ -49,7 +49,7 @@ const Banner = () => {
           plugins={[
             Autoplay({
               delay: 5000,
-            }),
+            }) as any,
           ]}
         >
           <CarouselContent className="relative ml-0">
