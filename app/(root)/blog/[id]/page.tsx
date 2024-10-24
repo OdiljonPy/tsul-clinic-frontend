@@ -21,7 +21,7 @@ const Page = ({ params }: URLParams) => {
   if (error) throw new Error();
   return (
     <>
-      <div className="relative py-[90px]">
+      <div className="relative py-[25px] sm:py-[40px] md:py-[80px]">
         <div className="container">
           <div className="flex flex-wrap lg:flex-nowrap">
             <div className="basis-full pr-0 lg:basis-[70%] lg:pr-8">
@@ -32,7 +32,7 @@ const Page = ({ params }: URLParams) => {
                     width={1000}
                     height={500}
                     alt="Home BLog Post"
-                    className="w-full object-cover h-[340px] sm:h-[500px]"
+                    className="w-full object-cover sm:object-contain h-[400px] sm:h-[600px]"
                   />
                   <div className=" bg-white">
                     <h2 className="my-6 text-[25px] font-bold capitalize leading-9 text-background sm:text-[32px]">

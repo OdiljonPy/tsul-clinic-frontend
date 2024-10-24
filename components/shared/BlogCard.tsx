@@ -1,6 +1,7 @@
 import { formatDate } from "@/lib/utilFunctons";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 interface BlogCardProps {
   imageURL: StaticImageData | string;
@@ -10,19 +11,20 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ imageURL, date, linkHref, title }: BlogCardProps) => {
+    const router = useRouter()
   return (
-    <div className="group basis-1/3 cursor-pointer">
+    <div className="group basis-1/3 cursor-pointer" onClick={()=>router.push(`${linkHref}`)}>
       <div className="overflow-hidden">
         <Image
           src={imageURL}
-          width={400}
-          height={260}
+          width={800}
+          height={500}
           alt="Home BLog Post"
-          className="scale-110 w-full h-[260px] transition-transform duration-500 ease-in-out group-hover:scale-100 object-cover"
+          className="scale-110 w-full h-[400px] transition-transform duration-500 ease-in-out group-hover:scale-100 object-cover"
         />
       </div>
-      <div className="bg-white p-5">
-        <span className="mb-4 inline-block text-sm text-primary-main">
+      <div className="bg-white p-4">
+        <span className="mb-2 inline-block text-sm text-primary-main">
           {formatDate(date)}
         </span>
         <h3>

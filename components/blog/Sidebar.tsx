@@ -17,7 +17,7 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="basis-full pt-20 lg:basis-[30%] lg:pt-0">
+    <div className="basis-full pt-10 sm:pt-20 lg:basis-[30%] lg:pt-0">
       <div className="">
         <PrimaryHeadline
           text={t("recent_news")}
