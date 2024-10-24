@@ -29,7 +29,7 @@ export function TestimonialsCarousel() {
         align: "start",
         loop: true,
       }}
-      plugins={[Autoplay({ playOnInit: !isPlay, delay: 3000 })]}
+      plugins={[Autoplay({ playOnInit: !isPlay, delay: 3000 }) as any]}
     >
       <CarouselContent>
         {opinion?.map((item) => (

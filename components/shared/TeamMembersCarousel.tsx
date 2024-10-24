@@ -24,7 +24,12 @@ export function TeamMembersCarousel({ team, textColor, isBorder }: props) {
         align: "start",
         loop: true,
       }}
-      plugins={[Autoplay({ playOnInit: true, delay: 3000 })]}
+      plugins={[
+        Autoplay({
+          playOnInit: true,
+          delay: 3000,
+        }) as any,
+      ]}
     >
       <CarouselContent className="pt-3">
         {team?.map((item) => (
