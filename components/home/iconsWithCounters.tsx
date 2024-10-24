@@ -21,7 +21,6 @@ const IconsWithCounters = () => {
     if (!statistics.id)
       fetchStatistics().then((res) => {
         if (res?.ok) {
-          console.log(res, "rs");
           setData([
             { ...StatsWithIcon[0], amount: res.response?.customers_number },
             { ...StatsWithIcon[1], amount: res.response?.services_number },

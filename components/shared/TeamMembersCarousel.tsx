@@ -39,7 +39,7 @@ export function TeamMembersCarousel({ team, textColor, isBorder }: props) {
                   width={700}
                   height={300}
                   alt="Team Member Img"
-                  className="w-full h-[310px] sm:h-[290px] object-cover"
+                  className="w-full h-[320px] sm:h-[290px] object-cover"
                 />
                 {isBorder ? (
                   <>
